@@ -1,0 +1,282 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+# * l10n_mx_facturae_validate_cfdi
+# es_MX.po <agustin.cruz@openpyme.mx>, 2015.
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 7.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-01-08 00:40+0000\n"
+"PO-Revision-Date: 2015-01-07 18:47-0500\n"
+"Last-Translator: es_MX.po <agustin.cruz@openpyme.mx>\n"
+"Language-Team: Laptop\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Virtaal 0.7.1\n"
+
+#. module: l10n_mx_facturae_validate_cfdi
+#: code:addons/l10n_mx_facturae_validate_cfdi/invoice.py:178
+#, python-format
+msgid "CFDI Data not found\n"
+"You must attach a valid XML invoice file or provide a valid CFDI number!"
+msgstr ""
+"No se encontraron datos para poder validar este CFDI\n"
+"Debe agregar un archivo XML válido o capturar el folio fiscal de esta "
+"factura!"
+
+#. module: l10n_mx_facturae_validate_cfdi
+#: field:xml.to.validate.line,date_time:0
+msgid "DateTime"
+msgstr "Fecha y Hora"
+
+#. module: l10n_mx_facturae_validate_cfdi
+#: help:wizard.validate.uuid.sat,xml_ids:0
+msgid "XMLs to validate the uuid in the SAT"
+msgstr "Archivos XML para validar el Folio Fiscal ante el SAT"
+
+#. module: l10n_mx_facturae_validate_cfdi
+#: help:xml.to.validate.line,number:0
+msgid "Number of XML"
+msgstr "Número de archivos XML"
+
+#. module: l10n_mx_facturae_validate_cfdi
+#: help:xml.to.validate.line,state_invoice:0
+msgid "State of invoice that was generated the XML"
+msgstr "Estado de la factura que fue generada a partir del XML"
+
+#. module: l10n_mx_facturae_validate_cfdi
+#: field:xml.to.validate.line,type:0
+msgid "Type"
+msgstr "Tipo"
+
+#. module: l10n_mx_facturae_validate_cfdi
+#: help:xml.to.validate.line,type:0
+msgid "Type of document that generated the XML"
+msgstr "El documento que generó el archivo XML"
+
+#. module: l10n_mx_facturae_validate_cfdi
+#: help:account.journal,max_diff:0
+msgid "Max difference between total calculated on invoice form and total indicated on XML file"
+msgstr ""
+"Diferencia máxima entre el monto de la factura y el total indicado en el "
+"archivo XML"
+
+#. module: l10n_mx_facturae_validate_cfdi
+#: field:xml.to.validate.line,result:0
+msgid "Result SAT"
+msgstr "Resultado del SAT"
+
+#. module: l10n_mx_facturae_validate_cfdi
+#: model:ir.model,name:l10n_mx_facturae_validate_cfdi.model_account_journal
+msgid "Journal"
+msgstr "Diario"
+
+#. module: l10n_mx_facturae_validate_cfdi
+#: field:xml.to.validate.line,file_xml:0
+msgid "File XML"
+msgstr "Archivo XML"
+
+#. module: l10n_mx_facturae_validate_cfdi
+#: field:account.journal,validate_sat:0
+msgid "Validate SAT"
+msgstr "Validar ante el SAT"
+
+#. module: l10n_mx_facturae_validate_cfdi
+#: field:wizard.validate.uuid.sat,xml_ids:0
+msgid "XMLs to validate"
+msgstr "Validar el archivo XML"
+
+#. module: l10n_mx_facturae_validate_cfdi
+#: field:xml.to.validate.line,vat_emitter:0
+msgid "Vat Emitter"
+msgstr "RFC del emisor"
+
+#. module: l10n_mx_facturae_validate_cfdi
+#: help:xml.to.validate.line,file_xml:0
+msgid "File to validate UUID"
+msgstr "Archivo para validar el Folio Fiscal"
+
+#. module: l10n_mx_facturae_validate_cfdi
+#: help:xml.to.validate.line,amount:0
+msgid "Amount to the XML"
+msgstr "Total en el archivo XML"
+
+#. module: l10n_mx_facturae_validate_cfdi
+#: view:wizard.validate.uuid.sat:0
+msgid "Validate"
+msgstr "Validar"
+
+#. module: l10n_mx_facturae_validate_cfdi
+#: help:xml.to.validate.line,result:0
+msgid "Result of the validation"
+msgstr "Resultado de la validación"
+
+#. module: l10n_mx_facturae_validate_cfdi
+#: view:account.journal:0
+msgid "Fiscal Validation"
+msgstr "Validación Fiscal"
+
+#. module: l10n_mx_facturae_validate_cfdi
+#: field:xml.to.validate.line,name:0
+msgid "XML name"
+msgstr "Nombre del archivo XML"
+
+#. module: l10n_mx_facturae_validate_cfdi
+#: code:addons/l10n_mx_facturae_validate_cfdi/invoice.py:128
+#, python-format
+msgid "Not found XML invoice information.\n"
+"You must attach a valid XML invoice file or provide a valid CFDI number!"
+msgstr ""
+"No se encontró información fiscal en el archivo XML.\n"
+"Debe adjuntar un archivo XML o proveer un Folio Fiscal válido!"
+
+#. module: l10n_mx_facturae_validate_cfdi
+#: code:addons/l10n_mx_facturae_validate_cfdi/invoice.py:153
+#, python-format
+msgid "Amount on XML file not match current invoice total"
+msgstr ""
+"El importe en el archivo XML no se corresponde con el total de la factura"
+
+#. module: l10n_mx_facturae_validate_cfdi
+#: field:xml.to.validate.line,vat_receiver:0
+msgid "Vat Receiver"
+msgstr "RFC del receptor"
+
+#. module: l10n_mx_facturae_validate_cfdi
+#: view:xml.to.validate.line:0
+msgid "Not found"
+msgstr "No encontrado"
+
+#. module: l10n_mx_facturae_validate_cfdi
+#: help:xml.to.validate.line,vat_receiver:0
+msgid "Vat of receiver"
+msgstr "RFC del receptor"
+
+#. module: l10n_mx_facturae_validate_cfdi
+#: field:xml.to.validate.line,amount:0
+msgid "Amount"
+msgstr "Importe"
+
+#. module: l10n_mx_facturae_validate_cfdi
+#: field:account.journal,max_diff:0
+msgid "Max difference"
+msgstr "Diferencia Máxima"
+
+#. module: l10n_mx_facturae_validate_cfdi
+#: code:addons/l10n_mx_facturae_validate_cfdi/invoice.py:127
+#: code:addons/l10n_mx_facturae_validate_cfdi/invoice.py:134
+#: code:addons/l10n_mx_facturae_validate_cfdi/invoice.py:143
+#: code:addons/l10n_mx_facturae_validate_cfdi/invoice.py:152
+#: code:addons/l10n_mx_facturae_validate_cfdi/invoice.py:177
+#: code:addons/l10n_mx_facturae_validate_cfdi/invoice.py:197
+#, python-format
+msgid "Error"
+msgstr "Error"
+
+#. module: l10n_mx_facturae_validate_cfdi
+#: help:xml.to.validate.line,date_time:0
+msgid "DateTime in that was generated the XML"
+msgstr ""
+
+#. module: l10n_mx_facturae_validate_cfdi
+#: model:ir.model,name:l10n_mx_facturae_validate_cfdi.model_xml_to_validate_line
+msgid "xml.to.validate.line"
+msgstr ""
+
+#. module: l10n_mx_facturae_validate_cfdi
+#: code:addons/l10n_mx_facturae_validate_cfdi/wizard/wizard_validate_xml_sat.py:128
+#: model:ir.actions.act_window,name:l10n_mx_facturae_validate_cfdi.act_wizard_validate_invoice_uuid_sat
+#: model:ir.actions.act_window,name:l10n_mx_facturae_validate_cfdi.action_wizard_validate_invoice_uuid_sat
+#: view:wizard.validate.uuid.sat:0
+#: view:xml.to.validate.line:0
+#, python-format
+msgid "Validate Invoice UUID SAT"
+msgstr ""
+
+#. module: l10n_mx_facturae_validate_cfdi
+#: field:xml.to.validate.line,state_invoice:0
+msgid "State Invoice"
+msgstr ""
+
+#. module: l10n_mx_facturae_validate_cfdi
+#: help:account.journal,validate_sat:0
+msgid "If this field is enabled, then validates through the webservice of the Mexican SAT that the info of  CFDI is valid (attached or provided in the form)"
+msgstr ""
+
+#. module: l10n_mx_facturae_validate_cfdi
+#: field:xml.to.validate.line,uuid:0
+msgid "UUID"
+msgstr ""
+
+#. module: l10n_mx_facturae_validate_cfdi
+#: help:account.journal,validate_xml:0
+msgid "If this field is enabled, then validates that the supplier invoices has a valid XML file attached"
+msgstr ""
+
+#. module: l10n_mx_facturae_validate_cfdi
+#: sql_constraint:account.invoice:0
+msgid "The CFDI must be unique per company !"
+msgstr ""
+
+#. module: l10n_mx_facturae_validate_cfdi
+#: field:account.journal,validate_xml:0
+msgid "Validate XML"
+msgstr ""
+
+#. module: l10n_mx_facturae_validate_cfdi
+#: model:ir.model,name:l10n_mx_facturae_validate_cfdi.model_wizard_validate_uuid_sat
+msgid "wizard.validate.uuid.sat"
+msgstr ""
+
+#. module: l10n_mx_facturae_validate_cfdi
+#: field:xml.to.validate.line,number:0
+msgid "Number"
+msgstr ""
+
+#. module: l10n_mx_facturae_validate_cfdi
+#: code:addons/l10n_mx_facturae_validate_cfdi/invoice.py:135
+#, python-format
+msgid "Multiple XML file not valid.\n"
+"You must provide only one XML invoice file!"
+msgstr ""
+
+#. module: l10n_mx_facturae_validate_cfdi
+#: code:addons/l10n_mx_facturae_validate_cfdi/invoice.py:198
+#, python-format
+msgid "The CFDI provided did not passed the SAT validation\n"
+"You must attach a valid XML invoice file or provide a valid CFDI number!"
+msgstr ""
+
+#. module: l10n_mx_facturae_validate_cfdi
+#: code:addons/l10n_mx_facturae_validate_cfdi/invoice.py:144
+#, python-format
+msgid "VAT number on XML file not match company VAT"
+msgstr ""
+
+#. module: l10n_mx_facturae_validate_cfdi
+#: model:ir.model,name:l10n_mx_facturae_validate_cfdi.model_account_invoice
+msgid "Invoice"
+msgstr ""
+
+#. module: l10n_mx_facturae_validate_cfdi
+#: help:xml.to.validate.line,vat_emitter:0
+msgid "Vat of emitter"
+msgstr ""
+
+#. module: l10n_mx_facturae_validate_cfdi
+#: view:wizard.validate.uuid.sat:0
+msgid "Cancel"
+msgstr ""
+
+#. module: l10n_mx_facturae_validate_cfdi
+#: field:wizard.validate.uuid.sat,name:0
+msgid "Wizard name"
+msgstr ""
+
+#. module: l10n_mx_facturae_validate_cfdi
+#: help:xml.to.validate.line,uuid:0
+msgid "UUID of XML"
+msgstr ""

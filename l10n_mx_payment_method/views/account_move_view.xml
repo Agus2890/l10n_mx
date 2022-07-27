@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_account_move_inh_form">
+            <field name="name">view.account.move.inh.form</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <field name="partner_bank_id" position="replace"></field>
+                <field name="payment_reference" position="after">
+                    <field name="payment_type_id" domain="[('company_id', '=', company_id)]"
+                           attrs="{'readonly': [('state', '!=', 'draft')],'invisible': [('move_type', '=', 'entry')]}"
+                           options="{'no_create': True, 'no_open': False}"/>
+                    <field name="partner_bank_id" domain="[('partner_id', '=', partner_id)]" context="{'default_partner_id': partner_id}" />
+                </field>
+
+                
+            </field>
+        </record>
+
+        <!-- <record model="ir.ui.view" id="view_invoice_supplier_inh_form">
+            <field name="name">view.invoice.supplier.inh.form</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_supplier_form"/>
+            <field name="arch" type="xml">
+                <field name="partner_bank_id" position="replace"></field>
+                <field name="payment_term_id" position="after">
+                    <field name="payment_type_id" domain="[('company_id', '=', company_id)]"
+                           attrs="{'readonly': [('state', '=', 'paid')]}"
+                           options="{'no_create': True, 'no_open': False}"
+                    />
+                    <field name="partner_bank_id" domain="[('partner_id', '=', partner_id)]" context="{'default_partner_id': partner_id}"/>
+                </field>
+            </field>
+        </record> -->
+
+        <!-- <record id="account_invoice_form_inh_l10n_mx_facturae_payment" model="ir.ui.view">
+            <field name="name">account.move.form.inh.l10n.mx.facturae.payment</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page[@name='other_info']" position="after">
+                    <page name= "payments" string="Payments">
+                        <field name="payment_move_ids">
+                            <tree string="Payments">
+                                <field name="date" string="Payment Date"/>
+                                <field name="move_id"/>
+                                <field name="ref"/>
+                                <field name="name"/>
+                                <field name="journal_id"/>
+                                <field name="debit"/>
+                                <field name="credit"/>
+                                <field name="amount_currency"/>
+                                <field name="currency_id" groups="base.group_multi_currency"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+            </field>
+        </record> -->
+        
+    </data>
+</odoo>
+

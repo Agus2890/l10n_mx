@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="view_account_payment_inh_form_validate_xml">
+            <field name="name">view.account.payment.inh.validate.form</field>
+            <field name="model">account.payment</field>
+            <field name="inherit_id" ref="l10n_mx_payment_cfdi.view_l10n_mx_account_payment_cfdi_form"/>
+            <field name="arch" type="xml">
+                <xpath expr ="//field[@name='move_reconciled']" position="after">
+                    <field name="state_cfdi" invisible="1"/>
+                    <button class="oe_stat_button" name="action_view_payment_cfdi" type="object">
+                        <div style="text-align:center">  
+                            <span class="o_stat_text o_not_hover text-success" attrs="{'invisible':[('state_cfdi', '!=', 0)]}">Sin timbrar</span>
+                            <span class="o_stat_text o_not_hover text-success" attrs="{'invisible':[('state_cfdi', '!=', 1)]}">Timbrado</span>
+                            <span class="o_stat_text o_not_hover text-success" attrs="{'invisible':[('state_cfdi', '!=', 2)]}">Retimbrado</span>
+                            <span class="o_stat_text o_hover text-danger" attrs="{'invisible':[('state_cfdi', '!=', 3)]}">Cancelado</span>
+                        </div>  
+                    </button>
+                </xpath>
+                <xpath expr ="//field[@name='cfdi_cadena_original']" position="after">
+                    <separator string="Estatus CFDI SAT"/>
+                    <button name="validate_xml_sat" string="Consultar" type="object" class="oe_highlight" icon="fa-check"/>
+                    <field name='code_state' readonly="1"/>
+                    <field name='is_cancel_sat' readonly="1"/>
+                    <field name='state_sat' readonly="1"/>
+                    <field name='state_cancel_sat' readonly="1"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_account_payment_inh_tree_validate_xml">
+            <field name="name">view.account.payment.inh.validate.tree</field>
+            <field name="model">account.payment</field>
+            <field name="inherit_id" ref="account.view_account_payment_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='state']" position="after">
+                    <field name="state_sat"/>
+                    <field name="state_cfdi"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+  	<!-- rml="account_chart_report/report/chart_of_accounts.rml" -->
+    <report
+        id="general_ledger_print_report"
+        menu="False"
+        model="account.auxiliary.wizard.xml"
+        string="Journal Entries"
+        report_type="qweb-pdf"
+        name="l10n_mx_eaccounting.general_ledger_mx_report"
+        file="l10n_mx_eaccounting.general_ledger_mx_report"
+     />
+  </data>
+</odoo>

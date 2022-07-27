@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<odoo>
+    <data noupdate="1">
+        
+        <record id="params_pac_sw_cancelar" model="params.pac">
+            <field name="method_type">pac_sw_cancelar</field>
+            <field name="url_webservice">http://services.test.sw.com.mx/cfdi33/stamp/</field>
+            <field name="namespace">http://services.sw.com.mx</field>
+            <field name="user">demo</field>
+            <field name="password">123456789</field>
+            <field name="name">PAC SW - Cancelar</field>
+        </record>
+        
+        <record id="params_pac_sw_firmar" model="params.pac">
+            <field name="method_type">pac_sw_firmar</field>
+            <field name="url_webservice">http://services.test.sw.com.mx/cfdi33/stamp/</field>
+            <field name="namespace">http://services.sw.com.mx</field>
+            <field name="user">demo</field>
+            <field name="password">123456789</field>
+            <field name="name">PAC SW - Firmar</field>
+        </record>
+
+    </data>
+</odoo>

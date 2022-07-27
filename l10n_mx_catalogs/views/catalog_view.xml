@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem id="menu_catalog" name="Catalogs" parent="account.menu_finance_configuration" groups="account.group_account_manager"/>
+
+    	<record model="ir.ui.view" id="view_key_product_form">
+            <field name="name">key.product.sat.form</field>
+            <field name="model">key.product.sat</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Product Service">
+                	<group>
+                		<field name="code_sat"/>
+                        <field name="name"/>
+                	</group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_key_product_tree">
+            <field name="name">key.product.sat.tree</field>
+            <field name="model">key.product.sat</field>
+            <field name="type">tree</field>         
+            <field name="arch" type="xml">
+                <tree string="Product Service">
+                	<field name="code_sat"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="search_key_product">
+            <field name="name">key.product.sat</field>
+            <field name="model">key.product.sat</field>
+            <field name="arch" type="xml">
+                <search string="Search">
+                    <field name="name"/>
+                    <field name="code_sat"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_key_product">
+            <field name="name">Product / service catalog</field>
+            <field name="res_model">key.product.sat</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem action="action_key_product" id="menu_action_catalog_form" parent="menu_catalog"/>
+        <function model="key.product.sat" name="import_cat_prod_xls"/>
+        <record model="ir.ui.view" id="view_key_unit_form">
+            <field name="name">key.unit.sat.form</field>
+            <field name="model">key.unit.sat</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Product unit">
+                    <group>
+                        <group>
+                            <field name="code_sat"/>
+                            <field name="name"/>
+                        </group>
+                        <group>
+                            <field name="description"/>
+                            <field name="note"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_key_unit_tree">
+            <field name="name">key.product.sat.tree</field>
+            <field name="model">key.unit.sat</field>
+            <field name="type">tree</field>         
+            <field name="arch" type="xml">
+                <tree string="Product unit">
+                    <field name="code_sat"/>
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="note"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="search_key_unit_product">
+            <field name="name">key.unit.sat</field>
+            <field name="model">key.unit.sat</field>
+            <field name="arch" type="xml">
+                <search string="Search">
+                    <field name="name"/>
+                    <field name="code_sat"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_unit_product">
+            <field name="name">Unit Catalog</field>
+            <field name="res_model">key.unit.sat</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem action="action_unit_product" id="menu_action_catalog_unit_form" parent="menu_catalog"/>
+        <function model="key.unit.sat" name="import_cat_unit_xls"/>
+        
+        <record model="ir.ui.view" id="view_uso_cfdi_form">
+            <field name="name">uso.cfdi.form</field>
+            <field name="model">uso.cfdi</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Uso CFDI">
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_uso_cfdi_tree">
+            <field name="name">uso.cfdi.sat.tree</field>
+            <field name="model">uso.cfdi</field>
+            <field name="type">tree</field>         
+            <field name="arch" type="xml">
+                <tree string="Product unit">
+                    <field name="name"/>
+                    <field name="code"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_uso_cfdi">
+            <field name="name">Uso CFDI</field>
+            <field name="res_model">uso.cfdi</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem action="action_uso_cfdi" id="menu_action_catalog_usocfdi_form" parent="menu_catalog"/>
+
+
+    </data>
+</odoo>

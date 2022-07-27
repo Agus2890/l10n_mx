@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id="view_partner_diot_form" model="ir.ui.view">
+            <field name="name">res.partner.form.diot</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <field name="bank_ids" position="before">
+                    <group colspan="4" col="4" attrs="{'invisible':[('supplier', '=', False)]}">
+                        <separator string="DIOT Information" colspan="4"/>
+                        <newline/>
+                        <field name="type_of_third" colspan="2" string="Type of third" attrs="{'required':[('supplier', '=', True)]}"  />
+                        <field name="type_of_operation"  colspan="2" string="Type of operation" attrs="{'required':[('supplier', '=', True)]}" />
+                        <field name="nacionality_diot" attrs="{'invisible':[('type_of_third','=', '04')], 'required':[('type_of_third', '=', '05')]}"/>
+                        <newline/>
+                    </group>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

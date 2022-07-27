@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <report
+        id="trial_balance_print_report"
+        menu="False"
+        model="trial.balance.report.wizard"
+        string="Trial Balance"
+        report_type="qweb-pdf"
+        name="l10n_mx_eaccounting.trial_balance_mx_report"
+        file="l10n_mx_eaccounting.trial_balance_mx_report"
+     />
+  </data>
+</odoo>

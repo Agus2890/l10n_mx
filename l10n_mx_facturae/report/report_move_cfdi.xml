@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="external_layout_background_custom">
+            <div class="header" style="font-size:8px;">
+               
+            </div>
+            <div class="article">
+                <t t-raw="0" />
+            </div>
+        </template>
+
+        <template id="external_layout_custom">
+            <!-- Multicompany -->
+            <t t-if="not o and doc">
+                <t t-set="o" t-value="doc"/>
+            </t>
+            <t t-if="o and 'company_id' in o">
+                <t t-set="company" t-value="o.company_id.sudo()"/>
+            </t>
+            <t t-if="not o or not 'company_id' in o">
+                <t t-set="company" t-value="res_company"/>
+            </t>
+            <t t-call="l10n_mx_facturae.external_layout_background_custom"><t t-raw="0"/></t>
+        </template>
+
+        <template id="electronica_document">
+            <t t-call="web.basic_layout">
+                <div class="page" style="font-size: 16px;">
+                    <table style="width:100%;margin-bottom: 15px;" align="left">
+                        <td width="20%" style="text-align: left; vertical-align: middle;">
+                            <img t-if="o.company_id.logo" t-att-src="'data:image/png;base64,%s' % to_text(o.company_id.logo)" height="100" width="100"/>
+                        </td>
+                        <td width="15%" style="font-size:11px; vertical-align:bottom;">
+                            <span t-field="o.company_id.phone"/><br/>
+                            ¿Tiene algun comentario? <br/>
+                            <span t-field="o.company_id.email"/>
+                        </td>
+                        <td width="35%" style="font-size:11px; text-align:center; vertical-align:middle;" colspan="2">
+                            <div> <b><span t-field="o.company_id.name"/></b> </div><br/>
+                            <b>Agente:</b><span t-esc="o.user_id.name"/><br/>
+                            <b>Email:</b> <span t-esc="o.user_id.email"/><br/>
+
+                            <div>Clave de regimen Fiscal: <span t-esc="o.company_id.partner_id.property_account_position_id.name"/></div>
+                            <div><t t-foreach="request.env['stock.warehouse'].sudo().search([('company_id','=',o.company_id.id)], limit=1)" t-as="obj">
+                                    <span>Lugar de expedicion: <span t-field="obj.partner_id.zip" /></span>
+                                </t>  
+                            </div> <br/>
+                            <div t-if="o.move_type in ['out_invoice','entry']" style="font-size:11px; text-align: center;">
+                                I Ingreso<br/>
+                                Version CFDI: 4.0
+                           </div>
+                           <div t-if="o.move_type=='out_refund'" style="font-size:11px; text-align: center;">
+                                E Egreso<br/>
+                                Version CFDI: 4.0
+                           </div>
+                        </td>
+                        <td width="30%" rowspan="2" style="text-align: right;">
+                            <div>
+                                <img class="img-responsive" src="/l10n_mx_facturae/static/src/img/palme.PNG" style="max-height: 150px;"/>
+                            </div>
+                        </td>
+                        <!-- <tr>
+                            
+                            <td>
+                                <div style="font-size:11px; text-align: center;">
+                                    I Ingreso<br/>
+                                    Version CFDI: 3.3
+                               </div>
+                            </td>
+                        </tr> -->
+                    </table>
+                    
+                    <table width="100%" style="font-size:10px;" >
+                        <tr  style="border-bottom:1px solid black;">
+                            <th>Emisor</th>
+                            <th>
+                                Sucursal
+                            </th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span t-field="o.company_id.name"/><br/>
+                                <div>
+                                    <span t-field="o.company_id.partner_id.street"/> </div>
+                                <div>
+                                    <span t-field="o.company_id.partner_id.street2"/>
+                                </div>
+                                <div>
+                                    <span t-field="o.company_id.partner_id.city_id"/>, <span t-field="o.company_id.partner_id.state_id"/>. 
+                                </div>
+                                <div><span t-field="o.company_id.partner_id.zip"/></div>
+                                <div><span t-field="o.company_id.partner_id.vat"/></div>
+                            </td>
+                            <!-- <t t-foreach="request.env['stock.warehouse'].sudo().search([('company_id','=',o.company_id.id)],limit=1)" t-as="obj"> -->
+                            <td>
+                                <t t-foreach="o.branch_id" t-as="obj">
+                                <!-- <t t-esc="obj.name"/> -->
+                                <div>
+                                    <span t-field="obj.street"/> </div>
+                                <div>
+                                    <span t-field="obj.street2"/>
+                                </div>
+                                <div>
+                                    <span t-field="obj.city_id"/>, <span t-field="obj.state_id"/>. 
+                                </div>
+                                <div><span t-field="obj.zip"/></div><br/>
+
+                                <div>Tel: <span t-field="obj.phone"/></div>
+                            </t>
+                            </td>
+                            <td>
+                                <b>SERIE:</b> <span t-esc="o.name"/><br/>
+                                <!-- <b>FOLIO:</b> <span t-esc="o.get_serie()[1]"/><br/> -->
+                                <b>Orden de Corte:</b> <!-- <span t-field="o.origin"/> --><br/>
+                                <b>Documento Consecutivo:</b> <br/>
+                                <b>Fecha y Hora:</b> <span t-esc="o.cfdi_fecha_timbrado"/><br/>
+                                <!-- b>Hora:</b> <span t-esc="datetime.datetime.strptime(o.cfdi_fecha_timbrado, '%Y-%m-%d %H:%M:%S').strftime('%H:%M:%S')"/><br/> -->
+                              <!--   <span t-esc="datetime.datetime.strptime(o.cfdi_fecha_timbrado, '%Y-%m-%d %H:%M:%S').strftime('%b %d,%Y %H:%M %p')"/> -->
+                            </td>
+                        </tr>
+                        <tr style="border-bottom:1px solid black;">
+                            <th>Receptor</th>
+                            <th>Remitido a:</th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span t-field="o.partner_id.name"/>
+                                <div>
+                                    <span t-field="o.partner_id.street"/> </div>
+                                <div>
+                                    COL. <span t-field="o.partner_id.street2"/>
+                                </div>
+                                <div>
+                                    <span t-field="o.partner_id.city_id"/> <span t-field="o.partner_id.state_id"/>, <span t-field="o.partner_id.country_id"/>.
+                                </div>
+                                <div><span t-field="o.partner_id.zip"/></div>
+                                <div><span t-field="o.partner_id.vat"/></div>
+                                <div>Uso de CFDI: <span t-field="o.usocfdi_id"/> </div>
+                            </td><br/><br/>
+                            <td>
+                                <br/>
+                                Condiciones de Pago:15 Dias
+                                <br/>
+                                Pedido: <span t-field="o.invoice_origin"/><br/>
+                                Orden de Compra: <span t-field="o.ref"/><br/>
+                                Transporte: NUESTRO<br/>
+                                Guia:<br/>
+                                Moneda: <span t-esc="o.currency_id.name"/><br/>
+                                Forma de Pago:  <span t-field="o.payment_type_id"/><br/> 
+                                Metodo de Pago: <span t-field="o.payment_method"/><br/>
+                                
+                            </td>
+                            <td>
+                                <div> </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="watermark" style="position:absolute;opacity:0.25;font-size:3em;width:100%;text-align:center;z-index:2000;">
+                        <img t-att-src="'data:image/png;base64,%s' % to_text(o.company_id.upload_image)"/>
+                    </div>
+                    <!-- <div>
+                        <tr t-if="o.replace_cfdi_sat">
+                            <div class="text-left" style="font-size:9px"><strong>CFDI Relacionados</strong></div> 
+                            <table class="table table-condensed" style="font-size:9px; border:1px solid black; width:100%">    
+                                <tr>
+                                    <th>Tipo relacion</th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span t-if="o.type_relation" t-field="o.type_relation"/><br></br>
+                                        <strong>Folio Fiscal:</strong>
+                                    </td>
+                                </tr>                                
+                                <tr class="text-center" t-foreach="o.relation_ids" t-as="rel">
+                                    <td>
+                                        <span t-field="rel.cfdi_folio_fiscal"/>
+                                    </td>
+                                </tr>                             
+                            </table>                          
+                        </tr> 
+                    </div> -->
+                    <!-- <div><span style="color:white;">..</span></div> -->
+                    <table style="font-size:10px; border:1px solid gray">
+                        <thead>
+                            <tr>
+                                <th class="text-center" style="border-right:1px solid gray; width: 2%;"><strong>No.</strong></th>
+                                <th class="text-center" style="border-right:1px solid gray; width: 10%;"><strong>Clave de Producto o Servicio</strong></th>
+                                <th class="text-center" style="border-right:1px solid gray; width: 10%;"><strong>Codigo</strong></th>
+                                <th class="text-center" style="border-right:1px solid gray; width: 10%;"><strong>Clave de Unidad</strong></th>
+                                <th class="text-center" style="border-right:1px solid gray; width: 10%;"><strong>Unidad</strong></th>
+                                <th class="text-center" style="border-right:1px solid gray; width: 10%;"><strong>Cantidad</strong></th>
+                                <th class="text-center" style="border-right:1px solid gray; width: 18%;"><strong>Descripción</strong></th>
+                                <th class="text-center" style="border-right:1px solid gray; width: 10%;"><strong>Folio</strong></th>
+                                <th class="text-center" style="border-right:1px solid gray; width: 10%;"><strong>P.U.</strong></th>
+                                <th class="text-center" style="border-right:1px solid gray; width: 10%;"><strong>Importe</strong></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-set="i" t-value="1"/>
+                            <tr t-foreach="o.invoice_line_ids" t-as="line">
+                                <td class="text-center" style="border-right:1px solid gray; border-bottom:1px solid gray">
+                                    <span t-esc="i"/>
+                                    <t t-set="i" t-value="i+1"/>
+                                </td>
+                                <td style="text-align:center; border-right:1px solid gray; border-bottom:1px solid gray">
+                                    <span t-field="line.code_product_sat.code_sat"/>
+                                </td>
+                                <td style="text-align:center; border-right:1px solid gray; border-bottom:1px solid gray">
+                                    <span t-field="line.product_id.default_code"/>
+                                </td>
+                                <td style="text-align:center; border-right:1px solid gray; border-bottom:1px solid gray">
+                                    <span t-if="line.user_uom_alternative==True">
+                                        <span t-field="line.product_id.product_unit_sat_alternative.code_sat"/>
+                                    </span>
+                                    <span t-if="line.user_uom_alternative==False">
+                                        <span t-field="line.product_unit_sat.code_sat"/>
+                                    </span>
+                                </td>
+                                <td style="text-align:center; border-right:1px solid gray; border-bottom:1px solid gray">
+                                    <span t-if="line.user_uom_alternative==True">
+                                        <span t-field="line.product_id.uom_alternative_id"/>    
+                                    </span>
+                                    <span t-if="line.user_uom_alternative==False">
+                                        <span t-field="line.product_uom_id"/>
+                                    </span>
+                                </td>
+                                <td style="text-align:center; border-right:1px solid gray; border-bottom:1px solid gray">
+                                    <span t-field="line.quantity"/>
+                                </td>
+                                <td style="text-align:center; border-right:1px solid gray; border-bottom:1px solid gray">
+                                    <span t-field="line.name"/>
+                                </td>
+                                <td style="text-align:center; border-right:1px solid gray; border-bottom:1px solid gray">
+                                    <!-- <span t-field="line.code_product_sat.code_sat"/> -->
+                                </td>
+                                <td style="text-align:center; border-right:1px solid gray; border-bottom:1px solid gray">
+                                    <span t-field="line.price_unit"/>
+                                </td>
+                                <td style="text-align:center; border-right:1px solid gray; border-bottom:1px solid gray">
+                                    <span t-field="line.price_subtotal"/>
+                                </td>                            
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div id="total">
+                        <div class="col-xs-4 pull-right">
+                            <table style="font-size:11px; min-width: 250px;max-width: 400px;">
+                                <tr>
+                                    <td><strong>Subtotal : </strong></td>
+                                    <td class="text-right">
+                                        <span t-field="o.amount_untaxed" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                    </td>
+                                </tr>
+                                <t t-foreach="o.amount_by_group" t-as="amount_by_group">
+                                    <tr style="">
+                                        <t t-if="o.amount_untaxed == amount_by_group[2]">
+                                            <td><span t-esc="amount_by_group[0]"/></td>
+                                            <td class="text-right o_price_total">
+                                                <span t-esc="amount_by_group[3]" />
+                                            </td>
+                                        </t>
+                                        <t t-else="">
+                                            <td>
+                                                <span t-esc="amount_by_group[0]"/>
+                                                <span>&amp;nbsp;<span>on</span>
+                                                    <t t-esc="amount_by_group[4]"/>
+                                                </span>
+                                            </td>
+                                            <td class="text-right o_price_total">
+                                                <span t-esc="amount_by_group[3]"/>
+                                            </td>
+                                        </t>
+                                    </tr>
+                                </t>
+                                <tr class="border-black" style="border-bottom:1px solid #dddddd;">
+                                    <td><strong>Total : </strong></td>
+                                    <td class="text-right">
+                                        <span t-field="o.amount_total" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div><br/><br/>
+                        <div class="text-left"  style="font-size:10px">
+                            EN MATERIAL CORTADO A MEDIDA NO SE ACEPTAN DEVOLUCIONES
+                        </div><br/>
+                        <table  style="font-size:12px; border:1px solid gray;border-bottom:1px solid #dddddd;" t-if="o.replace_cfdi_sat and o.relation_ids" width="80%">
+                            <tr style="border-bottom:1px solid #dddddd;">
+                                <b>CFDI Relacionados</b>
+                            </tr>
+                            <tr>
+                                <td><b>Tipo Relacion</b> :<span t-field="o.type_relation"/></td>
+                            </tr>
+                            <tr t-foreach="o.relation_ids" t-as="line">
+                                <td><b>Folio Fiscal</b>: <span t-field="line.cfdi_folio_fiscal"/></td>
+                            </tr>
+                        </table>
+                        <p style="text-align: justify; font-size: 9px;">
+                            Son: <span t-field="o.amount_to_text"/> <br/>
+                            DEBO Y PAGARE INCONDICIONALMENTE A LA ORDEN DE Acero Sueco Palme S.A.P.I. de C.V. <br/>
+                            EN LA CIUDAD DE TLAQUEPAQUE JALISCO O EN LA QUE SE ME REQUIERA, EL DIA  <br/>
+                            LA CANTIDAD DE: <span t-field="o.amount_to_text"/> <br/>
+                            VALOR RECIBIDO A MI ENTERA SATISFACCION,DE NO PAGARSE EL IMPORTE INDICADO EN ESTE PAGARE, A SU VENCIMIENTO SE COBRARAN INTERESES MORATORIOS DE CONFORMIDAD A LO
+                            ASENTADO EN LAS CONDICIONES IMPRESAS ALREVERSO DE ESTE DOCUMENTO Y PRECISAMENTE EN LO ASENTADO EN EL INCISO 'D'. ESTE PAGARE ES MERCANTIL Y ESTA REGIDO POR LA
+                            LEY GENERAL DE TITULOS Y OPERACIONES DE CREDITO EN SU ARTICULO 173, PARTE FINAL Y DEMAS ARTICULOS RELATIVOS A LA LEY DE LA MATERIA POR NO SER PAGARE DOMICILIADO.
+                        </p><br/>
+
+                        <center><table style="font-size: 10px;" width='30%'>
+                            <td style="border-top:1px solid black; text-align: center;">
+                                FIRMA Y/O SELLO DEL CLIENTE
+                            </td>
+                        </table></center>
+                    </div>
+                    
+                    <table style="font-size:10px;">
+                        <td colspan="3"><b>Sello Digital del Emisor:</b>
+                            <span t-field="o.sello" style="font-size:90x; display:block; width:900px; word-wrap:break-word;"/>
+                        </td>
+                    </table>
+                    <table style="font-size:10px;">    
+                        <td width="25%" style="font-size:10px;">
+                            <strong>Numero de Certificado</strong><br></br>
+                        </td>
+                        <td width="25%">
+                            <span t-if="o.no_certificado" t-field="o.no_certificado" style="font-size:10px"/>
+                            <span t-else="" style="font-size:10px">No identificado</span>
+                        </td>
+
+                        <td width="25%" style="font-size:10px;">
+                            <strong>Folio Fiscal</strong><br></br>
+                        </td>
+                        <td width="25%">
+                            <div>
+                                <span t-if="o.cfdi_folio_fiscal" t-field="o.cfdi_folio_fiscal" style="font-size:10px"/>
+                                <span t-else="" style="font-size:10px">No identificado</span>
+                            </div>
+                        </td>
+
+                        <tr>
+                            <td width="25%" style="font-size:10px;">
+                                <strong>Timbrado</strong><br></br>
+                            </td>
+                            <td width="25%">
+                                <span t-if="o.cfdi_fecha_timbrado" t-field="o.cfdi_fecha_timbrado" style="font-size:10px"/>
+                                <span t-else="" style="font-size:10px">No identificado</span>
+                            </td>
+
+                            <td width="25%" style="font-size:10px;">
+                                <strong>Cert. SAT</strong><br></br>
+                            </td>
+                            <td width="25%">
+                                <span t-if="o.cfdi_no_certificado" t-field="o.cfdi_no_certificado" style="font-size:10px"/>
+                                <span t-else="" style="font-size:10px">No identificado</span>
+                            </td>
+                        </tr>
+                    </table>
+                    <table style="font-size:10px;">
+                        <td>
+                            <b>Sello Digital del SAT:</b><br/>
+                            <div>
+                                <span t-field="o.cfdi_sello" style="font-size:9px; display:block; width:900px; word-wrap:break-word;"/>
+                            </div>
+                        </td>
+                        <tr>
+                            <td>
+                                <b>Cadena Original:</b>
+                                <div>
+                                    <span t-field="o.cfdi_cadena_original" style="font-size:9px; display:block; width:900px; word-wrap:break-word;"/>
+                                </div>
+                            </td>
+                        </tr>
+                    </table><br/>
+
+                    <table style="font-size:10px; border:1px solid gray">
+                        <thead>
+                            <tr>
+                                <th class="text-center" style="border-right:1px solid gray; width: 2%;"><strong>No.</strong></th>
+                                <th class="text-center" style="border-right:1px solid gray; width: 49%;"><strong>Descripcion Clave de Producto o Servicio</strong></th>
+                                <th class="text-center" style="border-right:1px solid gray; width: 49%;"><strong>Descripcion Unidad SAT</strong></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-set="i" t-value="1"/>
+                            <tr t-foreach="o.invoice_line_ids" t-as="line">
+                                <td class="text-center" style="border-right:1px solid gray; border-bottom:1px solid gray">
+                                    <span t-esc="i"/>
+                                    <t t-set="i" t-value="i+1"/>
+                                </td>
+                                <td style="border-right:1px solid gray; border-bottom:1px solid gray">
+                                   <span t-field="line.code_product_sat.name"/>
+                                </td>
+                                <td style="border-right:1px solid gray; border-bottom:1px solid gray">
+                                    <span t-if="line.user_uom_alternative==True">
+                                        <span t-field="line.product_id.product_unit_sat_alternative.name"/>
+                                    </span>
+                                    <span t-if="line.user_uom_alternative==False">
+                                        <span t-field="line.product_unit_sat.name"/>
+                                    </span>
+                                    <!-- <span t-field="line.product_unit_sat.name"/> -->
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table><br/><br/>
+
+                    <div>
+                        <img t-att-src="'data:image/png;base64,%s' % to_text(qrcode)" height="100" width="100"/>
+                    </div>
+                </div>
+                <t t-if="o.state=='cancel'">
+                    <div style="position: absolute;top:0px;left:-60px;z-index: 1;">
+                        <div style="color: red;font-size:100px;padding-top:350px;-webkit-transform: rotate(-45deg);">
+                            CANCELADO
+                        </div>
+                    </div>
+                </t>
+
+                <div class="footer o_boxed_footer">
+                    <div style="font-size:10px; text-align: center;">ESTE DOCUMENTO ES UNA REPRESENTACION IMPRESA DE UN CFDI FVT1-04-01</div>
+                    <div class="col-xs-1">
+                        <ul class="list-inline pagenumber pull-right text-center">
+                            <li><strong><span class="page"/></strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+        <template id="report_invoice_cfdi">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="l10n_mx_facturae.electronica_document" t-lang="o.partner_id.lang"/>
+                </t>
+            </t>
+        </template>
+
+        <record id="paperformat_facturae" model="report.paperformat">
+            <field name="name">paperfromat facturae</field>
+            <field name="default" eval="True" />
+            <field name="format">Letter</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">5</field>
+            <field name="margin_bottom">7</field>
+            <field name="margin_left">5</field>
+            <field name="margin_right">5</field>
+            <field name="header_line" eval="False" />
+            <field name="header_spacing">0</field>
+            <field name="dpi">90</field>
+        </record>
+    </data>
+</odoo>

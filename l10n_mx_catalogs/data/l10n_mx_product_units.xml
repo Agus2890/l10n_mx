@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="product_units_01" model="key.unit.sat">
+        	<field name="code_sat">18</field>
+            <field name="name">Tambor de cincuenta y cinco galones (EUA)</field>
+            <field name="description"></field>
+            <field name="note">Las unidades marcadas como borradas en el catálogo internacional de UNECE, serán retenidas indefinidamente en las listas de códigos. En su caso, estas unidades podrán ser reinstalado a través del proceso de mantenimiento.</field>
+        </record>
+
+        <record id="product_units_02" model="key.unit.sat">
+        	<field name="code_sat">19</field>
+            <field name="name">Camión cisterna</field>
+            <field name="description"></field>
+            <field name="note">Las unidades marcadas como borradas en el catálogo internacional de UNECE, serán retenidas indefinidamente en las listas de códigos. En su caso, estas unidades podrán ser reinstalado a través del proceso de mantenimiento.</field>
+        </record>
+
+        <record id="product_units_03" model="key.unit.sat">
+        	<field name="code_sat">26</field>
+            <field name="name">Tonelada real</field>
+            <field name="description"></field>
+            <field name="note">Las unidades marcadas como borradas en el catálogo internacional de UNECE, serán retenidas indefinidamente en las listas de códigos. En su caso, estas unidades podrán ser reinstalado a través del proceso de mantenimiento.</field>
+        </record>
+
+        <record id="product_units_04" model="key.unit.sat">
+        	<field name="code_sat">29</field>
+            <field name="name">Libra por mil pies cuadrados</field>
+            <field name="description"></field>
+            <field name="note">Las unidades marcadas como borradas en el catálogo internacional de UNECE, serán retenidas indefinidamente en las listas de códigos. En su caso, estas unidades podrán ser reinstalado a través del proceso de mantenimiento.</field>
+        </record>
+
+        <record id="product_units_05" model="key.unit.sat">
+        	<field name="code_sat">30</field>
+            <field name="name">Día de potencia de caballos por tonelada métrica de aire seco</field>
+            <field name="description"></field>
+            <field name="note">Las unidades marcadas como borradas en el catálogo internacional de UNECE, serán retenidas indefinidamente en las listas de códigos. En su caso, estas unidades podrán ser reinstalado a través del proceso de mantenimiento.</field>
+        </record>
+
+        <record id="product_units_06" model="key.unit.sat">
+        	<field name="code_sat">31</field>
+            <field name="name">Pescar</field>
+            <field name="description"></field>
+            <field name="note">Las unidades marcadas como borradas en el catálogo internacional de UNECE, serán retenidas indefinidamente en las listas de códigos. En su caso, estas unidades podrán ser reinstalado a través del proceso de mantenimiento.</field>
+        </record>
+
+        <record id="product_units_07" model="key.unit.sat">
+        	<field name="code_sat">32</field>
+            <field name="name">Kilogramo por tonelada métrica seca del aire</field>
+            <field name="description"></field>
+            <field name="note">Las unidades marcadas como borradas en el catálogo internacional de UNECE, serán retenidas indefinidamente en las listas de códigos. En su caso, estas unidades podrán ser reinstalado a través del proceso de mantenimiento.</field>
+        </record>
+
+        <record id="product_units_08" model="key.unit.sat">
+        	<field name="code_sat">36</field>
+            <field name="name">Pie cúbico por minuto por pie cuadrado</field>
+            <field name="description">Se requiere factor de conversión</field>
+            <field name="note">Las unidades marcadas como borradas en el catálogo internacional de UNECE, serán retenidas indefinidamente en las listas de códigos. En su caso, estas unidades podrán ser reinstalado a través del proceso de mantenimiento.</field>
+        </record>
+
+        <record id="product_units_09" model="key.unit.sat">
+        	<field name="code_sat">44</field>
+            <field name="name">Bolsa a granel de quinientos kilos</field>
+            <field name="description"></field>
+            <field name="note">Las unidades marcadas como borradas en el catálogo internacional de UNECE, serán retenidas indefinidamente en las listas de códigos. En su caso, estas unidades podrán ser reinstalado a través del proceso de mantenimiento.</field>
+        </record>
+
+        <record id="product_units_10" model="key.unit.sat">
+        	<field name="code_sat">45</field>
+            <field name="name">Bolsa a granel de trescientos kilos</field>
+            <field name="description"></field>
+            <field name="note">Las unidades marcadas como borradas en el catálogo internacional de UNECE, serán retenidas indefinidamente en las listas de códigos. En su caso, estas unidades podrán ser reinstalado a través del proceso de mantenimiento.</field>
+        </record>
+
+    </data>
+</odoo>

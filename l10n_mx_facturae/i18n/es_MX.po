@@ -1,0 +1,812 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* l10n_mx_facturae
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-06-22 20:55+0000\n"
+"PO-Revision-Date: 2021-06-22 20:55+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.report_invoice_cfdi_document
+msgid "&amp;nbsp;<span>on</span>"
+msgstr "&amp;nbsp;<span>en</span>"
+
+#. module: l10n_mx_facturae
+#: selection:account.move,type_relation:0
+msgid "01-Nota de crédito de los documentos relacionados"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: selection:account.move,type_relation:0
+msgid "02-Nota de débito de los documentos relacionados"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: selection:account.move,type_relation:0
+msgid "03-Devolución de mercancía sobre facturas o traslados previos"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: selection:account.move,type_relation:0
+msgid "04-Sustitución de los CFDI previos"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: selection:account.move,type_relation:0
+msgid "05-Traslados de mercancias facturados previamente"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: selection:account.move,type_relation:0
+msgid "06-Factura generada por los traslados previos"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: selection:account.move,type_relation:0
+msgid "07-CFDI por aplicación de anticipo"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.report_invoice_cfdi_document
+msgid "<b style=\"font-size:12px\">Cadena Original:</b>"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.report_invoice_cfdi_document
+msgid "<b style=\"font-size:12px\">Sello Digital Emisor:</b>"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.report_invoice_cfdi_document
+msgid "<b style=\"font-size:12px\">Sello Digital SAT:</b>"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.report_invoice_cfdi_document
+msgid "<b>C.P.: </b>"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.report_invoice_cfdi_document
+msgid "<b>CONDICIÓN DE PAGO: </b>"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.report_invoice_cfdi_document
+msgid "<b>Colonia : </b>"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.report_invoice_cfdi_document
+msgid "<b>DOMICILIO FISCAL :</b><br/>"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.report_invoice_cfdi_document
+msgid "<b>ENTREGAR EN : </b><br/>\n"
+"                                <b>Colonia : </b>"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.report_invoice_cfdi_document
+msgid "<b>EXPEDIDO EN: </b>"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.report_invoice_cfdi_document
+msgid "<b>FACTURA : </b><br/>"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.report_invoice_cfdi_document
+msgid "<b>FECHA DE EXPEDICIÓN : </b><br/>"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.report_invoice_cfdi_document
+msgid "<b>Localidad:</b><br/>"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.report_invoice_cfdi_document
+msgid "<b>Lugar : </b>"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.report_invoice_cfdi_document
+msgid "<b>Origen : </b>"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.report_invoice_cfdi_document
+msgid "<b>PARA : </b>"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.report_invoice_cfdi_document
+msgid "<b>REGIMEN FISCAL : </b><br/>"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.report_invoice_cfdi_document
+msgid "<b>Referencia : </b>"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.report_invoice_cfdi_document
+msgid "<b>RfcProvCertif : </b><br/>"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.report_invoice_cfdi_document
+msgid "<b>Telephone : </b>"
+msgstr "<b>Teléfono : </b>"
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.report_invoice_cfdi_document
+msgid "<b>USO CFDI : </b><br/>"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.report_invoice_cfdi_document
+msgid "<br/>\n"
+"                                        <strong>Folio Fiscal:</strong>"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.l10n_mx_facturae_custom_external_layout
+msgid "<i class=\"fa fa-at\" role=\"img\" aria-label=\"Email\" title=\"Email\"/>"
+msgstr "<i class=\"fa fa-at\" role=\"img\" aria-label=\"Correo electrónico\" title=\"Correo electrónico\"/>"
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.l10n_mx_facturae_custom_external_layout
+msgid "<i class=\"fa fa-building-o\" role=\"img\" aria-label=\"Fiscal number\"/>"
+msgstr "<i class=\"fa fa-building-o\" role=\"img\" aria-label=\"NIF\"/>"
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.l10n_mx_facturae_custom_external_layout
+msgid "<i class=\"fa fa-globe\" role=\"img\" aria-label=\"Website\" title=\"Website\"/>"
+msgstr "<i class=\"fa fa-globe\" role=\"img\" aria-label=\"Sitio web\" title=\"Sitio web\"/>"
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.l10n_mx_facturae_custom_external_layout
+msgid "<i class=\"fa fa-phone\" role=\"img\" aria-label=\"Phone\" title=\"Phone\"/>"
+msgstr "<i class=\"fa fa-phone\" role=\"img\" aria-label=\"Teléfono\" title=\"Teléfono\"/>"
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.report_invoice_cfdi_document
+msgid "<span groups=\"account.group_show_line_subtotals_tax_excluded\">Amount</span>\n"
+"                                    <span groups=\"account.group_show_line_subtotals_tax_included\">Total Price</span>"
+msgstr "<span groups=\"account.group_show_line_subtotals_tax_excluded\">Importe</span>\n"
+"                                    <span groups=\"account.group_show_line_subtotals_tax_included\">Precio Total</span>"
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.report_invoice_cfdi_document
+msgid "<span> , </span><b>C.P. : </b>"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.report_invoice_cfdi_document
+msgid "<span> , </span><b>Colonia : </b>"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.report_invoice_cfdi_document
+msgid "<span> , </span><b>Telephone : </b>"
+msgstr "<span> , </span><b>Teléfono : </b>"
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.report_invoice_cfdi_document
+msgid "<span>C. Prod. SAT</span>"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.report_invoice_cfdi_document
+msgid "<span>C. Unit. SAT</span>"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.report_invoice_cfdi_document
+msgid "<span>Code</span>"
+msgstr "<span>Código</span>"
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.report_invoice_cfdi_document
+msgid "<span>Description</span>"
+msgstr "<span>Descripción</span>"
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.report_invoice_cfdi_document
+msgid "<span>Disc.(%)</span>"
+msgstr "<span>Desc.(%)</span>"
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.report_invoice_cfdi_document
+msgid "<span>Quantity</span>"
+msgstr "<span>Cantidad</span>"
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.report_invoice_cfdi_document
+msgid "<span>Source Document</span>"
+msgstr "<span>Documento Origen</span>"
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.report_invoice_cfdi_document
+msgid "<span>Taxes</span>"
+msgstr "<span>Impuestos</span>"
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.report_invoice_cfdi_document
+msgid "<span>Unit Price</span>"
+msgstr "<span>Precio Unitario</span>"
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.report_invoice_cfdi_document
+msgid "<span>Unit</span>"
+msgstr "<span>Unidad</span>"
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.report_invoice_cfdi_document
+msgid "<strong class=\"mr16\">Subtotal</strong>"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.report_invoice_cfdi_document
+msgid "<strong style=\"font-size:12px\">Certificado del SAT</strong><br/>"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.report_invoice_cfdi_document
+msgid "<strong style=\"font-size:12px\">Certificado del emisor</strong><br/>"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.report_invoice_cfdi_document
+msgid "<strong style=\"font-size:12px\">Fecha de Timbrado</strong><br/>"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.report_invoice_cfdi_document
+msgid "<strong style=\"font-size:12px\">Folio Fiscal</strong><br/>"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.report_invoice_cfdi_document
+msgid "<strong style=\"font-size:12px\">Forma de Pago</strong><br/>"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.report_invoice_cfdi_document
+msgid "<strong style=\"font-size:12px\">Últimos 4 dígitos de la cuenta bancaria</strong><br/>"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.report_invoice_cfdi_document
+msgid "<strong>CFDI Relacionados</strong>"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.report_invoice_cfdi_document
+msgid "<strong>Subtotal</strong>"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.report_invoice_cfdi_document
+msgid "<strong>Total</strong>"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: code:addons/l10n_mx_facturae/models/account_invoice.py:1268
+#, python-format
+msgid "Address Incomplete!\n"
+"Ckeck that the address of company issuing of fiscal voucher is complete (City - State - Codigo Postal)"
+msgstr "Verifique que la dirección de la empresa que emite el comprobante fiscal esté completa (Ciudad - Estado - Código Postal)"
+
+#. module: l10n_mx_facturae
+#: model:ir.model.fields,help:l10n_mx_facturae.field_account_invoice__cfd_xml_id
+msgid "Attachment that generated this invoice"
+msgstr "Adjunto que generó esta factura"
+
+#. module: l10n_mx_facturae
+#: model:ir.model.fields,field_description:l10n_mx_facturae.field_account_invoice__cfdi_fecha_cancelacion
+msgid "CFD-I Cancellation Date"
+msgstr "Fecha de cancelación del CFD-I"
+
+#. module: l10n_mx_facturae
+#: model:ir.model.fields,field_description:l10n_mx_facturae.field_account_invoice__cfdi_no_certificado
+msgid "CFD-I Certificado"
+msgstr "Certificado CFD-I"
+
+#. module: l10n_mx_facturae
+#: model:ir.model.fields,field_description:l10n_mx_facturae.field_account_invoice__cfdi_fecha_timbrado
+msgid "CFD-I Date Stamping"
+msgstr "Estampado de fecha CFD-I"
+
+#. module: l10n_mx_facturae
+#: model:ir.model.fields,field_description:l10n_mx_facturae.field_account_invoice__cfdi_folio_fiscal
+msgid "CFD-I Fiscal folio"
+msgstr "Folio fiscal CFD-I"
+
+#. module: l10n_mx_facturae
+#: model:ir.model.fields,field_description:l10n_mx_facturae.field_account_invoice__cfdi_cadena_original
+msgid "CFD-I Original String"
+msgstr "Cadena original CFD-I"
+
+#. module: l10n_mx_facturae
+#: model:ir.model.fields,field_description:l10n_mx_facturae.field_account_invoice__cfdi_sello
+msgid "CFD-I Stamp"
+msgstr "Sello CFD-I"
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.account_invoice_customer_form_l10n_mx_facturae
+msgid "CFDI"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: code:addons/l10n_mx_facturae/models/account_invoice.py:89
+#, python-format
+msgid "Can't recode the string [%s] in the letter [%s]"
+msgstr "No se puede volver a codificar la cadena [%s] en la letra [%s]"
+
+#. module: l10n_mx_facturae
+#: model:ir.model.fields,field_description:l10n_mx_facturae.field_account_invoice__certificado
+msgid "Certificate"
+msgstr "Certificado"
+
+#. module: l10n_mx_facturae
+#: model:ir.model.fields,help:l10n_mx_facturae.field_account_invoice__certificado
+msgid "Certificate used in the invoice"
+msgstr "Certificado utilizado en la factura"
+
+#. module: l10n_mx_facturae
+#: code:addons/l10n_mx_facturae/models/account_invoice.py:611
+#, python-format
+msgid "Check date of invoice and the validity of certificate, & that the register of the certificate is active."
+msgstr "Verifique la fecha de la factura y la validez del certificado, y que el registro del certificado esté activo."
+
+#. module: l10n_mx_facturae
+#: model:ir.model.fields,field_description:l10n_mx_facturae.field_facturae_config__company_id
+msgid "Company"
+msgstr "Compañía"
+
+#. module: l10n_mx_facturae
+#: model:ir.model.fields,field_description:l10n_mx_facturae.field_facturae_config__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: l10n_mx_facturae
+#: model:ir.model.fields,field_description:l10n_mx_facturae.field_facturae_config__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.account_invoice_customer_form_l10n_mx_facturae
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: l10n_mx_facturae
+#: model:ir.model.fields,help:l10n_mx_facturae.field_account_invoice__cadena_original
+msgid "Data stream with the information contained in the electronic invoice"
+msgstr "Flujo de datos con la información contenida en la factura electrónica"
+
+#. module: l10n_mx_facturae
+#: model:ir.model.fields,field_description:l10n_mx_facturae.field_account_invoice__invoice_datetime
+msgid "Date Electronic Invoiced "
+msgstr "Fecha de facturación electrónica"
+
+#. module: l10n_mx_facturae
+#: model:ir.model.fields,field_description:l10n_mx_facturae.field_account_invoice__date_invoice_cancel
+msgid "Date Invoice Cancelled"
+msgstr "Fecha de cancelación de la factura"
+
+#. module: l10n_mx_facturae
+#: code:addons/l10n_mx_facturae/models/account_invoice.py:1258
+#, python-format
+msgid "Date Invoice Empty!\n"
+"¡Can't generate a invoice without date, make sure that the state of invoice not is draft & the date of invoice is not empty"
+msgstr "Fecha de la factura vacía!\n"
+"No se puede generar una factura sin fecha, asegúrese de que el estado de la factura no sea borrador y que la fecha de la factura no esté vacía"
+
+#. module: l10n_mx_facturae
+#: model:ir.model.fields,field_description:l10n_mx_facturae.field_account_invoice__date_invoice_tz
+msgid "Date Invoiced with TZ"
+msgstr "Fecha de facturación con TZ"
+
+#. module: l10n_mx_facturae
+#: model:ir.model.fields,help:l10n_mx_facturae.field_account_invoice__date_invoice_tz
+msgid "Date of Invoice with Time Zone"
+msgstr "Fecha de la factura con zona horaria"
+
+#. module: l10n_mx_facturae
+#: model:ir.model.fields,help:l10n_mx_facturae.field_account_invoice__cfdi_fecha_timbrado
+msgid "Date when is stamped the electronic invoice"
+msgstr "Fecha en la que se genera la factura electrónica"
+
+#. module: l10n_mx_facturae
+#: model:ir.model.fields,help:l10n_mx_facturae.field_account_invoice__sello
+msgid "Digital Stamp"
+msgstr "Sello digital"
+
+#. module: l10n_mx_facturae
+#: model:ir.model.fields,field_description:l10n_mx_facturae.field_facturae_config__display_name
+#: model:ir.model.fields,field_description:l10n_mx_facturae.field_report_l10n_mx_facturae_report_invoice_cfdi__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: l10n_mx_facturae
+#: code:addons/l10n_mx_facturae/models/account_invoice.py:1053
+#, python-format
+msgid "Don't have defined RFC for the address of invoice to the company!"
+msgstr "¡No ha definido RFC para la dirección de facturación a la empresa!"
+
+#. module: l10n_mx_facturae
+#: code:addons/l10n_mx_facturae/models/account_invoice.py:1095
+#, python-format
+msgid "Don't have defined RFC of the partner[%s]."
+msgstr "No tiene RFC definido del socio [%s]."
+
+#. module: l10n_mx_facturae
+#: code:addons/l10n_mx_facturae/models/account_invoice.py:1048
+#, python-format
+msgid "Don't have defined an address of invoicing from the company!"
+msgstr "¡No tiene definida una dirección de facturación de la empresa!"
+
+#. module: l10n_mx_facturae
+#: code:addons/l10n_mx_facturae/models/account_invoice.py:1043
+#, python-format
+msgid "Don't have defined the address issuing!"
+msgstr "¡No ha definido la dirección de emisión!"
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.l10n_mx_facturae_custom_external_layout
+msgid "ESTE DOCUMENTO ES UNA REPRESENTACION IMPRESA DE UN CFDI:<br/>"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: model:ir.model,name:l10n_mx_facturae.model_mail_template
+msgid "Email Templates"
+msgstr "Plantillas de correo electrónico"
+
+#. module: l10n_mx_facturae
+#: code:addons/l10n_mx_facturae/models/account_invoice.py:856
+#, python-format
+msgid "Error al validar la estructura del xml!\n"
+"Validación de XML versión %s:\n"
+"%s"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: code:addons/l10n_mx_facturae/models/account_invoice.py:922
+#, python-format
+msgid "Error in No. Certificate !\n"
+"Can't get the Certificate Number of the voucher.\n"
+"Ckeck your configuration."
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: model:ir.actions.report,name:l10n_mx_facturae.action_report_facturae
+msgid "Factura Electronica"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: model:ir.model.fields,field_description:l10n_mx_facturae.field_account_invoice__relation_ids
+msgid "Factura Relacionada"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: code:addons/l10n_mx_facturae/models/account_invoice.py:1120
+#, python-format
+msgid "Favor de revisar que todas las                           lines de la factura cuente con un codigo de producto del SAT"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: code:addons/l10n_mx_facturae/models/account_invoice.py:1125
+#, python-format
+msgid "Favor de revisar que todas las                           lines de la factura cuente con unidad de Medida del SAT"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: model:ir.model.fields,help:l10n_mx_facturae.field_facturae_config__vat
+msgid "Federal Register of Causes"
+msgstr "Registro federal de causas"
+
+#. module: l10n_mx_facturae
+#: model:ir.model.fields,field_description:l10n_mx_facturae.field_account_invoice__fname_invoice
+msgid "File Name Invoice"
+msgstr "Factura de nombre de archivo"
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.account_invoice_customer_form_l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.account_invoice_supplier_form_l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.view_account_invoice_filter_l10n_mx_facturae
+msgid "Fiscal folio"
+msgstr "Folio fiscal"
+
+#. module: l10n_mx_facturae
+#: model:ir.model.fields,help:l10n_mx_facturae.field_account_invoice__cfdi_folio_fiscal
+msgid "Folio used in the electronic invoice"
+msgstr "Folio utilizado en la factura electrónica"
+
+#. module: l10n_mx_facturae
+#: model:ir.model.fields,field_description:l10n_mx_facturae.field_facturae_config__id
+#: model:ir.model.fields,field_description:l10n_mx_facturae.field_report_l10n_mx_facturae_report_invoice_cfdi__id
+msgid "ID"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.report_invoice_cfdi_document
+msgid "IMPORTE CON LETRA:"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: model:ir.model.fields,help:l10n_mx_facturae.field_account_invoice__cfdi_fecha_cancelacion
+msgid "If the invoice is cancel, this field saved the date when is cancel"
+msgstr "Si la factura se cancela, este campo guarda la fecha en la que se cancela"
+
+#. module: l10n_mx_facturae
+#: model:ir.model.fields,help:l10n_mx_facturae.field_account_invoice__date_invoice_cancel
+msgid "If the invoice is cancelled, save the date when was cancel"
+msgstr "Si se cancela la factura, guarde la fecha en que se canceló"
+
+#. module: l10n_mx_facturae
+#: code:addons/l10n_mx_facturae/models/account_invoice.py:1100
+#, python-format
+msgid "Ingrese el tipo de uso  de CFDI por el Receptor"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: model:ir.model,name:l10n_mx_facturae.model_account_invoice
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: l10n_mx_facturae
+#: model:ir.model.fields,help:l10n_mx_facturae.field_account_invoice__invoice_datetime
+msgid "Keep empty to use the current date"
+msgstr "Dejarlo vacío para utilizar la fecha actual."
+
+#. module: l10n_mx_facturae
+#: code:addons/l10n_mx_facturae/models/account_invoice.py:1064
+#, python-format
+msgid "La Factura Relacionada no cuenta con un folio CFDI"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: code:addons/l10n_mx_facturae/models/account_invoice.py:1060
+#, python-format
+msgid "La Nota de credito no cuenta con alguna Factura relacionada"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: model:ir.model.fields,field_description:l10n_mx_facturae.field_facturae_config____last_update
+#: model:ir.model.fields,field_description:l10n_mx_facturae.field_report_l10n_mx_facturae_report_invoice_cfdi____last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: l10n_mx_facturae
+#: model:ir.model.fields,field_description:l10n_mx_facturae.field_facturae_config__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: l10n_mx_facturae
+#: model:ir.model.fields,field_description:l10n_mx_facturae.field_facturae_config__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: l10n_mx_facturae
+#: model:ir.model.fields,field_description:l10n_mx_facturae.field_account_invoice__paymethod
+msgid "Metodo Pago"
+msgstr "Método Pago"
+
+#. module: l10n_mx_facturae
+#: code:addons/l10n_mx_facturae/models/account_invoice.py:1275
+#, python-format
+msgid "Missing Fiscal Regime!\n"
+"The Fiscal Regime of the company issuing of fiscal voucher is a data required"
+msgstr "El Régimen Fiscal de la empresa emisora ​​de comprobante fiscal es un dato requerido"
+
+#. module: l10n_mx_facturae
+#: model:ir.model.fields,help:l10n_mx_facturae.field_account_invoice__fname_invoice
+msgid "Name used for the XML of electronic invoice"
+msgstr "Nombre utilizado para el XML de la factura electrónica"
+
+#. module: l10n_mx_facturae
+#: code:addons/l10n_mx_facturae/models/account_invoice.py:605
+#, python-format
+msgid "No exist file [%s]. !"
+msgstr "¡No existe archivo [%s]. !"
+
+#. module: l10n_mx_facturae
+#: code:addons/l10n_mx_facturae/models/account_invoice.py:276
+#, python-format
+msgid "No hay moneda MXN."
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: code:addons/l10n_mx_facturae/models/account_invoice.py:189
+#, python-format
+msgid "No hay una secuencia de folios bien definida. !"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.report_invoice_cfdi_document
+msgid "No identificado"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: model:ir.model.fields,field_description:l10n_mx_facturae.field_account_invoice__no_certificado
+msgid "No. Certificate"
+msgstr "No. Certificado"
+
+#. module: l10n_mx_facturae
+#: code:addons/l10n_mx_facturae/models/account_invoice.py:542
+#, python-format
+msgid "Not captured a CERTIFICATE file in format PEM, in the company!"
+msgstr "¡No se capturó un archivo CERTIFICADO en formato PEM, en la empresa!"
+
+#. module: l10n_mx_facturae
+#: code:addons/l10n_mx_facturae/models/account_invoice.py:554
+#, python-format
+msgid "Not captured a KEY file in format PEM, in the company!"
+msgstr "¡No se capturó un archivo CLAVE en formato PEM, en la empresa!"
+
+#. module: l10n_mx_facturae
+#: code:addons/l10n_mx_facturae/models/account_invoice.py:600
+#, python-format
+msgid "Not defined fname_xslt. !"
+msgstr "No definido fname_xslt. !"
+
+#. module: l10n_mx_facturae
+#: model:ir.model.fields,help:l10n_mx_facturae.field_account_invoice__no_certificado
+msgid "Number of serie of certificate used for the invoice"
+msgstr "Número de serie de certificado utilizado para la factura"
+
+#. module: l10n_mx_facturae
+#: code:addons/l10n_mx_facturae/models/account_invoice.py:993
+#, python-format
+msgid "Only can issue electronic invoice to customers.!"
+msgstr "Solo se puede emitir factura electrónica a los clientes.!"
+
+#. module: l10n_mx_facturae
+#: model:ir.model.fields,help:l10n_mx_facturae.field_account_invoice__cfdi_cadena_original
+msgid "Original String used in the electronic invoice"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.l10n_mx_facturae_custom_external_layout
+msgid "Page:\n"
+"                        <span class=\"page\"/>\n"
+"                        of\n"
+"                        <span class=\"topage\"/>"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: selection:account.move,paymethod:0
+msgid "Pago en parcialidades o diferido"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: selection:account.move,paymethod:0
+msgid "Pago en una sola exhibicion"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: code:addons/l10n_mx_facturae/models/account_invoice.py:450
+#, python-format
+msgid "Press in the button  'Upload File'"
+msgstr "Presione el botón 'Cargar archivo'"
+
+#. module: l10n_mx_facturae
+#: model:ir.model.fields,help:l10n_mx_facturae.field_account_invoice__rate
+msgid "Rate used in the date of invoice"
+msgstr "Tarifa utilizada en la fecha de la factura"
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.account_invoice_customer_form_l10n_mx_facturae
+msgid "Rcf Prov Cert"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: model:ir.model.fields,field_description:l10n_mx_facturae.field_account_invoice__rfcprov
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.account_invoice_customer_form_l10n_mx_facturae
+msgid "Rfc Prov"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: model:ir.model.fields,help:l10n_mx_facturae.field_facturae_config__company_id
+msgid "Select company to assing vat and/or cif"
+msgstr "Seleccionar empresa para asesorar iva y/o cif"
+
+#. module: l10n_mx_facturae
+#: model:ir.model.fields,help:l10n_mx_facturae.field_account_invoice__cfdi_no_certificado
+msgid "Serial Number of the Certificate"
+msgstr "Número de serie del certificado"
+
+#. module: l10n_mx_facturae
+#: model:ir.model.fields,help:l10n_mx_facturae.field_account_invoice__cfdi_sello
+msgid "Sign assigned by the SAT"
+msgstr "Signo asignado por la SAT"
+
+#. module: l10n_mx_facturae
+#: model:ir.model.fields,field_description:l10n_mx_facturae.field_account_invoice__sello
+msgid "Stamp"
+msgstr "Sello"
+
+#. module: l10n_mx_facturae
+#: code:addons/l10n_mx_facturae/models/account_invoice.py:503
+#, python-format
+msgid "State of Cancellation!\n"
+"This invoice hasn't stamped, so that not possible cancel."
+msgstr "¡Estado de cancelación!\n"
+"Esta factura no está sellada, por lo que no es posible cancelar."
+
+#. module: l10n_mx_facturae
+#: model:ir.model.fields,field_description:l10n_mx_facturae.field_account_invoice__cadena_original
+msgid "String Original"
+msgstr "Cadena Original"
+
+#. module: l10n_mx_facturae
+#: model:ir.model.fields,field_description:l10n_mx_facturae.field_account_invoice__type_relation
+msgid "Tipo Relacion"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: model_terms:ir.ui.view,arch_db:l10n_mx_facturae.report_invoice_cfdi_document
+msgid "Tipo relacion"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: model:ir.model.fields,field_description:l10n_mx_facturae.field_account_invoice__rate
+msgid "Type of Change"
+msgstr "Tipo de cambio"
+
+#. module: l10n_mx_facturae
+#: code:addons/l10n_mx_facturae/models/account_invoice.py:1138
+#, python-format
+msgid "Unit(s)"
+msgstr "Unidad(es)"
+
+#. module: l10n_mx_facturae
+#: model:ir.model.fields,field_description:l10n_mx_facturae.field_account_invoice__usocfdi_id
+msgid "Uso CFDI"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: model:ir.model.fields,field_description:l10n_mx_facturae.field_facturae_config__vat
+msgid "VAT"
+msgstr "RFC"
+
+#. module: l10n_mx_facturae
+#: code:addons/l10n_mx_facturae/models/account_invoice.py:451
+#, python-format
+msgid "Valores de _get_file %s"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: model:ir.model.fields,field_description:l10n_mx_facturae.field_account_invoice__cfd_xml_id
+msgid "XML"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: model:ir.model,name:l10n_mx_facturae.model_facturae_config
+msgid "facturae.config"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: model:ir.model,name:l10n_mx_facturae.model_report_l10n_mx_facturae_report_invoice_cfdi
+msgid "report.l10n_mx_facturae.report_invoice_cfdi"
+msgstr ""
+
+#. module: l10n_mx_facturae
+#: model:ir.model.fields,field_description:l10n_mx_facturae.field_account_invoice__replace_cfdi_sat
+msgid "¿Este CFDI sustituye otro CFDI?"
+msgstr ""
+

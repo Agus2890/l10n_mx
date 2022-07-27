@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="view_fiscal_position_mx_tree">
+            <field name="name">account.fiscal.position.mx.tree</field>
+            <field name="model">account.fiscal.position</field>
+            <field name="inherit_id" ref="account.view_account_position_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="before">
+                    <field name="clave"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_fiscal_position_mx_form">
+            <field name="name">account.fiscal.position.mx.form</field>
+            <field name="model">account.fiscal.position</field>
+            <field name="inherit_id" ref="account.view_account_position_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="before">
+                    <field name="clave"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

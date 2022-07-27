@@ -1,0 +1,581 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+# * l10n_mx
+# es_MX.po <agustin.cruz@openpyme.mx>, 2015.
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 7.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-11-10 16:52+0000\n"
+"PO-Revision-Date: 2015-11-10 11:19-0500\n"
+"Last-Translator: es_MX.po <agustin.cruz@openpyme.mx>\n"
+"Language-Team: Laptop\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Virtaal 0.7.1\n"
+
+#. module: l10n_mx_eaccounting
+#: code:_description:0
+#: model:ir.model,name:l10n_mx_eaccounting.model_account_auxiliary_wizard_xml
+#, python-format
+msgid "Account Common Account Report"
+msgstr "Informe Contable"
+
+#. module: l10n_mx_eaccounting
+#: code:_description:0
+#: model:ir.model,name:l10n_mx_eaccounting.model_journal_entries_wizard_xml
+#, python-format
+msgid "Account Common Report"
+msgstr "Informe Contable"
+
+#. module: l10n_mx_eaccounting
+#: selection:account.auxiliary.wizard.xml,display_account:0
+msgid "All"
+msgstr "Todo"
+
+#. module: l10n_mx_eaccounting
+#: selection:account.auxiliary.wizard.xml,target_move:0
+#: selection:journal.entries.wizard.xml,target_move:0
+msgid "All Entries"
+msgstr "Todos los asientos"
+
+#. module: l10n_mx_eaccounting
+#: selection:account.auxiliary.wizard.xml,target_move:0
+#: selection:journal.entries.wizard.xml,target_move:0
+msgid "All Posted Entries"
+msgstr "Todos los asientos asentados"
+
+#. module: l10n_mx_eaccounting
+#: view:account.auxiliary.wizard.xml:0
+#: model:ir.actions.act_window,name:l10n_mx_eaccounting.action_account_auxiliary_wizard
+#: model:ir.ui.menu,name:l10n_mx_eaccounting.account_auxiliary_wizard_menu
+msgid "Auxiliary Account"
+msgstr "Cuentas Auxiliares"
+
+#. module: l10n_mx_eaccounting
+#: view:account.print.chart.accounts.report:0
+#: view:journal.entries.wizard.xml:0
+#: view:trial.balance.webkit:0
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: l10n_mx_eaccounting
+#: selection:account.auxiliary.wizard.xml,type_request:0
+#: selection:journal.entries.wizard.xml,type_request:0
+msgid "Certifying audit"
+msgstr "Acto de Fiscalización"
+
+#. module: l10n_mx_eaccounting
+#: field:account.auxiliary.wizard.xml,chart_account_id:0
+#: field:journal.entries.wizard.xml,chart_account_id:0
+msgid "Chart of Account"
+msgstr "Plan contable"
+
+#. module: l10n_mx_eaccounting
+#: model:ir.ui.menu,name:l10n_mx_eaccounting.menu_wizard_print_chart_account
+msgid "Chart of accounts"
+msgstr "Plan contable"
+
+#. module: l10n_mx_eaccounting
+#: code:_description:0
+#: model:ir.model,name:l10n_mx_eaccounting.model_account_print_chart_accounts_report
+#, python-format
+msgid "Chart of accounts Report"
+msgstr "Reporte de Catálogo de cuentas"
+
+#. module: l10n_mx_eaccounting
+#: field:account.auxiliary.wizard.xml,company_id:0
+#: field:journal.entries.wizard.xml,company_id:0
+msgid "Company"
+msgstr "Compañía"
+
+#. module: l10n_mx_eaccounting
+#: selection:trial.balance.webkit,type_send:0
+msgid "Complementaria"
+msgstr "Complementaria"
+
+#. module: l10n_mx_eaccounting
+#: selection:account.auxiliary.wizard.xml,type_request:0
+#: selection:journal.entries.wizard.xml,type_request:0
+msgid "Control act"
+msgstr "Acto de control"
+
+#. module: l10n_mx_eaccounting
+#: selection:account.auxiliary.wizard.xml,filter:0
+#: selection:journal.entries.wizard.xml,filter:0
+msgid "Date"
+msgstr "Fecha"
+
+#. module: l10n_mx_eaccounting
+#: field:account.auxiliary.wizard.xml,display_account:0
+msgid "Display Accounts"
+msgstr "Mostrar cuentas"
+
+#. module: l10n_mx_eaccounting
+#: model:ir.ui.menu,name:l10n_mx_eaccounting.menu_finance_eaccounting
+msgid "Electronic accounting"
+msgstr "Contabilidad electrónica"
+
+#. module: l10n_mx_eaccounting
+#: field:account.auxiliary.wizard.xml,date_to:0
+#: field:journal.entries.wizard.xml,date_to:0
+msgid "End Date"
+msgstr "Fecha final"
+
+#. module: l10n_mx_eaccounting
+#: field:account.auxiliary.wizard.xml,period_to:0
+#: field:journal.entries.wizard.xml,period_to:0
+msgid "End Period"
+msgstr "Periodo final"
+
+#. module: l10n_mx_eaccounting
+#: code:addons/l10n_mx_eaccounting/report/journal_entries_xml.py:99
+#: code:addons/l10n_mx_eaccounting/report/journal_entries_xml.py:319
+#: code:addons/l10n_mx_eaccounting/report/journal_entries_xml.py:422
+#: code:addons/l10n_mx_eaccounting/report/journal_entries_xml.py:520
+#: code:addons/l10n_mx_eaccounting/wizard/account_auxiliary_wizard_xml.py:170
+#: code:addons/l10n_mx_eaccounting/wizard/account_report_chart_of_account.py:118
+#: code:addons/l10n_mx_eaccounting/wizard/journal_entries_wizard_xml.py:108
+#: code:addons/l10n_mx_eaccounting/wizard/journal_entries_wizard_xml.py:123
+#: code:addons/l10n_mx_eaccounting/wizard/trial_balance_wizard_xml.py:95
+#, python-format
+msgid "Error"
+msgstr "Error"
+
+#. module: l10n_mx_eaccounting
+#: view:account.print.chart.accounts.report:0
+msgid "Export"
+msgstr "Exportar"
+
+#. module: l10n_mx_eaccounting
+#: view:account.auxiliary.wizard.xml:0
+#: view:journal.entries.wizard.xml:0
+#: view:trial.balance.webkit:0
+msgid "Export XML"
+msgstr "Exportar XML"
+
+#. module: l10n_mx_eaccounting
+#: field:account.auxiliary.wizard.xml,filter:0
+#: field:journal.entries.wizard.xml,filter:0
+msgid "Filter by"
+msgstr "Filtrar por"
+
+#. module: l10n_mx_eaccounting
+#: field:account.auxiliary.wizard.xml,account_ids:0
+msgid "Filter on accounts"
+msgstr "Filtrar cuentas"
+
+#. module: l10n_mx_eaccounting
+#: field:account.auxiliary.wizard.xml,fiscalyear_id:0
+#: field:journal.entries.wizard.xml,fiscalyear_id:0
+msgid "Fiscal Year"
+msgstr "Ejercicio fiscal"
+
+#. module: l10n_mx_eaccounting
+#: code:addons/l10n_mx_eaccounting/report/journal_entries_xml.py:423
+#, python-format
+msgid "Journal %s do not have set a Payment Type"
+msgstr "El diario %s no tiene configurado un Tipo de Pago"
+
+#. module: l10n_mx_eaccounting
+#: model:ir.actions.act_window,name:l10n_mx_eaccounting.action_journal_entries_wizard
+#: model:ir.ui.menu,name:l10n_mx_eaccounting.journal_entries_wizard_menu
+#: view:journal.entries.wizard.xml:0
+msgid "Journal Entries"
+msgstr "Pólizas"
+
+#. module: l10n_mx_eaccounting
+#: view:journal.entries.wizard.xml:0
+msgid "Journal Entries Report"
+msgstr "Reporte de Pólizas contables"
+
+#. module: l10n_mx_eaccounting
+#: field:account.auxiliary.wizard.xml,journal_ids:0
+#: field:journal.entries.wizard.xml,journal_ids:0
+msgid "Journals"
+msgstr "Diarios"
+
+#. module: l10n_mx_eaccounting
+#: help:account.auxiliary.wizard.xml,fiscalyear_id:0
+#: help:journal.entries.wizard.xml,fiscalyear_id:0
+msgid "Keep empty for all open fiscal year"
+msgstr "Dejarlo vacío para todos los ejercicios fiscales abiertos."
+
+#. module: l10n_mx_eaccounting
+#: field:trial.balance.webkit,last_modification:0
+msgid "Last Modification"
+msgstr "Última modificación"
+
+#. module: l10n_mx_eaccounting
+#: selection:account.auxiliary.wizard.xml,filter:0
+#: selection:journal.entries.wizard.xml,filter:0
+msgid "No Filters"
+msgstr "No filtros"
+
+#. module: l10n_mx_eaccounting
+#: selection:trial.balance.webkit,type_send:0
+msgid "Normal"
+msgstr "Normal"
+
+#. module: l10n_mx_eaccounting
+#: code:addons/l10n_mx_eaccounting/report/journal_entries_xml.py:521
+#, python-format
+msgid "Not found Journal Entries for this Period.\n"
+"Choose another Period!"
+msgstr ""
+"No se encontraron pólizas para el periodo.\n"
+"¡Seleccione otro periodo!"
+
+#. module: l10n_mx_eaccounting
+#: code:addons/l10n_mx_eaccounting/report/journal_entries_xml.py:102
+#, python-format
+msgid "Not found Sat Code on account %s-%s. \n"
+"Verify that the configuration of Account Sat_Group is correct!"
+msgstr ""
+"No se encontró un Código Agrupador en la cuenta %s-%s\n"
+"¡Verifique que la configuración de Códigos Agrupadores está correcta!"
+
+#. module: l10n_mx_eaccounting
+#: code:addons/l10n_mx_eaccounting/wizard/account_auxiliary_wizard_xml.py:171
+#: code:addons/l10n_mx_eaccounting/wizard/account_report_chart_of_account.py:119
+#: code:addons/l10n_mx_eaccounting/wizard/journal_entries_wizard_xml.py:109
+#: code:addons/l10n_mx_eaccounting/wizard/trial_balance_wizard_xml.py:96
+#, python-format
+msgid "Not found information for VAT of Company.\n"
+"Verify that the configuration of VAT is correct!"
+msgstr ""
+"No se encontró el RFC para la compañía.\n"
+"¡Verifique que la configuración del RFC es correcta!"
+
+#. module: l10n_mx_eaccounting
+#: code:addons/l10n_mx_eaccounting/wizard/journal_entries_wizard_xml.py:124
+#, python-format
+msgid "Not found period for that Company.\n"
+"Verify that the configuration of period is correct!"
+msgstr ""
+"No se encontró un periodo para la compañía seleccionada.\n"
+"¡Verifique que la configuración de los periodos está correcta!"
+
+#. module: l10n_mx_eaccounting
+#: help:account.auxiliary.wizard.xml,account_ids:0
+msgid "Only selected accounts will be printed. Leave empty to\n"
+"                    print all accounts."
+msgstr ""
+"Solo se incluirán en el reporte las cuentas seleccionadas.\n"
+"Deje el cuadro vacío para incluir todas las cuentas."
+
+#. module: l10n_mx_eaccounting
+#: field:account.auxiliary.wizard.xml,order_num:0
+#: field:journal.entries.wizard.xml,order_num:0
+msgid "Order number"
+msgstr "Número de orden"
+
+#. module: l10n_mx_eaccounting
+#: constraint:account.auxiliary.wizard.xml:0
+#: constraint:journal.entries.wizard.xml:0
+msgid "Order number not valid.\n"
+"Verify that the pattern is correct!"
+msgstr ""
+"Número de orden inválido.\n"
+"¡Verifique que el número proporcionado es correcto!"
+
+#. module: l10n_mx_eaccounting
+#: code:addons/l10n_mx_eaccounting/report/journal_entries_xml.py:320
+#, python-format
+msgid "Partner %s do not have a VAT number assigned"
+msgstr "La empresa %s no tiene un RFC asignado."
+
+#. module: l10n_mx_eaccounting
+#: view:account.auxiliary.wizard.xml:0
+#: field:account.auxiliary.wizard.xml,period_id:0
+#: field:account.print.chart.accounts.report,period_id:0
+#: field:journal.entries.wizard.xml,period_id:0
+#: view:trial.balance.webkit:0
+msgid "Period"
+msgstr "Periodo"
+
+#. module: l10n_mx_eaccounting
+#: selection:account.auxiliary.wizard.xml,filter:0
+#: selection:journal.entries.wizard.xml,filter:0
+msgid "Periods"
+msgstr "Periodos"
+
+#. module: l10n_mx_eaccounting
+#: model:ir.actions.act_window,name:l10n_mx_eaccounting.action_print_chart_menu
+msgid "Print chart of accounts"
+msgstr "Reporte de plan de cuentas"
+
+#. module: l10n_mx_eaccounting
+#: field:account.auxiliary.wizard.xml,pro_num:0
+#: field:journal.entries.wizard.xml,pro_num:0
+msgid "Procedure number"
+msgstr "Número de procedimiento"
+
+#. module: l10n_mx_eaccounting
+#: constraint:account.auxiliary.wizard.xml:0
+#: constraint:journal.entries.wizard.xml:0
+msgid "Procedure number not valid.\n"
+"Verify that the pattern is correct!"
+msgstr ""
+"Número de procedimiento inválido\n"
+"¡Verifique que el número proporcionado es correcto!"
+
+#. module: l10n_mx_eaccounting
+#: view:account.print.chart.accounts.report:0
+msgid "Report Options"
+msgstr "Opciones del informe"
+
+#. module: l10n_mx_eaccounting
+#: selection:account.auxiliary.wizard.xml,type_request:0
+#: selection:journal.entries.wizard.xml,type_request:0
+msgid "Return"
+msgstr "Regresar"
+
+#. module: l10n_mx_eaccounting
+#: help:account.auxiliary.wizard.xml,chart_account_id:0
+#: help:journal.entries.wizard.xml,chart_account_id:0
+msgid "Select Charts of Accounts"
+msgstr "Seleccionar plan contable."
+
+#. module: l10n_mx_eaccounting
+#: help:account.auxiliary.wizard.xml,period_id:0
+#: help:account.print.chart.accounts.report,period_id:0
+#: code:addons/l10n_mx_eaccounting/wizard/account_auxiliary_wizard_xml.py:52
+#: code:addons/l10n_mx_eaccounting/wizard/account_report_chart_of_account.py:39
+#, python-format
+msgid "Select period for your chart report"
+msgstr "Seleccione el periódo para el reporte de cuentas"
+
+#. module: l10n_mx_eaccounting
+#: code:addons/l10n_mx_eaccounting/wizard/journal_entries_wizard_xml.py:43
+#: help:journal.entries.wizard.xml,period_id:0
+#, python-format
+msgid "Select period for your fiscal year"
+msgstr "Seleccione el periódo para el ejercicio fiscal"
+
+#. module: l10n_mx_eaccounting
+#: view:account.auxiliary.wizard.xml:0
+msgid "Select the accounts to include"
+msgstr "Seleccione las cuentas contables a incluir"
+
+#. module: l10n_mx_eaccounting
+#: view:account.auxiliary.wizard.xml:0
+#: view:journal.entries.wizard.xml:0
+msgid "Select the declaration type you are doing and type the number given to you by SAT"
+msgstr ""
+"Seleccione el tipo de declaración que está realizando y el número que le "
+"proporcionó el SAT"
+
+#. module: l10n_mx_eaccounting
+#: view:trial.balance.webkit:0
+msgid "Select the declaration type you are doing and update the 'Las Modification' field in case you need."
+msgstr ""
+"Seleccione el tipo de declaración que está realizando y actualice el campo "
+"'Última Modificación'en caso de que sea necesario."
+
+#. module: l10n_mx_eaccounting
+#: field:account.auxiliary.wizard.xml,date_from:0
+#: field:journal.entries.wizard.xml,date_from:0
+msgid "Start Date"
+msgstr "Fecha inicial"
+
+#. module: l10n_mx_eaccounting
+#: field:account.auxiliary.wizard.xml,period_from:0
+#: field:journal.entries.wizard.xml,period_from:0
+msgid "Start Period"
+msgstr "Periodo inicial"
+
+#. module: l10n_mx_eaccounting
+#: field:account.auxiliary.wizard.xml,target_move:0
+#: field:journal.entries.wizard.xml,target_move:0
+msgid "Target Moves"
+msgstr "Movimientos destino"
+
+#. module: l10n_mx_eaccounting
+#: view:trial.balance.webkit:0
+msgid "This allows you to generate a xml of your trial balance in zip format to upload into SAT website."
+msgstr ""
+"Este asistente permite generar un archivo XML del Balance de Sumas y saldos "
+"en formato ZIP para subir en el Buzón tributario del SAT"
+
+#. module: l10n_mx_eaccounting
+#: view:account.print.chart.accounts.report:0
+msgid "This report allows you to generate a xml of your chart of accounts allowing you to upload the zip file into SAT website."
+msgstr ""
+"Esete asistente permite generarl un archivo XML del Plan de Cuentas "
+"contables en formato ZIP para subir en el Buzón tributario del SAT"
+
+#. module: l10n_mx_eaccounting
+#: view:account.auxiliary.wizard.xml:0
+msgid "This report allows you to generate a xml of your general ledger with details of one account in zip format to upload iinto SAT website"
+msgstr ""
+"Este asistente permite generar un archivo XML del Auxiliar de una cuenta "
+"contable en formato ZIP para subir en el Buzón tributario del SAT"
+
+#. module: l10n_mx_eaccounting
+#: view:journal.entries.wizard.xml:0
+msgid "This report allows you to print or generate a pdf of your trial balance allowing you to quickly check the balance of each of your accounts in a single report"
+msgstr ""
+"Este asistente permite generar un archivo PDF de la Balanza de sumas y "
+"saldos de todas las cuentas contables para verificar el saldo final de todas "
+"ellas"
+
+#. module: l10n_mx_eaccounting
+#: model:ir.actions.act_window,name:l10n_mx_eaccounting.action_account_trial_balance_menu_webkit_xml
+#: model:ir.ui.menu,name:l10n_mx_eaccounting.menu_general_balance_report
+#: view:trial.balance.webkit:0
+msgid "Trial Balance"
+msgstr "Balance de sumas y saldos"
+
+#. module: l10n_mx_eaccounting
+#: code:_description:0
+#: model:ir.model,name:l10n_mx_eaccounting.model_trial_balance_webkit
+#: view:trial.balance.webkit:0
+#, python-format
+msgid "Trial Balance Report"
+msgstr "Informe de sumas y saldos"
+
+#. module: l10n_mx_eaccounting
+#: view:account.auxiliary.wizard.xml:0
+msgid "True"
+msgstr "Verdadero"
+
+#. module: l10n_mx_eaccounting
+#: field:trial.balance.webkit,type_send:0
+msgid "Type Send"
+msgstr "Tipo de envío"
+
+#. module: l10n_mx_eaccounting
+#: field:account.auxiliary.wizard.xml,type_request:0
+#: field:journal.entries.wizard.xml,type_request:0
+msgid "Type of request"
+msgstr "Tipo de requerimiento"
+
+#. module: l10n_mx_eaccounting
+#: constraint:account.auxiliary.wizard.xml:0
+msgid "When no Fiscal year is selected, you must choose to filter by          periods or by date."
+msgstr ""
+"Cuando no se selecciona un ejercicio fiscal, debe escoger entre filtrar por "
+"periodos o filtrar por fechas."
+
+#. module: l10n_mx_eaccounting
+#: selection:account.auxiliary.wizard.xml,display_account:0
+msgid "With balance is not equal to 0"
+msgstr "Con balance si no es igual a 0"
+
+#. module: l10n_mx_eaccounting
+#: selection:account.auxiliary.wizard.xml,display_account:0
+msgid "With movements"
+msgstr "Con movimientos"
+
+#. module: l10n_mx_eaccounting
+#: selection:account.auxiliary.wizard.xml,type_request:0
+#: selection:journal.entries.wizard.xml,type_request:0
+msgid "Write off"
+msgstr "Desajuste"
+
+#. module: l10n_mx_eaccounting
+#: constraint:account.auxiliary.wizard.xml:0
+msgid "You must select an account to include in report!"
+msgstr "¡Debe incluir una cuenta para incluir en el reporte!"
+
+#. module: l10n_mx_eaccounting
+#: view:account.print.chart.accounts.report:0
+#: view:journal.entries.wizard.xml:0
+#: view:trial.balance.webkit:0
+msgid "or"
+msgstr "o"
+
+#~ msgid "Receivable"
+#~ msgstr "A cobrar"
+
+#~ msgid "Código SAT"
+#~ msgstr "Código SAT"
+
+#~ msgid ""
+#~ "Not defined a SAT group for the account!\n"
+#~ "A view type account must have a SAT group defined!"
+#~ msgstr ""
+#~ "No esta definido un grupo SAT para la cuenta!\n"
+#~ "Una cuenta tipo vista debe tener definido un grupo SAT !"
+
+#~ msgid "Equity"
+#~ msgstr "Capital"
+
+#~ msgid "Name"
+#~ msgstr "Nombre"
+
+#~ msgid "Journal"
+#~ msgstr "Diario"
+
+#~ msgid "Sat Group"
+#~ msgstr "Grupo SAT"
+
+#, python-format
+#~ msgid "Used for express the group code according to SAT catalog"
+#~ msgstr "Se utiliza para expresar el código del grupo según catálogo SAT"
+
+#~ msgid "Payable"
+#~ msgstr "A pagar"
+
+#~ msgid "other"
+#~ msgstr "other"
+
+#, python-format
+#~ msgid "SAT Group Parent"
+#~ msgstr "Grupo SAT Padre"
+
+#~ msgid "Cuenta bancaria para identificar los registros contables"
+#~ msgstr "Cuenta bancaria para identificar los registros contables"
+
+#~ msgid "Bank"
+#~ msgstr "Banco"
+
+#~ msgid "Account"
+#~ msgstr "Cuenta"
+
+#~ msgid "Acreedora"
+#~ msgstr "Acreedora"
+
+#~ msgid "Nombre Completo"
+#~ msgstr "Nombre Completo"
+
+#~ msgid "Deudora"
+#~ msgstr "Deudora"
+
+#~ msgid "Cuenta bancaria"
+#~ msgstr "Cuenta bancaria"
+
+#~ msgid "Templates for Accounts"
+#~ msgstr "Plantillas para cuentas"
+
+#~ msgid "Banks"
+#~ msgstr "Bancos"
+
+#~ msgid "Expense"
+#~ msgstr "Gasto"
+
+#~ msgid "View"
+#~ msgstr "Vista"
+
+#, python-format
+#~ msgid "Express the account nature (Debitor or Creditor)"
+#~ msgstr "Selecciona la naturaleza de la cuenta(Credito o Debito)"
+
+#~ msgid "Code"
+#~ msgstr "Código"
+
+#~ msgid "Naturaleza"
+#~ msgstr "Naturaleza"
+
+#~ msgid "account.account.sat_group"
+#~ msgstr "account.account.sat_group"
+
+#~ msgid "Bank Accounts"
+#~ msgstr "Cuentas Bancarias"
+
+#~ msgid "SAT Group"
+#~ msgstr "Grupo SAT"

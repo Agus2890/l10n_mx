@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!--     <record model="ir.ui.view" id="view_account_invoice_refund_inh">
+        <field name="name">account.invoice.refund.voucher.form</field>
+        <field name="model">account.invoice.refund</field>
+        <field name="inherit_id" ref="account.view_account_invoice_refund"/>
+        <field name="arch" type="xml">
+             <field name="description" position="after">
+                <field name="type_relation"/>
+            </field>
+        </field>
+    </record> -->
+
+    <record model="ir.ui.view" id="view_account_move_reversal_inh">
+        <field name="name">account.move.reversal.form</field>
+        <field name="model">account.move.reversal</field>
+        <field name="inherit_id" ref="account.view_account_move_reversal"/>
+        <field name="arch" type="xml">
+             <field name="reason" position="after">
+                <field name="type_relation"/>
+                <field name="amount_nc"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report id="account_chart_print_report"
+        model="account.print.chart.accounts.report"
+        string="Account Chart Report"
+        report_type="qweb-xml"
+        name="l10n_mx_eaccounting.account_chart_xml"
+        file="l10n_mx_eaccounting.account_chart_xml"
+        print_report_name="'Demo xml report'"/>
+<!--         <report id="demo_xml_report"
+            name="report_xml.demo_report_xml_view"
+            string="Demo xml report"
+            report_type="qweb-xml"
+            print_report_name="'Demo xml report'"
+            file="report_xml.xml"
+            model="res.company"/> -->
+    </data>
+</odoo>

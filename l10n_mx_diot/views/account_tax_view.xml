@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_tax_form_diot" model="ir.ui.view">
+            <field name="name">view.tax.form.diot</field>
+            <field name="model">account.tax</field>
+            <field name="inherit_id" ref="account.view_tax_form"/>
+            <field name="arch" type="xml">
+	            <!-- <xpath expr="/form/notebook/page[@string='Tax Definition']" position="after"> -->
+                <xpath expr="//page[1]" position="after">    
+	                <!-- <page string="DIOT Report" attrs="{'invisible':[('type_tax_use', '!=', 'purchase'),('tax_categ', '!=', 'vat')]}"> -->
+                    <page string="DIOT Report" attrs="{'invisible':[('type_tax_use', '!=', 'purchase')]}">    
+	                   <group>
+	                       <field name="diot_group" />
+                       </group>
+	                </page>
+	            </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

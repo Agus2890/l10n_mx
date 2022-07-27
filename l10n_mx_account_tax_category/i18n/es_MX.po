@@ -1,0 +1,227 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* l10n_mx_account_tax_category
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-06-09 21:39+0000\n"
+"PO-Revision-Date: 2021-06-09 21:39+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_mx_account_tax_category
+#: model:ir.model.fields,field_description:l10n_mx_account_tax_category.field_account_tax_category__active
+msgid "Active"
+msgstr "Activo"
+
+#. module: l10n_mx_account_tax_category
+#: model_terms:ir.ui.view,arch_db:l10n_mx_account_tax_category.view_account_tax_category_form
+msgid "Categories"
+msgstr "Categorías"
+
+#. module: l10n_mx_account_tax_category
+#: model:ir.model.fields,field_description:l10n_mx_account_tax_category.field_account_tax_category__category_ids
+msgid "Category"
+msgstr "Categoría"
+
+#. module: l10n_mx_account_tax_category
+#: model:ir.model.fields,help:l10n_mx_account_tax_category.field_account_tax__tax_category_id
+msgid "Category of this tax"
+msgstr ""
+
+#. module: l10n_mx_account_tax_category
+#: selection:account.tax.category,code_sat:0
+#: selection:account.tax.category,type:0
+msgid "Cedular"
+msgstr ""
+
+#. module: l10n_mx_account_tax_category
+#: model:ir.model.fields,field_description:l10n_mx_account_tax_category.field_account_tax_category__code
+msgid "Code"
+msgstr "Código"
+
+#. module: l10n_mx_account_tax_category
+#: model:ir.model.fields,help:l10n_mx_account_tax_category.field_account_tax_category__code
+msgid "Code for this category"
+msgstr ""
+
+#. module: l10n_mx_account_tax_category
+#: model:ir.model.fields,field_description:l10n_mx_account_tax_category.field_account_tax_category__company_id
+msgid "Company"
+msgstr "Compañía"
+
+#. module: l10n_mx_account_tax_category
+#: model:ir.model.fields,help:l10n_mx_account_tax_category.field_account_tax_category__company_id
+msgid "Company where will add this category"
+msgstr ""
+
+#. module: l10n_mx_account_tax_category
+#: model:ir.model.fields,field_description:l10n_mx_account_tax_category.field_account_tax_category__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: l10n_mx_account_tax_category
+#: model:ir.model.fields,field_description:l10n_mx_account_tax_category.field_account_tax_category__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: l10n_mx_account_tax_category
+#: selection:account.tax.category,type:0
+msgid "Cuota"
+msgstr ""
+
+#. module: l10n_mx_account_tax_category
+#: model:ir.model.fields,field_description:l10n_mx_account_tax_category.field_account_tax_category__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: l10n_mx_account_tax_category
+#: selection:account.tax.category,type:0
+msgid "Exento"
+msgstr ""
+
+#. module: l10n_mx_account_tax_category
+#: model:ir.model.fields,field_description:l10n_mx_account_tax_category.field_account_tax_category__id
+msgid "ID"
+msgstr ""
+
+#. module: l10n_mx_account_tax_category
+#: selection:account.tax.category,code_sat:0
+#: model:ir.model.fields,field_description:l10n_mx_account_tax_category.field_account_invoice__amount_special
+msgid "IEPS"
+msgstr ""
+
+#. module: l10n_mx_account_tax_category
+#: selection:account.tax.category,code_sat:0
+#: selection:account.tax.category,type:0
+msgid "ISH"
+msgstr ""
+
+#. module: l10n_mx_account_tax_category
+#: selection:account.tax.category,code_sat:0
+msgid "ISR"
+msgstr ""
+
+#. module: l10n_mx_account_tax_category
+#: selection:account.tax.category,code_sat:0
+msgid "IVA"
+msgstr ""
+
+#. module: l10n_mx_account_tax_category
+#: model:ir.model.fields,field_description:l10n_mx_account_tax_category.field_account_tax_category__code_sat
+msgid "Impuesto"
+msgstr ""
+
+#. module: l10n_mx_account_tax_category
+#: model:ir.model.fields,help:l10n_mx_account_tax_category.field_account_tax_category__active
+msgid "Indicate if this category is active"
+msgstr ""
+
+#. module: l10n_mx_account_tax_category
+#: model:ir.model,name:l10n_mx_account_tax_category.model_account_invoice
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: l10n_mx_account_tax_category
+#: model:ir.model,name:l10n_mx_account_tax_category.model_account_invoice_tax
+msgid "Invoice Tax"
+msgstr "Impuesto de factura"
+
+#. module: l10n_mx_account_tax_category
+#: model:ir.model.fields,help:l10n_mx_account_tax_category.field_account_invoice_tax__name2
+msgid "Is the code of category of the tax or name                 of tax but in uppers, without '.', '-', ' '"
+msgstr ""
+
+#. module: l10n_mx_account_tax_category
+#: model:ir.model.fields,field_description:l10n_mx_account_tax_category.field_account_tax_category____last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: l10n_mx_account_tax_category
+#: model:ir.model.fields,field_description:l10n_mx_account_tax_category.field_account_tax_category__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: l10n_mx_account_tax_category
+#: model:ir.model.fields,field_description:l10n_mx_account_tax_category.field_account_tax_category__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: l10n_mx_account_tax_category
+#: model:ir.model.fields,field_description:l10n_mx_account_tax_category.field_account_tax_category__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: l10n_mx_account_tax_category
+#: model:ir.model.fields,help:l10n_mx_account_tax_category.field_account_tax_category__name
+msgid "Name for this category"
+msgstr ""
+
+#. module: l10n_mx_account_tax_category
+#: model:ir.model.fields,field_description:l10n_mx_account_tax_category.field_account_tax_category__sign
+msgid "Sign"
+msgstr "Firmar"
+
+#. module: l10n_mx_account_tax_category
+#: selection:account.tax.category,type:0
+msgid "Tasa"
+msgstr ""
+
+#. module: l10n_mx_account_tax_category
+#: model:ir.model,name:l10n_mx_account_tax_category.model_account_tax
+msgid "Tax"
+msgstr "Impuesto"
+
+#. module: l10n_mx_account_tax_category
+#: model_terms:ir.ui.view,arch_db:l10n_mx_account_tax_category.view_account_tax_category_form
+#: model_terms:ir.ui.view,arch_db:l10n_mx_account_tax_category.view_account_tax_category_tree
+msgid "Tax Categories"
+msgstr ""
+
+#. module: l10n_mx_account_tax_category
+#: model:ir.model.fields,field_description:l10n_mx_account_tax_category.field_account_tax__tax_category_id
+msgid "Tax Category"
+msgstr ""
+
+#. module: l10n_mx_account_tax_category
+#: model:ir.model.fields,field_description:l10n_mx_account_tax_category.field_account_invoice_tax__tax_percent
+msgid "Tax Percent"
+msgstr ""
+
+#. module: l10n_mx_account_tax_category
+#: model:ir.model.fields,field_description:l10n_mx_account_tax_category.field_account_invoice_tax__name2
+msgid "Tax Short Name"
+msgstr ""
+
+#. module: l10n_mx_account_tax_category
+#: model:ir.model.fields,help:l10n_mx_account_tax_category.field_account_tax_category__category_ids
+msgid "Tax that belong of this category"
+msgstr ""
+
+#. module: l10n_mx_account_tax_category
+#: model:ir.actions.act_window,name:l10n_mx_account_tax_category.action_account_tax_category_tree
+#: model:ir.ui.menu,name:l10n_mx_account_tax_category.menu_account_tax_category
+msgid "Taxes Category"
+msgstr ""
+
+#. module: l10n_mx_account_tax_category
+#: model:ir.model.fields,field_description:l10n_mx_account_tax_category.field_account_invoice__amount_tax_ret
+msgid "Taxe withheld"
+msgstr "Impuesto retenido"
+
+#. module: l10n_mx_account_tax_category
+#: model:ir.model.fields,field_description:l10n_mx_account_tax_category.field_account_tax_category__type
+msgid "Tipo Factor"
+msgstr ""
+
+#. module: l10n_mx_account_tax_category
+#: model:ir.model,name:l10n_mx_account_tax_category.model_account_tax_category
+msgid "account.tax.category"
+msgstr ""
+

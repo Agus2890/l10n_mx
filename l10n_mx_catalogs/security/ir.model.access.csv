@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_key_product_sat_manager,key.product.sat,model_key_product_sat,account.group_account_invoice,1,1,1,1
+access_key_unit_sat_manager,key.unit.sat,model_key_unit_sat,account.group_account_invoice,1,1,1,1
+access_uso_cfdi_manager,uso.cfdi,model_uso_cfdi,account.group_account_invoice,1,1,1,1

@@ -1,0 +1,203 @@
+<?xml version="1.0" ?>
+<odoo>
+    <data>
+        <record id="pay_method_efectivo" model="payment.type">
+            <field name="name">Efectivo</field>
+            <field name="code">01</field>
+            <field name="note">Efectivo</field>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+
+        <record id="pay_method_cheque" model="payment.type">
+            <field name="name">Cheque</field>
+            <field name="code">02</field>
+            <field name="note">Cheque</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="require_bank_account">True</field>
+        </record>
+
+        <record id="pay_method_transferencia" model="payment.type">
+            <field name="name">Transferencia</field>
+            <field name="code">03</field>
+            <field name="note">Transferencia</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="require_bank_account">True</field>
+        </record>
+
+        <record id="pay_method_tarjeta_de_credito" model="payment.type">
+            <field name="name">Tarjeta de crédito</field>
+            <field name="code">04</field>
+            <field name="note">Tarjeta de crédito</field>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+
+        <record id="pay_method_monedero_electronico" model="payment.type">
+            <field name="name">Monedero electrónico</field>
+            <field name="code">05</field>
+            <field name="note">Monedero electrónico</field>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+
+        <record id="pay_method_dinero_electronico" model="payment.type">
+            <field name="name">Dinero electrónico</field>
+            <field name="code">06</field>
+            <field name="note">Dinero electrónico</field>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+
+        <record id="pay_method_tarjetas_digitales" model="payment.type">
+            <field name="name">Tarjetas digitales</field>
+            <field name="code">07</field>
+            <field name="note">Tarjetas digitales</field>
+            <field name="company_id" ref="base.main_company"/>
+
+        </record>
+
+        <record id="pay_method_vales_despensa" model="payment.type">
+            <field name="name">Vales de despensa</field>
+            <field name="code">08</field>
+            <field name="note">Vales de despensa</field>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+
+        <record id="pay_method_bienes" model="payment.type">
+            <field name="name">Bienes</field>
+            <field name="code">09</field>
+            <field name="note">Bienes</field>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+
+        <record id="pay_method_servicio" model="payment.type">
+            <field name="name">Servicio</field>
+            <field name="code">10</field>
+            <field name="note">Servicio</field>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+
+        <record id="pay_method_cuenta_terceros" model="payment.type">
+            <field name="name">Cuenta de terceros</field>
+            <field name="code">11</field>
+            <field name="note">Cuenta de terceros</field>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+
+        <record id="pay_method_dacion_pago" model="payment.type">
+            <field name="name">Dación de pago</field>
+            <field name="code">12</field>
+            <field name="note">Dación de pago</field>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+
+        <record id="pay_method_pago_subrogacion" model="payment.type">
+            <field name="name">Pago por subrogación</field>
+            <field name="code">13</field>
+            <field name="note">Pago por subrogación</field>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+
+        <record id="pay_method_pago_consignacion" model="payment.type">
+            <field name="name">Pago por consignación</field>
+            <field name="code">14</field>
+            <field name="note">Pago por consignación</field>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+
+        <record id="pay_method_condonacion" model="payment.type">
+            <field name="name">Condonación</field>
+            <field name="code">15</field>
+            <field name="note">Condonación</field>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+
+        <record id="pay_method_cancelacion" model="payment.type">
+            <field name="name">Cancelación</field>
+            <field name="code">16</field>
+            <field name="note">Cancelación</field>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+
+        <record id="pay_method_compensacion" model="payment.type">
+            <field name="name">Compensación</field>
+            <field name="code">17</field>
+            <field name="note">Compensación</field>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+
+        <record id="pay_method_novacion" model="payment.type">
+            <field name="name">Novación</field>
+            <field name="code">23</field>
+            <field name="note">Novación</field>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+
+        <record id="pay_method_confusion" model="payment.type">
+            <field name="name">Confusión</field>
+            <field name="code">24</field>
+            <field name="note">Confusión</field>
+            <field name="company_id" ref="base.main_company"/>
+        </record>        
+        
+        <record id="pay_method_remision_deuda" model="payment.type">
+            <field name="name">Remisión de deuda</field>
+            <field name="code">25</field>
+            <field name="note">Remisión de deuda</field>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+
+        <record id="pay_method_prescripcion_caducidad" model="payment.type">
+            <field name="name">Prescripción o caducidad</field>
+            <field name="code">26</field>
+            <field name="note">Prescripción o caducidad</field>
+            <field name="company_id" ref="base.main_company"/>
+        </record>         
+
+        <record id="pay_method_a_satisfaccion_acreedor" model="payment.type">
+            <field name="name">A satisfacción del acreedor</field>
+            <field name="code">27</field>
+            <field name="note">A satisfacción del acreedor</field>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+
+        <record id="pay_method_tarjeta_debito" model="payment.type">
+            <field name="name">Tarjeta de débito</field>
+            <field name="code">28</field>
+            <field name="note">Tarjeta de débito</field>
+            <field name="company_id" ref="base.main_company"/>
+        </record>         
+
+        <record id="pay_method_tarjeta_servicios" model="payment.type">
+            <field name="name">Tarjeta de servicios</field>
+            <field name="code">29</field>
+            <field name="note">Tarjeta de servicios</field>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+
+        <record id="pay_method_aplicacion_anticipos" model="payment.type">
+            <field name="name">Aplicación de anticipos</field>
+            <field name="code">30</field>
+            <field name="note">Aplicación de anticipos</field>
+            <field name="company_id" ref="base.main_company"/>
+        </record>         
+
+        <record id="pay_method_intermediario_pagos" model="payment.type">
+            <field name="name">Intermediario pagos</field>
+            <field name="code">31</field>
+            <field name="note">Intermediario pagos</field>
+            <field name="company_id" ref="base.main_company"/>
+        </record>      
+        
+<!--         <record id="pay_method_na" model="payment.type">
+            <field name="name">NA</field>
+            <field name="code">98</field>
+            <field name="note">NA</field>
+            <field name="company_id" ref="base.main_company"/>
+        </record> -->
+
+        <record id="pay_method_dinero_otros" model="payment.type">
+            <field name="name">Por definir</field>
+            <field name="code">99</field>
+            <field name="note">Por definir</field>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+    </data>
+</odoo>

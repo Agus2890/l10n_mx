@@ -1,0 +1,330 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* l10n_mx_payment_method
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-28 18:08+0000\n"
+"PO-Revision-Date: 2019-11-28 18:08+0000\n"
+"Last-Translator: es_MX.po <ricardo.gutierrez@mikrointeracciones.com.mx>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_mx_payment_method
+#: model:ir.model.fields,field_description:l10n_mx_payment_method.field_payment_method__active
+msgid "Active"
+msgstr "Activo"
+
+#. module: l10n_mx_payment_method
+#: model:payment.method,name:l10n_mx_payment_method.pay_method_bienes
+#: model:payment.method,note:l10n_mx_payment_method.pay_method_bienes
+msgid "Bienes"
+msgstr ""
+
+#. module: l10n_mx_payment_method
+#: model:payment.method,name:l10n_mx_payment_method.pay_method_cancelacion
+#: model:payment.method,note:l10n_mx_payment_method.pay_method_cancelacion
+msgid "Cancelacion"
+msgstr ""
+
+#. module: l10n_mx_payment_method
+#: model:payment.method,name:l10n_mx_payment_method.pay_method_cheque
+#: model:payment.method,note:l10n_mx_payment_method.pay_method_cheque
+msgid "Cheque"
+msgstr ""
+
+#. module: l10n_mx_payment_method
+#: model:ir.model.fields,field_description:l10n_mx_payment_method.field_payment_method__code
+msgid "Code"
+msgstr "Código"
+
+#. module: l10n_mx_payment_method
+#: model:ir.model.fields,field_description:l10n_mx_payment_method.field_payment_method__company_id
+msgid "Company"
+msgstr "Compañía"
+
+#. module: l10n_mx_payment_method
+#: model:payment.method,name:l10n_mx_payment_method.pay_method_compensacion
+msgid "Compenasicion"
+msgstr ""
+
+#. module: l10n_mx_payment_method
+#: model:payment.method,note:l10n_mx_payment_method.pay_method_compensacion
+msgid "Compensacion"
+msgstr ""
+
+#. module: l10n_mx_payment_method
+#: model:payment.method,name:l10n_mx_payment_method.pay_method_condonacion
+#: model:payment.method,note:l10n_mx_payment_method.pay_method_condonacion
+msgid "Condonacion"
+msgstr ""
+
+#. module: l10n_mx_payment_method
+#: model:ir.model,name:l10n_mx_payment_method.model_res_partner
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: l10n_mx_payment_method
+#: model:ir.model,name:l10n_mx_payment_method.model_account_abstract_payment
+msgid "Contains the logic shared between models which allows to register payments"
+msgstr "Contiene la lógica compartida entre los modelos que permiten el registro de pagos"
+
+#. module: l10n_mx_payment_method
+#: model:ir.model.fields,field_description:l10n_mx_payment_method.field_payment_method__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: l10n_mx_payment_method
+#: model:ir.model.fields,field_description:l10n_mx_payment_method.field_payment_method__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: l10n_mx_payment_method
+#: model:payment.method,name:l10n_mx_payment_method.pay_method_cuenta_terceros
+#: model:payment.method,note:l10n_mx_payment_method.pay_method_cuenta_terceros
+msgid "Cuenta de terceros"
+msgstr ""
+
+#. module: l10n_mx_payment_method
+#: model:ir.model.fields,field_description:l10n_mx_payment_method.field_res_partner__payment_method_customer
+#: model:ir.model.fields,field_description:l10n_mx_payment_method.field_res_users__payment_method_customer
+msgid "Customer Payment Method"
+msgstr "Forma de pago del cliente"
+
+#. module: l10n_mx_payment_method
+#: model:payment.method,name:l10n_mx_payment_method.pay_method_dacion_pago
+#: model:payment.method,note:l10n_mx_payment_method.pay_method_dacion_pago
+msgid "Dacion de pago"
+msgstr ""
+
+#. module: l10n_mx_payment_method
+#: model:ir.model.fields,field_description:l10n_mx_payment_method.field_payment_method__note
+#: model_terms:ir.ui.view,arch_db:l10n_mx_payment_method.view_payment_type_form
+msgid "Description"
+msgstr "Descripción"
+
+#. module: l10n_mx_payment_method
+#: model:ir.model.fields,help:l10n_mx_payment_method.field_payment_method__note
+msgid "Description of the payment method that will be shown in the invoices"
+msgstr "Descripción de la forma de pago que se mostrará en las facturas."
+
+#. module: l10n_mx_payment_method
+#: model:payment.method,name:l10n_mx_payment_method.pay_method_dinero_electronico
+#: model:payment.method,note:l10n_mx_payment_method.pay_method_dinero_electronico
+msgid "Dinero electrónico"
+msgstr ""
+
+#. module: l10n_mx_payment_method
+#: model:ir.model.fields,field_description:l10n_mx_payment_method.field_payment_method__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: l10n_mx_payment_method
+#: model:payment.method,name:l10n_mx_payment_method.pay_method_efectivo
+#: model:payment.method,note:l10n_mx_payment_method.pay_method_efectivo
+msgid "Efectivo"
+msgstr ""
+
+#. module: l10n_mx_payment_method
+#: model:ir.model.fields,help:l10n_mx_payment_method.field_payment_method__require_bank_account
+msgid "Ensure all lines in the payment order have a bank acount when proposing lines to be added in the payment order."
+msgstr "Asegúrese de que todas las líneas en la orden de pago tengan una cuenta bancaria cuando proponga líneas para agregar en la orden de pago."
+
+#. module: l10n_mx_payment_method
+#: model:ir.model.fields,field_description:l10n_mx_payment_method.field_payment_method__id
+msgid "ID"
+msgstr ""
+
+#. module: l10n_mx_payment_method
+#: model:ir.model.fields,help:l10n_mx_payment_method.field_account_invoice__payment_method
+msgid "Indicates the way it was paid or will be paid the invoice,where the options could be: check, bank transfer, reservoir in account bank, credit card, cash etc. If not know as will be paid the invoice, leave empty and the XML show “Unidentified”."
+msgstr "Indica la forma en que se paga o se pagará la factura, donde las opciones podrían ser: cheque, transferencia bancaria, depósito en cuenta bancaria, tarjeta de crédito, efectivo, etc. Si no sabe cómo se pagará la factura, deje en blanco y el XML muestra "No identificado"."
+
+#. module: l10n_mx_payment_method
+#: model:ir.model,name:l10n_mx_payment_method.model_account_invoice
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: l10n_mx_payment_method
+#: model_terms:ir.ui.view,arch_db:l10n_mx_payment_method.view_vendor_receipt_inh_form
+msgid "Invoices"
+msgstr "Facturas"
+
+#. module: l10n_mx_payment_method
+#: model:ir.model,name:l10n_mx_payment_method.model_account_journal
+msgid "Journal"
+msgstr "Diario"
+
+#. module: l10n_mx_payment_method
+#: model:ir.model.fields,field_description:l10n_mx_payment_method.field_payment_method____last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: l10n_mx_payment_method
+#: model:ir.model.fields,field_description:l10n_mx_payment_method.field_payment_method__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: l10n_mx_payment_method
+#: model:ir.model.fields,field_description:l10n_mx_payment_method.field_payment_method__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: l10n_mx_payment_method
+#: model:payment.method,name:l10n_mx_payment_method.pay_method_monedero_electronico
+#: model:payment.method,note:l10n_mx_payment_method.pay_method_monedero_electronico
+msgid "Monedero electrónico"
+msgstr ""
+
+#. module: l10n_mx_payment_method
+#: model:ir.model.fields,field_description:l10n_mx_payment_method.field_payment_method__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: l10n_mx_payment_method
+#: model:payment.method,name:l10n_mx_payment_method.pay_method_pago_consiganacion
+msgid "Pago por consiganacion"
+msgstr ""
+
+#. module: l10n_mx_payment_method
+#: model:payment.method,note:l10n_mx_payment_method.pay_method_pago_consiganacion
+msgid "Pago por consignacion"
+msgstr ""
+
+#. module: l10n_mx_payment_method
+#: model:payment.method,name:l10n_mx_payment_method.pay_method_pago_subrogacion
+#: model:payment.method,note:l10n_mx_payment_method.pay_method_pago_subrogacion
+msgid "Pago por subrogacion"
+msgstr ""
+
+#. module: l10n_mx_payment_method
+#: model:ir.model.fields,field_description:l10n_mx_payment_method.field_account_abstract_payment__partner_bank_id
+#: model:ir.model.fields,field_description:l10n_mx_payment_method.field_account_payment__partner_bank_id
+#: model:ir.model.fields,field_description:l10n_mx_payment_method.field_account_register_payments__partner_bank_id
+#: model_terms:ir.ui.view,arch_db:l10n_mx_payment_method.view_vendor_receipt_dialog_form
+#: model_terms:ir.ui.view,arch_db:l10n_mx_payment_method.view_vendor_receipt_inh_form
+#: model_terms:ir.ui.view,arch_db:l10n_mx_payment_method.view_vendor_receipt_invoices_form
+msgid "Partner Bank Account"
+msgstr "Cuenta bancaria asociada"
+
+#. module: l10n_mx_payment_method
+#: model:ir.actions.act_window,name:l10n_mx_payment_method.action_payment_method
+#: model:ir.model,name:l10n_mx_payment_method.model_payment_method
+#: model:ir.model.fields,field_description:l10n_mx_payment_method.field_account_abstract_payment__payment_method
+#: model:ir.model.fields,field_description:l10n_mx_payment_method.field_account_invoice__payment_method
+#: model:ir.model.fields,field_description:l10n_mx_payment_method.field_account_journal__payment_method
+#: model:ir.model.fields,field_description:l10n_mx_payment_method.field_account_payment__payment_method
+#: model:ir.model.fields,field_description:l10n_mx_payment_method.field_account_register_payments__payment_method
+#: model:ir.model.fields,help:l10n_mx_payment_method.field_payment_method__name
+#: model:ir.ui.menu,name:l10n_mx_payment_method.menu_action_payment_method
+#: model_terms:ir.ui.view,arch_db:l10n_mx_payment_method.view_account_journal_inh_form
+#: model_terms:ir.ui.view,arch_db:l10n_mx_payment_method.view_payment_type_form
+#: model_terms:ir.ui.view,arch_db:l10n_mx_payment_method.view_payment_type_tree
+#: model_terms:ir.ui.view,arch_db:l10n_mx_payment_method.view_vendor_receipt_dialog_form
+#: model_terms:ir.ui.view,arch_db:l10n_mx_payment_method.view_vendor_receipt_inh_form
+#: model_terms:ir.ui.view,arch_db:l10n_mx_payment_method.view_vendor_receipt_invoices_form
+msgid "Payment method"
+msgstr "Forma de pago"
+
+#. module: l10n_mx_payment_method
+#: model:res.groups,name:l10n_mx_payment_method.group_payment_method_manager
+msgid "Payment method manager"
+msgstr "Gerente de forma de pago"
+
+#. module: l10n_mx_payment_method
+#: model:ir.model.fields,help:l10n_mx_payment_method.field_res_partner__payment_method_customer
+#: model:ir.model.fields,help:l10n_mx_payment_method.field_res_users__payment_method_customer
+msgid "Payment method of the customer"
+msgstr "Forma de pago del cliente"
+
+#. module: l10n_mx_payment_method
+#: model:ir.model.fields,help:l10n_mx_payment_method.field_res_partner__payment_method_supplier
+#: model:ir.model.fields,help:l10n_mx_payment_method.field_res_users__payment_method_supplier
+msgid "Payment method of the supplier"
+msgstr "Forma de pago del proveedor"
+
+#. module: l10n_mx_payment_method
+#: model:ir.model,name:l10n_mx_payment_method.model_account_payment
+msgid "Payments"
+msgstr "Pagos"
+
+#. module: l10n_mx_payment_method
+#: model:payment.method,name:l10n_mx_payment_method.pay_method_dinero_otros
+#: model:payment.method,note:l10n_mx_payment_method.pay_method_dinero_otros
+msgid "Por definir"
+msgstr ""
+
+#. module: l10n_mx_payment_method
+#: model:ir.model,name:l10n_mx_payment_method.model_account_register_payments
+msgid "Register Payments"
+msgstr "Registrar pagos"
+
+#. module: l10n_mx_payment_method
+#: model:ir.model.fields,field_description:l10n_mx_payment_method.field_account_abstract_payment__require_bank_account
+#: model:ir.model.fields,field_description:l10n_mx_payment_method.field_account_payment__require_bank_account
+#: model:ir.model.fields,field_description:l10n_mx_payment_method.field_account_register_payments__require_bank_account
+#: model:ir.model.fields,field_description:l10n_mx_payment_method.field_payment_method__require_bank_account
+msgid "Require Bank Account"
+msgstr "Requerir cuenta bancaria"
+
+#. module: l10n_mx_payment_method
+#: model:payment.method,name:l10n_mx_payment_method.pay_method_servicio
+#: model:payment.method,note:l10n_mx_payment_method.pay_method_servicio
+msgid "Servicio"
+msgstr ""
+
+#. module: l10n_mx_payment_method
+#: model:ir.model.fields,help:l10n_mx_payment_method.field_payment_method__code
+msgid "Specify the Code for Payment method"
+msgstr "Especifique el código para la forma de pago"
+
+#. module: l10n_mx_payment_method
+#: model_terms:ir.ui.view,arch_db:l10n_mx_payment_method.view_payment_type_form
+msgid "Suitable Bank Types"
+msgstr "Tipos de bancos adecuados"
+
+#. module: l10n_mx_payment_method
+#: model:ir.model.fields,field_description:l10n_mx_payment_method.field_payment_method__suitable_bank_types
+msgid "Suitable bank types"
+msgstr "Tipos de bancos adecuados"
+
+#. module: l10n_mx_payment_method
+#: model:ir.model.fields,field_description:l10n_mx_payment_method.field_res_partner__payment_method_supplier
+#: model:ir.model.fields,field_description:l10n_mx_payment_method.field_res_users__payment_method_supplier
+msgid "Supplier Payment Method"
+msgstr "Forma de pago del proveedor"
+
+#. module: l10n_mx_payment_method
+#: model:payment.method,name:l10n_mx_payment_method.pay_method_tarjeta_de_credito
+#: model:payment.method,note:l10n_mx_payment_method.pay_method_tarjeta_de_credito
+msgid "Tarjeta de crédito"
+msgstr ""
+
+#. module: l10n_mx_payment_method
+#: model:payment.method,name:l10n_mx_payment_method.pay_method_tarjetas_digitales
+#: model:payment.method,note:l10n_mx_payment_method.pay_method_tarjetas_digitales
+msgid "Tarjetas digitales"
+msgstr ""
+
+#. module: l10n_mx_payment_method
+#: model:res.groups,comment:l10n_mx_payment_method.group_payment_method_manager
+msgid "The user payment method in a invoice."
+msgstr "El forma de pago del usuario en una factura."
+
+#. module: l10n_mx_payment_method
+#: model:payment.method,name:l10n_mx_payment_method.pay_method_transferencia
+#: model:payment.method,note:l10n_mx_payment_method.pay_method_transferencia
+msgid "Transferencia"
+msgstr ""
+
+#. module: l10n_mx_payment_method
+#: model:payment.method,name:l10n_mx_payment_method.pay_method_vales_despensa
+#: model:payment.method,note:l10n_mx_payment_method.pay_method_vales_despensa
+msgid "Vales de despensa"
+msgstr ""
+

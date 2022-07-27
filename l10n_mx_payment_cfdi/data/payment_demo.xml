@@ -1,0 +1,3 @@
+{% for payment in item.invoice_id.payment_ids if payment.id!=item.id  -%}
+                     <pago10:DoctoRelacionado IdDocumento="{{item.invoice_id.cfdi_folio_fiscal}}" Serie="A4055" Folio="2154" MonedaDR="MXN"  MetodoDePagoDR="PPD" NumParcialidad="1" ImpSaldoAnt="{{item.invoice_id.residual+item.credit}}" ImpSaldoInsoluto="{{item.invoice_id.residual or 0}}" ImpPagado="{{item.credit}}"/>
+                {%- endfor %}

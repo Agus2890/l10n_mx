@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="view_company_page_folios">
+            <field name="name">res.company.form.folios</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <notebook>
+                        <page string="Control Folios">
+                            <field name="folio_id" options="{'no_open': True}"/>
+                            <field name="folio_lines">
+                                <tree string="Lineas" editable="bottom">
+                                    <field name="pac_id"/>
+                                    <field name="datein"/>
+                                    <field name="datefin"/>
+                                    <field name="qty"/>
+                                    <field name="consumidos"/>
+                                    <field name="amount"/>
+                                    <field name="check"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </data>
+            </field>
+        </record>
+
+         <record model="ir.ui.view" id="view_company_page_folios_tree">
+            <field name="name">res.company.tree.folios</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_tree"/>
+            <field name="arch" type="xml">
+                 <field name="partner_id" position='after'>
+                    <field name="datein"/>
+                    <field name="datefin"/>
+                    <field name="qty"/>
+                    <field name="consumidos"/>
+                    <field name="amount"/>
+                 </field>
+            </field>
+        </record>
+
+    </data>
+</odoo>

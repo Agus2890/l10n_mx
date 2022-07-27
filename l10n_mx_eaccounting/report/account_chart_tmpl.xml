@@ -1,0 +1,11 @@
+<odoo>
+    <data>
+        <template id="account_chart_xml">
+            <t t-call="report_xml.utf8_header">
+            	<catalogocuentas:Catalogo xmlns:catalogocuentas="http://www.sat.gob.mx/esquemas/ContabilidadE/1_3/CatalogoCuentas" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Anio="2019" t-esc="docs" Mes="02" RFC="LME060310BQ3" Version="1.3" xsi:schemaLocation="http://www.sat.gob.mx/esquemas/ContabilidadE/1_3/CatalogoCuentas http://www.sat.gob.mx/esquemas/ContabilidadE/1_3/CatalogoCuentas/CatalogoCuentas_1_3.xsd">
+            	</catalogocuentas:Catalogo>
+            </t>
+        </template>
+
+    </data>
+</odoo>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_account_tax_category_form" model="ir.ui.view">
+            <field name="name">view.account.tax.category.form</field>
+            <field name="model">account.tax.category</field>
+            <field name="arch" type="xml">
+                <form string="Tax Categories">
+                    <group>
+                        <group>
+                            <field name="name" colspan="2"/>
+                            <field name="code" colspan="2"/>
+                            <field name="code_sat" colspan="2"/>
+                        </group>
+                        <group>
+                            <field name="type" colspan="2"/>
+                            <field name="active" colspan="2"/>
+                            <field name="sign" colspan="2"/>
+                            <field name="company_id" />
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="view_account_tax_category_tree" model="ir.ui.view">
+            <field name="name">view.account.tax.category.tree</field>
+            <field name="model">account.tax.category</field>
+            <field name="arch" type="xml">
+                <tree string="Tax Categories">
+                    <field name="name" />
+                    <field name="code" />
+                    <field name="code_sat"/>
+                    <field name="type"/>
+                    <field name="active"/>
+                    <field name="sign" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_account_tax_category_tree" model="ir.actions.act_window">
+            <field name="name">Categoria de Impuestos</field>
+            <field name="res_model">account.tax.category</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_account_tax_category_tree"/>
+        </record>
+
+<!--         <record id="view_account_tax_category_search" model="ir.ui.view">
+            <field name="name">view.account.tax.category.search</field>
+            <field name="model">account.tax.category</field>
+            <field name="arch" type="xml">
+                <search string="Search Taxes Categories">
+                    <filter string="Inactive" icon="terp-personal+" filter_domain="[('active','=',False)]"/>
+                    <field name="name"/>
+                    <field name="code"/>
+                </search>
+            </field>
+        </record> -->
+
+        <menuitem action="action_account_tax_category_tree"
+                id="menu_account_tax_category" sequence="50"
+                parent="account.account_account_menu"
+                />
+                <!-- parent="account.next_id_27" -->
+
+        <record model="ir.ui.view" id="view_account_tax_category_form_inh">
+            <field name="name">view.account.tax.category.form.inh</field>
+            <field name="inherit_id" ref="account.view_tax_form"/>
+            <field name="model">account.tax</field>
+            <field name="arch" type="xml">
+               <xpath expr='//group/field[@name="tax_scope"]' position="after">
+                    <field name='tax_category_id' />
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

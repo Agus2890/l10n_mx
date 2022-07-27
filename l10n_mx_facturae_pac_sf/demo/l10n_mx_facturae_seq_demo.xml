@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+<odoo>
+    <data noupdate="1">
+        <record id="demo_l10n_mx_facturae_ir_seq_01" model="ir.sequence">
+            <field name="company_id" ref="base.main_company"/>
+            <field name="name">Sequence CFDI SF</field>
+            <field name="active" eval="True"/>
+            <field name="padding">0</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+            <field name="type">cfdi32_pac_sf</field>
+            <field name="implementation">standard</field>
+        </record>
+
+        <record id="demo_l10n_mx_facturae_account_journal_01" model="account.journal">
+            <field name="company_id" ref="base.main_company"/>
+            <field name="sequence_id" ref="demo_l10n_mx_facturae_ir_seq_01"/>
+            <field name="name">Diario de CFDI SF</field>
+            <field name="code">CFDI</field>
+            <field name="type">sale</field>
+            <field name="update_posted">1</field>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="company2_id" ref="base.main_company"/>
+            <field name="currency" ref="base.MXN"/>
+        </record>
+    </data>
+</odoo>

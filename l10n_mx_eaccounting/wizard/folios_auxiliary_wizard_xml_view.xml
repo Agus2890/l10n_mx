@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_folios_report_auxiliary_wizard_xml" model="ir.ui.view">
+            <field name="name">folios.entries.wizard.xml</field>
+            <field name="model">folios.auxiliary.wizard.xml</field>
+            <field name="type">form</field>        
+            <field name="arch" type="xml">
+                <form string="Journal Entries Report">
+                    <group string="Journal Entries">
+                        <group>
+                           
+                            <field name="target_move" widget="radio"/>
+                            <field name="date_range_id" />
+                            <field name="date_from" />
+                            <field name="date_to" />
+                        </group>
+                        <group >
+                            <field name="type_request" />
+                            <field name="order_num" attrs="{'required':[('type_request','in',['AF','FC'])], 'invisible':[('type_request','not in',['AF','FC'])]}" />
+                            <field name="pro_num" attrs="{'required':[('type_request','in',['DE','CO'])], 'invisible':[('type_request','not in',['DE','CO'])]}" />
+                            <field name="company_id" />
+                        </group>
+                    </group>
+                    <footer>                
+                        <button name="print_report" string="Export XML" type="object" class="oe_highlight"/>
+                        or 
+                        <button string="Cancel" class="oe_link" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        
+</odoo>

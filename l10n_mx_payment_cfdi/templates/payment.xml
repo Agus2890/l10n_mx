@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<cfdi:Comprobante xmlns:cfdi="http://www.sat.gob.mx/cfd/4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sat.gob.mx/cfd/4 http://www.sat.gob.mx/sitio_internet/cfd/4/cfdv40.xsd http://www.sat.gob.mx/Pagos20 http://www.sat.gob.mx/sitio_internet/cfd/Pagos/Pagos20.xsd" xmlns:pago20="http://www.sat.gob.mx/Pagos20" xmlns:xs="http://www.w3.org/2001/XMLSchema" Version="4.0" Serie="{{serie}}" Folio="{{folio}}" Fecha="{{date_payment}}" Sello="@" NoCertificado="@" Certificado="@" SubTotal="0" Moneda="XXX" Total="0" TipoDeComprobante="P" Exportacion="01" LugarExpedicion="{{emitter.zip}}">
+    <cfdi:Emisor Rfc="{{emitter.partner_id.vat}}" Nombre="{{emitter.name}}" RegimenFiscal="{{emitter.partner_id.property_account_position_id.clave}}"/>
+    <cfdi:Receptor Rfc="{{payment.partner_id.vat}}" Nombre="{{payment.partner_id.name}}" UsoCFDI="CP01" RegimenFiscalReceptor="{{payment.partner_id.property_account_position_id.clave}}" DomicilioFiscalReceptor="{{payment.partner_id.zip}}"/>
+    <cfdi:Conceptos>
+        <cfdi:Concepto ClaveProdServ="84111506" ClaveUnidad="ACT" Cantidad="1" Descripcion="Pago" ValorUnitario="0" Importe="0" ObjetoImp="01">
+        </cfdi:Concepto>
+    </cfdi:Conceptos>
+      <cfdi:Complemento>
+        <pago20:Pagos Version="2.0">
+            <pago20:Totales MontoTotalPagos="{{'{:.2f}'.format(totales.get('MontoTotalPagos'))}}" TotalTrasladosBaseIVA16="{{'{:.2f}'.format(totales.get('TotalTrasladosBaseIVA16'))}}" TotalTrasladosImpuestoIVA16="{{'{:.2f}'.format(totales.get('TotalTrasladosImpuestoIVA16'))}}" />
+        	{% for item in payment_ids -%}
+                {%  if not payment.journal_id.currency_id and item.get('pago').debit_currency_id.id!=item.get('pago').credit_currency_id.id: %}
+    	            <pago20:Pago FechaPago="{{date}}" FormaDePagoP="{{payment.payment_type_id.code}}" MonedaP="{{payment.currency_id.name}}"  Monto="{{payment.amount}}" NumOperacion="{{payment.ref}}" TipoCambioP="1">
+                        <pago20:DoctoRelacionado  IdDocumento="{{item.get('pago').debit_move_id.move_id.cfdi_folio_fiscal}}" EquivalenciaDR="{{'{:.6f}'.format(currency_rate)}}" Serie="P" Folio="{{payment.name}}" MonedaDR="{{item.get('pago').debit_move_id.currency_id.name}}" NumParcialidad="{{item.get('pago').sequence or 1}}" ImpSaldoAnt="{{'{:.2f}'.format((item.get('pago').debit_move_id.amount_residual+item.get('pago').amount)/(1/currency_rate))}}" ObjetoImpDR="02" ImpSaldoInsoluto="{{'{:.2f}'.format(item.get('pago').debit_move_id.amount_residual/(1/currency_rate)) or 0.0}}" ImpPagado="{{'{:.2f}'.format(item.get('pago').amount/(1/currency_rate))}}">
+                        {% if item.get('taxes_traslado_line') or  item.get('taxes_retenidos_line'): %}
+                            <pago20:ImpuestosDR>
+                                {% for tl_line in item.get('taxes_traslado_line') -%}
+                                    <pago20:TrasladosDR>
+                                        <pago20:TrasladoDR BaseDR="{{'{:.2f}'.format(tl_line.get('BaseDR')/(1/currency_rate))}}" ImpuestoDR="{{tl_line.get('ImpuestoDR')}}" TipoFactorDR="{{tl_line.get('TipoFactorDR')}}" TasaOCuotaDR="{{tl_line.get('TasaOCuotaDR')}}" ImporteDR="{{'{:.2f}'.format(tl_line.get('ImporteDR')/(1/currency_rate))}}"/>
+                                    </pago20:TrasladosDR>
+                                {%- endfor %}
+                            </pago20:ImpuestosDR>
+                        {% endif %}
+                        </pago20:DoctoRelacionado>  
+                        {% if taxes_retenciones_global or taxes_traslado_global: %}
+                            <pago20:ImpuestosP>
+                                {% for tl_global in taxes_retenciones_global -%}
+                                    <pago20:RetencionesP>
+                                        <pago20:RetencionP ImpuestoP="{{tl_global.get('ImpuestoP')}}" ImporteP="{{tl_global.get('ImporteP')}}"/>
+                                    </pago20:RetencionesP>
+                                {%- endfor %}
+                                {% for tl_global in taxes_traslado_global -%}
+                                    <pago20:TrasladosP>
+                                        <pago20:TrasladoP BaseP="{{tl_global.get('BaseP')}}" ImpuestoP="{{tl_global.get('ImpuestoP')}}" TipoFactorP="{{tl_global.get('TipoFactorP')}}" TasaOCuotaP="{{tl_global.get('TasaOCuotaP')}}" ImporteP="{{tl_global.get('ImporteP')}}"/>
+                                  </pago20:TrasladosP>
+                                {%- endfor %}
+                            </pago20:ImpuestosP>
+                        {% endif %}  
+                    </pago20:Pago>
+                {% elif  payment.journal_id.currency_id and item.get('pago').debit_currency_id.id==item.get('pago').credit_currency_id.id: %}
+                    <pago20:Pago FechaPago="{{date}}" FormaDePagoP="{{payment.payment_type_id.code}}" MonedaP="{{payment.currency_id.name}}"  Monto="{{payment.amount}}" NumOperacion="{{payment.ref}}" TipoCambioP="{{rate}}">
+                        <pago20:DoctoRelacionado  IdDocumento="{{item.get('pago').debit_move_id.move_id.cfdi_folio_fiscal}}" EquivalenciaDR="1" Serie="P" Folio="{{payment.name}}" MonedaDR="{{item.get('pago').debit_move_id.currency_id.name}}" NumParcialidad="{{item.get('pago').sequence or 1}}" ImpSaldoAnt="{{'{:.2f}'.format((item.get('pago').debit_move_id.amount_residual+item.get('pago').debit_amount_currency))}}" ObjetoImpDR="02" ImpSaldoInsoluto="{{'{:.2f}'.format(item.get('pago').debit_move_id.amount_residual) or 0.0}}" ImpPagado="{{'{:.2f}'.format(item.get('pago').debit_amount_currency)}}">
+                        {% if item.get('taxes_traslado_line') or  item.get('taxes_retenidos_line'): %}
+                            <pago20:ImpuestosDR>
+                                {% for tl_line in item.get('taxes_traslado_line') -%}
+                                    <pago20:TrasladosDR>
+                                        <pago20:TrasladoDR BaseDR="{{'{:.2f}'.format(tl_line.get('BaseDR'))}}" ImpuestoDR="{{tl_line.get('ImpuestoDR')}}" TipoFactorDR="{{tl_line.get('TipoFactorDR')}}" TasaOCuotaDR="{{tl_line.get('TasaOCuotaDR')}}" ImporteDR="{{'{:.2f}'.format(tl_line.get('ImporteDR'))}}"/>
+                                    </pago20:TrasladosDR>
+                                {%- endfor %}
+                            </pago20:ImpuestosDR>
+                        {% endif %}
+                        </pago20:DoctoRelacionado>  
+                        {% if taxes_retenciones_global or taxes_traslado_global: %}
+                            <pago20:ImpuestosP>
+                                {% for tl_global in taxes_retenciones_global -%}
+                                    <pago20:RetencionesP>
+                                        <pago20:RetencionP ImpuestoP="{{tl_global.get('ImpuestoP')}}" ImporteP="{{tl_global.get('ImporteP')}}"/>
+                                    </pago20:RetencionesP>
+                                {%- endfor %}
+                                {% for tl_global in taxes_traslado_global -%}
+                                    <pago20:TrasladosP>
+                                        <pago20:TrasladoP BaseP="{{tl_global.get('BaseP')}}" ImpuestoP="{{tl_global.get('ImpuestoP')}}" TipoFactorP="{{tl_global.get('TipoFactorP')}}" TasaOCuotaP="{{tl_global.get('TasaOCuotaP')}}" ImporteP="{{tl_global.get('ImporteP')}}"/>
+                                  </pago20:TrasladosP>
+                                {%- endfor %}
+                            </pago20:ImpuestosP>
+                        {% endif %}  
+                    </pago20:Pago>
+                {%  else: %}
+                    <pago20:Pago FechaPago="{{date}}" FormaDePagoP="{{payment.payment_type_id.code}}" MonedaP="{{payment.currency_id.name}}"  Monto="{{payment.amount}}" NumOperacion="{{payment.ref}}" TipoCambioP="1">
+                        <pago20:DoctoRelacionado  IdDocumento="{{item.get('pago').debit_move_id.move_id.cfdi_folio_fiscal}}" EquivalenciaDR="1" Serie="P" Folio="{{payment.name}}" MonedaDR="{{item.get('pago').debit_move_id.currency_id.name}}" NumParcialidad="{{item.get('pago').sequence or 1}}" ImpSaldoAnt="{{item.get('pago').debit_move_id.amount_residual+item.get('pago').amount}}" ObjetoImpDR="02" ImpSaldoInsoluto="{{item.get('pago').debit_move_id.amount_residual or 0.0}}" ImpPagado="{{item.get('pago').amount}}">
+                        {% if item.get('taxes_traslado_line') or  item.get('taxes_retenidos_line'): %}
+                            <pago20:ImpuestosDR>
+                                {% for tl_line in item.get('taxes_traslado_line') -%}
+                                    <pago20:TrasladosDR>
+                                        <pago20:TrasladoDR BaseDR="{{tl_line.get('BaseDR')}}" ImpuestoDR="{{tl_line.get('ImpuestoDR')}}" TipoFactorDR="{{tl_line.get('TipoFactorDR')}}" TasaOCuotaDR="{{tl_line.get('TasaOCuotaDR')}}" ImporteDR="{{'{:.2f}'.format(tl_line.get('ImporteDR'))}}"/>
+                                    </pago20:TrasladosDR>
+                                {%- endfor %}
+                            </pago20:ImpuestosDR>
+                        {% endif %}
+                        </pago20:DoctoRelacionado>  
+                        {% if taxes_retenciones_global or taxes_traslado_global: %}
+                            <pago20:ImpuestosP>
+                                {% for tl_global in taxes_retenciones_global -%}
+                                    <pago20:RetencionesP>
+                                        <pago20:RetencionP ImpuestoP="{{tl_global.get('ImpuestoP')}}" ImporteP="{{tl_global.get('ImporteP')}}"/>
+                                    </pago20:RetencionesP>
+                                {%- endfor %}
+                                {% for tl_global in taxes_traslado_global -%}
+                                    <pago20:TrasladosP>
+                                        <pago20:TrasladoP BaseP="{{tl_global.get('BaseP')}}" ImpuestoP="{{tl_global.get('ImpuestoP')}}" TipoFactorP="{{tl_global.get('TipoFactorP')}}" TasaOCuotaP="{{tl_global.get('TasaOCuotaP')}}" ImporteP="{{tl_global.get('ImporteP')}}"/>
+                                  </pago20:TrasladosP>
+                                {%- endfor %}
+                            </pago20:ImpuestosP>
+                        {% endif %}  
+                    </pago20:Pago>
+                {% endif %}
+            {%- endfor %}
+        </pago20:Pagos>
+    </cfdi:Complemento>
+</cfdi:Comprobante>

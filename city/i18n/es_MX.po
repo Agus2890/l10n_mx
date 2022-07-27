@@ -1,0 +1,129 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* city
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-29 19:24+0000\n"
+"PO-Revision-Date: 2019-11-29 19:24+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: city
+#: model:ir.model.fields,help:city.field_res_country_state_city__name
+msgid "Administrative divisions of a state."
+msgstr "División administrativa de un estado"
+
+#. module: city
+#: model:ir.actions.act_window,name:city.action_country_state_city
+#: model:ir.ui.menu,name:city.menu_country_state_city_partner
+msgid "Cities"
+msgstr "Ciudades"
+
+#. module: city
+#: model:ir.model.fields,field_description:city.field_res_partner__city_id
+#: model:ir.model.fields,field_description:city.field_res_users__city_id
+#: model_terms:ir.ui.view,arch_db:city.res_partner_form_city_01
+msgid "City"
+msgstr "Ciudad"
+
+#. module: city
+#: model:ir.model.fields,field_description:city.field_res_country_state_city__code
+msgid "City Code"
+msgstr "Código de ciudad"
+
+#. module: city
+#: model:res.groups,name:city.group_res_country_state_city_manager
+msgid "City Manager"
+msgstr "Administrador de Ciudades"
+
+#. module: city
+#: model:ir.model,name:city.model_res_partner
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: city
+#: model:ir.model.fields,field_description:city.field_res_country_state_city__country_id
+msgid "Country"
+msgstr "País"
+
+#. module: city
+#: model:ir.model,name:city.model_res_country_state_city
+msgid "Country state city"
+msgstr "Pais-estado-ciudad"
+
+#. module: city
+#: model:ir.model.fields,field_description:city.field_res_country_state_city__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: city
+#: model:ir.model.fields,field_description:city.field_res_country_state_city__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: city
+#: model:ir.model.fields,field_description:city.field_res_country_state_city__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: city
+#: model:ir.actions.act_window,name:city.action_country_state
+#: model:ir.ui.menu,name:city.menu_country_state_partner
+msgid "Fed. States"
+msgstr "Provincias"
+
+#. module: city
+#: model:ir.model.fields,field_description:city.field_res_country_state_city__id
+msgid "ID"
+msgstr ""
+
+#. module: city
+#: model_terms:ir.actions.act_window,help:city.action_country_state
+msgid "If you are working on the American market, you can manage the different federal states you are working on from here. Each state is attached to one country."
+msgstr "Si trabaja en el mercado de los Estados Unidos, puede gestionar los diferentes estados federales con los que trabaje desde aquí. Cada estado se asocia con un país."
+
+#. module: city
+#: model:ir.model.fields,field_description:city.field_res_country_state_city____last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: city
+#: model:ir.model.fields,field_description:city.field_res_country_state_city__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: city
+#: model:ir.model.fields,field_description:city.field_res_country_state_city__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: city
+#: model:ir.ui.menu,name:city.menu_address_book
+msgid "Localization"
+msgstr "Localization"
+
+#. module: city
+#: model:ir.model.fields,field_description:city.field_res_country_state_city__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: city
+#: model:ir.model.fields,field_description:city.field_res_country_state_city__state_id
+#: model_terms:ir.ui.view,arch_db:city.res_partner_form_city_01
+#: model_terms:ir.ui.view,arch_db:city.view_country_state_form
+#: model_terms:ir.ui.view,arch_db:city.view_country_state_tree
+msgid "State"
+msgstr "Estado"
+
+#. module: city
+#: model:ir.model.fields,help:city.field_res_country_state_city__code
+msgid "The city code in max. five chars."
+msgstr "El código de la ciudad en máx. cinco caracteres"
+

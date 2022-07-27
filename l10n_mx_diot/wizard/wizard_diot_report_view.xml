@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_account_diot_report" model="ir.ui.view">
+            <field name="name">DIOT Report for Mexico</field>
+            <field name="model">account.diot.report</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+		         <form string="DIOT Report"  version="7.0">
+		            <field name="state" invisible="1"/>
+		            <field name="name" invisible="1"/>
+		            <group  states="choose" string="DIOT Report - Statement of transactions with third parties [DIOT]" colspan="4">
+		                <field name="company_id" widget="selection" groups="base.group_multi_company" />
+		                <!--<field name="period_id" widget="selection" />-->
+		                <field name="target_move" />
+		                <field name="date_range_id" />
+		                <field name="date_from" />
+		                <field name="date_to" />
+		            </group>
+
+	                <div states="not_file">
+	                    <h2>You DIOT report not has been created!</h2>
+	                    <p>Probably because: </p>
+	                    <p>- Not exists movements in the selected period</p>
+	                    <p>- You do not have configured taxes correctly</p>
+	                </div>
+
+	                <div states="get">
+	                    <h2>You DIOT report has been successfully created!</h2>
+	                    <p>You can download TXT file an import it into DeclaraSAT.</p>
+	                    <p>There is also an excel version for review or change the report.</p>
+	                    <p>TXT DIOT Report: <field name="file" readonly="1" filename="filename"/></p>
+                        <p>Excel DIOT Report: <field name="file_xls" readonly="1" filename="filename_xls"/></p>
+	                </div>
+
+	                <footer states="choose">
+	                    <button name="create_report" string="Create DIOT report" type="object" class="oe_highlight" />
+	                    or
+	                    <button class="oe_link" special="cancel"  string="Cancel" />
+	                </footer>
+	                <footer attrs="{'invisible':[('state','not in', ('get', 'not_file'))]}">
+	                    <button special="cancel" string="Close" class="oe_link" />
+	                </footer>
+		        </form>
+            </field>
+        </record>
+
+        <record id="action_account_diot_report" model="ir.actions.act_window">
+            <field name="name">Account DIOT Report</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">account.diot.report</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="help"></field>
+        </record>
+
+<!--         <menuitem name="Transactions with third parties [ DIOT ]"
+                parent="account.menu_finance_legal_statement"
+                action="action_account_diot_report"
+                id="menu_account_diot_report"
+            /> -->
+
+
+    </data>
+</odoo>

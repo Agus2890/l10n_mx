@@ -1,0 +1,460 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* l10n_mx_eaccounting
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 7.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-11-10 16:52+0000\n"
+"PO-Revision-Date: 2015-11-10 16:52+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_mx_eaccounting
+#: code:_description:0
+#: model:ir.model,name:l10n_mx_eaccounting.model_account_auxiliary_wizard_xml
+#, python-format
+msgid "Account Common Account Report"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: code:_description:0
+#: model:ir.model,name:l10n_mx_eaccounting.model_journal_entries_wizard_xml
+#, python-format
+msgid "Account Common Report"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: selection:account.auxiliary.wizard.xml,display_account:0
+msgid "All"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: selection:account.auxiliary.wizard.xml,target_move:0
+#: selection:journal.entries.wizard.xml,target_move:0
+msgid "All Entries"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: selection:account.auxiliary.wizard.xml,target_move:0
+#: selection:journal.entries.wizard.xml,target_move:0
+msgid "All Posted Entries"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: view:account.auxiliary.wizard.xml:0
+#: model:ir.actions.act_window,name:l10n_mx_eaccounting.action_account_auxiliary_wizard
+#: model:ir.ui.menu,name:l10n_mx_eaccounting.account_auxiliary_wizard_menu
+msgid "Auxiliary Account"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: view:account.print.chart.accounts.report:0
+#: view:journal.entries.wizard.xml:0
+#: view:trial.balance.webkit:0
+msgid "Cancel"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: selection:account.auxiliary.wizard.xml,type_request:0
+#: selection:journal.entries.wizard.xml,type_request:0
+msgid "Certifying audit"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: field:account.auxiliary.wizard.xml,chart_account_id:0
+#: field:journal.entries.wizard.xml,chart_account_id:0
+msgid "Chart of Account"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: model:ir.ui.menu,name:l10n_mx_eaccounting.menu_wizard_print_chart_account
+msgid "Chart of accounts"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: code:_description:0
+#: model:ir.model,name:l10n_mx_eaccounting.model_account_print_chart_accounts_report
+#, python-format
+msgid "Chart of accounts Report"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: field:account.auxiliary.wizard.xml,company_id:0
+#: field:journal.entries.wizard.xml,company_id:0
+msgid "Company"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: selection:trial.balance.webkit,type_send:0
+msgid "Complementaria"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: selection:account.auxiliary.wizard.xml,type_request:0
+#: selection:journal.entries.wizard.xml,type_request:0
+msgid "Control act"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: selection:account.auxiliary.wizard.xml,filter:0
+#: selection:journal.entries.wizard.xml,filter:0
+msgid "Date"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: field:account.auxiliary.wizard.xml,display_account:0
+msgid "Display Accounts"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: model:ir.ui.menu,name:l10n_mx_eaccounting.menu_finance_eaccounting
+msgid "Electronic accounting"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: field:account.auxiliary.wizard.xml,date_to:0
+#: field:journal.entries.wizard.xml,date_to:0
+msgid "End Date"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: field:account.auxiliary.wizard.xml,period_to:0
+#: field:journal.entries.wizard.xml,period_to:0
+msgid "End Period"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: code:addons/l10n_mx_eaccounting/report/journal_entries_xml.py:99
+#: code:addons/l10n_mx_eaccounting/report/journal_entries_xml.py:319
+#: code:addons/l10n_mx_eaccounting/report/journal_entries_xml.py:422
+#: code:addons/l10n_mx_eaccounting/report/journal_entries_xml.py:520
+#: code:addons/l10n_mx_eaccounting/wizard/account_auxiliary_wizard_xml.py:170
+#: code:addons/l10n_mx_eaccounting/wizard/account_report_chart_of_account.py:118
+#: code:addons/l10n_mx_eaccounting/wizard/journal_entries_wizard_xml.py:108
+#: code:addons/l10n_mx_eaccounting/wizard/journal_entries_wizard_xml.py:123
+#: code:addons/l10n_mx_eaccounting/wizard/trial_balance_wizard_xml.py:95
+#, python-format
+msgid "Error"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: view:account.print.chart.accounts.report:0
+msgid "Export"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: view:account.auxiliary.wizard.xml:0
+#: view:journal.entries.wizard.xml:0
+#: view:trial.balance.webkit:0
+msgid "Export XML"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: field:account.auxiliary.wizard.xml,filter:0
+#: field:journal.entries.wizard.xml,filter:0
+msgid "Filter by"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: field:account.auxiliary.wizard.xml,account_ids:0
+msgid "Filter on accounts"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: field:account.auxiliary.wizard.xml,fiscalyear_id:0
+#: field:journal.entries.wizard.xml,fiscalyear_id:0
+msgid "Fiscal Year"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: code:addons/l10n_mx_eaccounting/report/journal_entries_xml.py:423
+#, python-format
+msgid "Journal %s do not have set a Payment Type"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: model:ir.actions.act_window,name:l10n_mx_eaccounting.action_journal_entries_wizard
+#: model:ir.ui.menu,name:l10n_mx_eaccounting.journal_entries_wizard_menu
+#: view:journal.entries.wizard.xml:0
+msgid "Journal Entries"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: view:journal.entries.wizard.xml:0
+msgid "Journal Entries Report"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: field:account.auxiliary.wizard.xml,journal_ids:0
+#: field:journal.entries.wizard.xml,journal_ids:0
+msgid "Journals"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: help:account.auxiliary.wizard.xml,fiscalyear_id:0
+#: help:journal.entries.wizard.xml,fiscalyear_id:0
+msgid "Keep empty for all open fiscal year"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: field:trial.balance.webkit,last_modification:0
+msgid "Last Modification"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: selection:account.auxiliary.wizard.xml,filter:0
+#: selection:journal.entries.wizard.xml,filter:0
+msgid "No Filters"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: selection:trial.balance.webkit,type_send:0
+msgid "Normal"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: code:addons/l10n_mx_eaccounting/report/journal_entries_xml.py:521
+#, python-format
+msgid "Not found Journal Entries for this Period.\n"
+"Choose another Period!"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: code:addons/l10n_mx_eaccounting/report/journal_entries_xml.py:102
+#, python-format
+msgid "Not found Sat Code on account %s-%s. \n"
+"Verify that the configuration of Account Sat_Group is correct!"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: code:addons/l10n_mx_eaccounting/wizard/account_auxiliary_wizard_xml.py:171
+#: code:addons/l10n_mx_eaccounting/wizard/account_report_chart_of_account.py:119
+#: code:addons/l10n_mx_eaccounting/wizard/journal_entries_wizard_xml.py:109
+#: code:addons/l10n_mx_eaccounting/wizard/trial_balance_wizard_xml.py:96
+#, python-format
+msgid "Not found information for VAT of Company.\n"
+"Verify that the configuration of VAT is correct!"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: code:addons/l10n_mx_eaccounting/wizard/journal_entries_wizard_xml.py:124
+#, python-format
+msgid "Not found period for that Company.\n"
+"Verify that the configuration of period is correct!"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: help:account.auxiliary.wizard.xml,account_ids:0
+msgid "Only selected accounts will be printed. Leave empty to\n"
+"                    print all accounts."
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: field:account.auxiliary.wizard.xml,order_num:0
+#: field:journal.entries.wizard.xml,order_num:0
+msgid "Order number"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: constraint:account.auxiliary.wizard.xml:0
+#: constraint:journal.entries.wizard.xml:0
+msgid "Order number not valid.\n"
+"Verify that the pattern is correct!"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: code:addons/l10n_mx_eaccounting/report/journal_entries_xml.py:320
+#, python-format
+msgid "Partner %s do not have a VAT number assigned"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: view:account.auxiliary.wizard.xml:0
+#: field:account.auxiliary.wizard.xml,period_id:0
+#: field:account.print.chart.accounts.report,period_id:0
+#: field:journal.entries.wizard.xml,period_id:0
+#: view:trial.balance.webkit:0
+msgid "Period"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: selection:account.auxiliary.wizard.xml,filter:0
+#: selection:journal.entries.wizard.xml,filter:0
+msgid "Periods"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: model:ir.actions.act_window,name:l10n_mx_eaccounting.action_print_chart_menu
+msgid "Print chart of accounts"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: field:account.auxiliary.wizard.xml,pro_num:0
+#: field:journal.entries.wizard.xml,pro_num:0
+msgid "Procedure number"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: constraint:account.auxiliary.wizard.xml:0
+#: constraint:journal.entries.wizard.xml:0
+msgid "Procedure number not valid.\n"
+"Verify that the pattern is correct!"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: view:account.print.chart.accounts.report:0
+msgid "Report Options"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: selection:account.auxiliary.wizard.xml,type_request:0
+#: selection:journal.entries.wizard.xml,type_request:0
+msgid "Return"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: help:account.auxiliary.wizard.xml,chart_account_id:0
+#: help:journal.entries.wizard.xml,chart_account_id:0
+msgid "Select Charts of Accounts"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: help:account.auxiliary.wizard.xml,period_id:0
+#: help:account.print.chart.accounts.report,period_id:0
+#: code:addons/l10n_mx_eaccounting/wizard/account_auxiliary_wizard_xml.py:52
+#: code:addons/l10n_mx_eaccounting/wizard/account_report_chart_of_account.py:39
+#, python-format
+msgid "Select period for your chart report"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: code:addons/l10n_mx_eaccounting/wizard/journal_entries_wizard_xml.py:43
+#: help:journal.entries.wizard.xml,period_id:0
+#, python-format
+msgid "Select period for your fiscal year"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: view:account.auxiliary.wizard.xml:0
+msgid "Select the accounts to include"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: view:account.auxiliary.wizard.xml:0
+#: view:journal.entries.wizard.xml:0
+msgid "Select the declaration type you are doing and type the number given to you by SAT"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: view:trial.balance.webkit:0
+msgid "Select the declaration type you are doing and update the 'Las Modification' field in case you need."
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: field:account.auxiliary.wizard.xml,date_from:0
+#: field:journal.entries.wizard.xml,date_from:0
+msgid "Start Date"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: field:account.auxiliary.wizard.xml,period_from:0
+#: field:journal.entries.wizard.xml,period_from:0
+msgid "Start Period"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: field:account.auxiliary.wizard.xml,target_move:0
+#: field:journal.entries.wizard.xml,target_move:0
+msgid "Target Moves"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: view:trial.balance.webkit:0
+msgid "This allows you to generate a xml of your trial balance in zip format to upload into SAT website."
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: view:account.print.chart.accounts.report:0
+msgid "This report allows you to generate a xml of your chart of accounts allowing you to upload the zip file into SAT website."
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: view:account.auxiliary.wizard.xml:0
+msgid "This report allows you to generate a xml of your general ledger with details of one account in zip format to upload iinto SAT website"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: view:journal.entries.wizard.xml:0
+msgid "This report allows you to print or generate a pdf of your trial balance allowing you to quickly check the balance of each of your accounts in a single report"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: model:ir.actions.act_window,name:l10n_mx_eaccounting.action_account_trial_balance_menu_webkit_xml
+#: model:ir.ui.menu,name:l10n_mx_eaccounting.menu_general_balance_report
+#: view:trial.balance.webkit:0
+msgid "Trial Balance"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: code:_description:0
+#: model:ir.model,name:l10n_mx_eaccounting.model_trial_balance_webkit
+#: view:trial.balance.webkit:0
+#, python-format
+msgid "Trial Balance Report"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: view:account.auxiliary.wizard.xml:0
+msgid "True"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: field:trial.balance.webkit,type_send:0
+msgid "Type Send"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: field:account.auxiliary.wizard.xml,type_request:0
+#: field:journal.entries.wizard.xml,type_request:0
+msgid "Type of request"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: constraint:account.auxiliary.wizard.xml:0
+msgid "When no Fiscal year is selected, you must choose to filter by          periods or by date."
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: selection:account.auxiliary.wizard.xml,display_account:0
+msgid "With balance is not equal to 0"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: selection:account.auxiliary.wizard.xml,display_account:0
+msgid "With movements"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: selection:account.auxiliary.wizard.xml,type_request:0
+#: selection:journal.entries.wizard.xml,type_request:0
+msgid "Write off"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: constraint:account.auxiliary.wizard.xml:0
+msgid "You must select an account to include in report!"
+msgstr ""
+
+#. module: l10n_mx_eaccounting
+#: view:account.print.chart.accounts.report:0
+#: view:journal.entries.wizard.xml:0
+#: view:trial.balance.webkit:0
+msgid "or"
+msgstr ""
+

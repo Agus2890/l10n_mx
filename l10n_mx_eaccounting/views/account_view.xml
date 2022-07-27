@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+<!--         <record model="ir.ui.view" id="view_account_account_type_tree">
+            <field name="name">account.account.type.tree</field>
+            <field name="model">account.account.type</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Account type">
+                    <field name="name"/>
+                    <field name="type"/>
+                    <field name="include_initial_balance"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_account_account_type_form">
+            <field name="name">account.account.type.form</field>
+            <field name="model">account.account.type</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <tree string="Account type">
+                    <field name="name"/>
+                    <field name="type"/>
+                    <field name="include_initial_balance"/>
+                    <field name="note"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_account_account_type_search" model="ir.ui.view">
+            <field name="name">account.account.type.search</field>
+            <field name="model">account.account.type</field>
+            <field name="arch" type="xml">
+                <search string="Account type">
+                    <field name="name" filter_domain="['|', ('name','ilike',self), ('code','=like',str(self)+'%')]" string="Sat code"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="accoun_type_action" model="ir.actions.act_window">
+            <field name="name">Account type</field>
+            <field name="res_model">account.account.type</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem action="accoun_type_action" id="accoun_type_menu" sequence="1" parent="account.account_account_menu" groups="base.group_no_one"/>  -->
+
+        <menuitem name="Sat Group" id="sat_group_menu" sequence="90"/>
+
+        <record model="ir.ui.view" id="view_account_sat_group_tree">
+            <field name="name">account.account.sat_group.tree</field>
+            <field name="model">account.account.sat_group</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Sat Group">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="level"/>
+                    <field name="sat_group_parent_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_account_sat_group_form">
+            <field name="name">account.account.sat_group.form</field>
+            <field name="model">account.account.sat_group</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <tree string="Sat Group">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="sat_group_parent_id"/>
+                    <field name="level"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_account_sat_group_search" model="ir.ui.view">
+            <field name="name">account.account.sat_group.search</field>
+            <field name="model">account.account</field>
+            <field name="arch" type="xml">
+                <search string="Accounts">
+                    <field name="name" filter_domain="['|', ('name','ilike',self), ('code','=like',str(self)+'%')]" string="Sat code"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="sat_group_action" model="ir.actions.act_window">
+            <field name="name">Sat Group</field>
+            <field name="res_model">account.account.sat_group</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_account_sat_group_search"/>
+        </record>
+
+        <menuitem action="sat_group_action" id="sat_group_menu" sequence="1" parent="account.account_account_menu" groups="base.group_no_one"/>
+            
+            <record model='ir.ui.view' id='view_account_account_eaccounting_form'>
+                <field name='name'>view.account.account.eaccounting.form</field>
+                <field name='model'>account.account</field>
+                <field name='inherit_id' ref='account.view_account_form'/>
+                <field name='arch' type='xml'>
+                    <field name="user_type_id" position="after">
+                        <field name="nature"/>
+                        <field name="sat_group_id" options="{'no_create': True, 'no_create_edit':True}" />
+                    </field>
+                </field>
+           </record>
+
+           <record model='ir.ui.view' id='view_view_account_list_inh_form'>
+                <field name='name'>view.account.account.tree.inh</field>
+                <field name='model'>account.account</field>
+                <field name='inherit_id' ref='account.view_account_list'/>
+                <field name='arch' type='xml'>
+                    <field name="name" position="after">
+                        <field name="nature"/>
+                        <field name="sat_group_id" options="{'no_create': True, 'no_create_edit':True}" />
+                    </field>
+                </field>
+            </record>
+
+
+    </data>
+</odoo>

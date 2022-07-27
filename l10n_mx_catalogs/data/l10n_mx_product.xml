@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="key_product_01" model="key.product.sat">
+        	<field name="code_sat">01010101</field>
+            <field name="name">No existe en el catálogo</field>
+        </record>
+
+        <record id="key_product_02" model="key.product.sat">
+        	<field name="code_sat">10101500</field>
+            <field name="name">Animales vivos de granja</field>
+        </record>
+
+        <record id="key_product_03" model="key.product.sat">
+        	<field name="code_sat">10101501</field>
+            <field name="name">Gatos vivos</field>
+        </record>        
+
+        <record id="key_product_04" model="key.product.sat">
+        	<field name="code_sat">10101502</field>
+            <field name="name">Perros</field>
+        </record>
+
+        <record id="key_product_05" model="key.product.sat">
+        	<field name="code_sat">10101504</field>
+            <field name="name">Visón</field>
+        </record>
+
+        <record id="key_product_06" model="key.product.sat">
+        	<field name="code_sat">10101505</field>
+            <field name="name">Ratas</field>
+        </record>  
+
+        <record id="key_product_07" model="key.product.sat">
+            <field name="code_sat">10101506</field>
+            <field name="name">Gatos vivos</field>
+        </record>        
+
+        <record id="key_product_08" model="key.product.sat">
+            <field name="code_sat">10101507</field>
+            <field name="name">Perros</field>
+        </record>
+
+        <record id="key_product_09" model="key.product.sat">
+            <field name="code_sat">10101508</field>
+            <field name="name">Visón</field>
+        </record>
+
+        <record id="key_product_10" model="key.product.sat">
+            <field name="code_sat">10101509</field>
+            <field name="name">Ratas</field>
+        </record>  
+
+    </data>
+</odoo>

@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        
+        <record model="ir.ui.view" id="view_res_partner_form_parent">
+            <field name="name">res.partner.parent.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='parent_id']" position="after">
+                    <field name='company_name_cfdi' placeholder="Razon social CFDI"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="account_move_tree_inh" model="ir.ui.view">
+            <field name="name">account.move.tree_inherit</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_out_invoice_tree"/>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                     <field name="cfdi_folio_fiscal" />
+                </field>
+                <field name="company_id" position="after">
+                    <field name="currency_id"  groups="base.group_multi_currency" attrs="{'readonly': [('state', '!=', 'draft')]}" decoration-info="(rate !=1)"/>
+                    <field name="rate" groups="base.group_multi_currency" decoration-info="(rate !=1)"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="account_move_customer_form_l10n_mx_facturae" model="ir.ui.view">
+            <field name="name">account.move.customer.form.l10n.mx.facturae</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+
+                 <xpath expr="//header/button[@name='button_draft']" position="after">
+                    <button name='action_generate_cfdi' string='Generar CFDI' type="object" class="oe_highlight" attrs="{'invisible':['|','|',('state','!=','posted'),('cfdi_folio_fiscal','!=',False),('move_type', '=', 'entry')]}" />
+                    <!-- attrs="{'invisible': [('move_type', '=', 'entry')]}" -->
+                </xpath>
+                <div name="button_box" position="inside">
+                	<button string="Descargar CFDI PDF" class="oe_stat_button" icon="fa-file-pdf-o" name="get_pdf_cfdi" type="object" attrs="{'invisible': ['|',('move_type', '=', 'entry'),('cfdi_folio_fiscal','=',False)]}"/>
+                    <button string="Descargar CFDI XML" class="oe_stat_button" icon="fa-file-code-o" name="get_xml_cfdi" type="object" attrs="{'invisible': ['|',('move_type', '=', 'entry'),('cfdi_folio_fiscal','=',False)]}"/>
+                </div>
+                <xpath expr="//field[@name='fiscal_position_id']" position="replace"></xpath>
+                <xpath expr="//div[@class='d-flex'][1]" position="after">
+                    <field name="fiscal_position_id" options="{'no_create_edit': True,'no_open': True}" string="Regimen Fiscal" readonly="1" force_save="1"/>
+                </xpath>
+                <xpath expr="//field[@name='name']" position="after">  
+                    <h4>
+                        <field string="Fiscal folio" name="cfdi_folio_fiscal" 
+                            placeholder="Fiscal folio" readonly="1"/>
+                    </h4>
+                    <h5>
+                        <field string="Rfc Prov" name="rfcprov" 
+                            placeholder="Rcf Prov Cert" readonly="1" attrs="{'invisible': [('move_type', '=', 'entry')]}"/>
+                    </h5>
+                </xpath>
+                <xpath expr="//field[@name='currency_id']" position="after"> 
+                    <span class="oe_inline o_form_label mx-3 oe_read_only" groups="base.group_multi_currency"  decoration-info="(rate !=1)"  attrs="{'invisible': [('move_type', '=', 'entry')]}"> T.C </span>
+                    <span class="oe_inline o_form_label mr-3 ml-5 oe_edit_only" groups="base.group_multi_currency"  decoration-info="(rate !=1)"  attrs="{'invisible': [('move_type', '=', 'entry')]}"> T.C </span>
+                    <field name="rate" groups="base.group_multi_currency" attrs="{'readonly': [('state', '!=', 'draft')],'invisible': [('move_type','=','entry')]}" decoration-info="(rate !=1)"/>
+                </xpath>
+                <xpath expr="//field[@name='date']" position="after">
+                    <field name="invoice_datetime" attrs="{'readonly':[('cfdi_folio_fiscal','!=',False)]}" string="Fecha Factura CFDI" /> 
+                </xpath>
+                <xpath expr="//notebook/page[@name='other_info']" position="after">
+                    <page name="cfdi" string="CFDI" attrs="{'invisible': [('move_type', '=', 'entry')]}">
+                        <group>
+                            <field name="cfdi_no_certificado"/>
+                            <field name="cfdi_fecha_timbrado"/>
+                            <field name="no_certificado"/>
+                            <field name="sello"/>
+                            <field name="cfdi_sello"/>
+                            <field name="cfdi_cadena_original"/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+        
+
+    </data>
+</odoo>

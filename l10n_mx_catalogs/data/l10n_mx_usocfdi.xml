@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="uso_cfdi_01" model="uso.cfdi">
+        	<field name="code">G01</field>
+            <field name="name">Adquisición de mercancias</field>
+        </record>
+
+        <record id="uso_cfdi_02" model="uso.cfdi">
+        	<field name="code">G02</field>
+            <field name="name">Devoluciones, descuentos o bonificaciones</field>
+        </record>
+
+        <record id="uso_cfdi_03" model="uso.cfdi">
+        	<field name="code">G03</field>
+            <field name="name">Gastos en general</field>
+        </record>
+
+        <record id="uso_cfdi_04" model="uso.cfdi">
+        	<field name="code">I01</field>
+            <field name="name">Construcciones</field>
+        </record>
+
+        <record id="uso_cfdi_05" model="uso.cfdi">
+        	<field name="code">I02</field>
+            <field name="name">Mobilario y equipo de oficina por inversiones</field>
+        </record>
+
+        <record id="uso_cfdi_06" model="uso.cfdi">
+        	<field name="code">I03</field>
+            <field name="name">Equipo de transporte</field>
+        </record>
+
+        <record id="uso_cfdi_07" model="uso.cfdi">
+        	<field name="code">I04</field>
+            <field name="name">Equipo de computo y accesorios</field>
+        </record>
+        <record id="uso_cfdi_08" model="uso.cfdi">
+            <field name="code">I05</field>
+            <field name="name">Dados, troqueles, moldes, matrices y herramental</field>
+        </record>
+
+        <record id="uso_cfdi_09" model="uso.cfdi">
+            <field name="code">I06</field>
+            <field name="name">Comunicaciones telefónicas</field>
+        </record>
+
+        <record id="uso_cfdi_10" model="uso.cfdi">
+            <field name="code">I07</field>
+            <field name="name">Comunicaciones satelitales</field>
+        </record>
+
+        <record id="uso_cfdi_11" model="uso.cfdi">
+            <field name="code">I08</field>
+            <field name="name">Otra maquinaria y equipo</field>
+        </record>
+
+        <record id="uso_cfdi_12" model="uso.cfdi">
+            <field name="code">D01</field>
+            <field name="name">Honorarios médicos, dentales y gastos hospitalarios.</field>
+        </record>
+        <record id="uso_cfdi_13" model="uso.cfdi">
+            <field name="code">D02</field>
+            <field name="name">Gastos médicos por incapacidad o discapacidad</field>
+        </record>
+
+        <record id="uso_cfdi_14" model="uso.cfdi">
+            <field name="code">D03</field>
+            <field name="name">Gastos funerales.</field>
+        </record>
+
+        <record id="uso_cfdi_15" model="uso.cfdi">
+            <field name="code">D04</field>
+            <field name="name">Donativos.</field>
+        </record>
+        <record id="uso_cfdi_16" model="uso.cfdi">
+            <field name="code">D05</field>
+            <field name="name">Intereses reales efectivamente pagados por créditos hipotecarios (casa habitación).</field>
+        </record>
+        <record id="uso_cfdi_17" model="uso.cfdi">
+            <field name="code">D06</field>
+            <field name="name">Aportaciones voluntarias al SAR.</field>
+        </record>
+
+        <record id="uso_cfdi_18" model="uso.cfdi">
+            <field name="code">D07</field>
+            <field name="name">Primas por seguros de gastos médicos.</field>
+        </record>
+
+        <record id="uso_cfdi_19" model="uso.cfdi">
+            <field name="code">D08</field>
+            <field name="name">Gastos de transportación escolar obligatoria.</field>
+        </record>
+
+        <record id="uso_cfdi_20" model="uso.cfdi">
+            <field name="code">D09</field>
+            <field name="name">Depósitos en cuentas para el ahorro, primas que tengan como base planes de pensiones.</field>
+        </record>
+        <record id="uso_cfdi_21" model="uso.cfdi">
+            <field name="code">D10</field>
+            <field name="name">Pagos por servicios educativos (colegiaturas)</field>
+        </record>
+
+        <record id="uso_cfdi_22" model="uso.cfdi">
+            <field name="code">P01</field>
+            <field name="name">Por definir</field>
+        </record>
+        <record id="uso_cfdi_23" model="uso.cfdi">
+            <field name="code">S01</field>
+            <field name="name">Sin efectos fiscales</field>
+        </record>
+
+    </data>
+</odoo>

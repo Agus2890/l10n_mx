@@ -1,0 +1,211 @@
+<?xml version="1.0" ?>
+<odoo>
+    <data noupdate="1">
+        <record id="account_fiscal_position_601_mx" model="account.fiscal.position">
+            <field name="name">Personas morales del régimen general</field>
+            <field name="clave">601</field>
+            <field name="description">Es para las sociedades mercantiles, asociaciones civiles de profesionales que: 
+
+- Realicen actividades lucrativas, 
+- Sociedades cooperativas de producción,
+- Instituciones de crédito tales como bancos y casas de bolsa,
+- Organismos descentralizados que comercialicen bienes o servicios, entre otras.
+
+
+http://www.sat.gob.mx/6_406.html
+
+última modificación : 
+16/febrero/2010, 12:56, información vigente.</field>            
+        </record>
+    </data>
+    <data>
+        <record id="account_fiscal_position_603_mx" model="account.fiscal.position">
+            <field name="clave">603</field>
+            <field name="name">Personas morales con fines no lucrativos</field>
+            <field name="description">Es para las personas morales cuya finalidad no es obtener una ganancia económica o lucro, por ejemplo: 
+
+- Instituciones de asistencia o de beneficencia
+- Asociaciones o sociedades civiles con fines políticos o deportivos
+- Asociaciones religiosas
+- Asociaciones patronales; sindicatos obreros; cámaras de comercio e industria
+- Asociaciones o sociedades civiles de enseñanza; de investigación científica o tecnológica
+- Sociedades cooperativas de consumo o sociedades mutualistas.
+- Colegios de profesionales
+- Partidos políticos
+- Asociaciones de padres de familia
+- Asociaciones civiles de colonos o las que administren inmuebles en condominio
+
+
+http://www.sat.gob.mx/6_404.html
+
+última modificación : 
+16/febrero/2010, 12:57, información vigente.</field>            
+        </record>
+    </data>
+    <data>
+        <record id="account_fiscal_position_605_mx" model="account.fiscal.position">
+            <field name="clave">605</field>
+            <field name="name">605</field>
+            <field name="description">605</field>
+        </record>
+    </data>
+    <data>
+        <record id="account_fiscal_position_606_mx" model="account.fiscal.position">
+            <field name="clave">606</field>
+            <field name="name">606</field>
+            <field name="description">606</field>            
+        </record>
+    </data>
+
+    <data>
+        <record id="account_fiscal_position_607_mx" model="account.fiscal.position">
+            <field name="clave">607</field>
+            <field name="name">607</field>
+            <field name="description">607</field>                      
+        </record>
+    </data>
+
+    <data>
+        <record id="account_fiscal_position_608_mx" model="account.fiscal.position">
+            <field name="clave">608</field>
+            <field name="name">608</field>
+            <field name="description">608</field>                       
+        </record>
+    </data>
+
+    <data>
+        <record id="account_fiscal_position_609_mx" model="account.fiscal.position">
+            <field name="clave">609</field>
+            <field name="name">609</field>
+            <field name="description">609</field>                
+        </record>
+    </data>
+
+    <data>
+        <record id="account_fiscal_position_610_mx" model="account.fiscal.position">
+            <field name="clave">610</field>
+            <field name="name">610</field>
+            <field name="description">610</field>                       
+        </record>
+    </data>
+
+    <data noupdate="1">
+        <record id="account_fiscal_position_611_mx" model="account.fiscal.position">
+            <field name="clave">611</field>
+            <field name="name">611</field>
+            <field name="description">611</field>             
+        </record>
+    </data>
+    <data>
+        <record id="account_fiscal_position_612_mx" model="account.fiscal.position">
+            <field name="clave">612</field>
+            <field name="name">Persona física con actividad empresarial</field>
+            <field name="description">Es el régimen conforme al cual pueden pagar sus impuestos todas las personas físicas que se dediquen a las siguientes actividades
+
+- Comerciales.
+
+- Industriales, que consisten en la extracción, conservación o transformación de materias primas, acabado de productos y la elaboración de satisfactores;
+
+- Agrícolas, que comprenden las actividades de siembra, cultivo, cosecha y la primera enajenación de los productos obtenidos, que no hayan sido objeto de transformación industrial;
+
+- Ganaderas, que son las consistentes en la cría y engorda de ganado, aves de corral y animales, así como la primera enajenación de sus productos, que no hayan sido objeto de transformación industrial;
+
+- De pesca, que incluyen la cría, cultivo, fomento y cuidado de la reproducción de toda clase de especies marinas y de agua dulce, incluida la acuacultura, así como la captura y extracción de las mismas y la primera enajenación de sus productos, que no hayan sido objeto de transformación industrial;
+
+- Silvícolas, que son las de cultivo de los bosques o montes, así como la cría, conservación, restauración, fomento y aprovechamiento de la vegetación de los mismos y la primera enajenación de sus productos, que no hayan sido objeto de transformación industrial.
+
+
+http://www.sat.gob.mx/sitio_internet/asistencia_contribuyente/principiantes/empresarial/11_428.html
+última modificación : 
+12/septiembre/2005, 15:58, información vigente.</field>
+        </record>
+    </data>
+    <data>
+        <record id="account_fiscal_position_614_mx" model="account.fiscal.position">
+            <field name="clave">614</field>
+            <field name="name">614</field>
+            <field name="description">614</field>             
+        </record>
+    </data>
+    <data>
+        <record id="account_fiscal_position_615_mx" model="account.fiscal.position">
+            <field name="clave">615</field>
+            <field name="name">615</field>
+            <field name="description">615</field>             
+        </record>
+    </data>
+
+    <data>
+        <record id="account_fiscal_position_616_mx" model="account.fiscal.position">
+            <field name="clave">616</field>   
+            <field name="name">616</field>
+            <field name="description">616</field>                      
+        </record>
+    </data>
+
+    <data>
+        <record id="account_fiscal_position_620_mx" model="account.fiscal.position">
+            <field name="clave">620</field>
+            <field name="name">620</field>
+            <field name="description">620</field>                        
+        </record>
+    </data>
+
+    <data>
+        <record id="account_fiscal_position_621_mx" model="account.fiscal.position">
+            <field name="clave">621</field> 
+            <field name="name">621</field>
+            <field name="description">621</field>                        
+        </record>
+    </data>
+
+    <data>
+        <record id="account_fiscal_position_622_mx" model="account.fiscal.position">
+            <field name="clave">622</field>            
+            <field name="name">622</field>
+            <field name="description">622</field>             
+        </record>
+    </data>
+
+    <data>
+        <record id="account_fiscal_position_623_mx" model="account.fiscal.position">
+            <field name="clave">623</field>
+            <field name="name">623</field>
+            <field name="description">623</field>                         
+        </record>
+    </data>
+
+    <data>
+        <record id="account_fiscal_position_624_mx" model="account.fiscal.position">
+            <field name="clave">624</field> 
+            <field name="name">624</field>
+            <field name="description">624</field>                       
+        </record>
+    </data>
+
+    <data>
+        <record id="account_fiscal_position_628_mx" model="account.fiscal.position">
+            <field name="clave">628</field>  
+            <field name="name">628</field>
+            <field name="description">628</field>                       
+        </record>
+    </data>
+
+    <data>
+        <record id="account_fiscal_position_629_mx" model="account.fiscal.position">
+            <field name="clave">629</field>  
+            <field name="name">629</field>
+            <field name="description">629</field>                      
+        </record>
+    </data>
+
+    <data>
+        <record id="account_fiscal_position_630_mx" model="account.fiscal.position">
+            <field name="clave">630</field>   
+            <field name="name">630</field>
+            <field name="description">630</field>                      
+        </record>
+    </data>
+
+</odoo>
+

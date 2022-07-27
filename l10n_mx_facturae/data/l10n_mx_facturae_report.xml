@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- we do not use report tag has we can not set header ref -->
+        <record id="l10n_mx_facturae_report_webkit" model="ir.actions.report.xml">
+            <field name="report_type">webkit</field>
+            <field name="report_name">account.move.facturae.webkit</field>
+            <field eval="[(6,0,[])]" name="groups_id"/>
+            <field eval="0" name="multi"/>
+            <field eval="0" name="auto"/>
+            <field eval="0" name="header"/>
+            <field eval="1" name="attachment_use"/>
+            <field name="attachment">(object.state in ('open','paid')) and (object.fname_invoice and (object.fname_invoice + ''))</field>
+            <field name="model">account.move</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="name">Factura Electronica</field>
+            <field name="report_rml">l10n_mx_facturae/report/account_print_invoice.mako</field>
+            <field name="report_file">l10n_mx_facturae/report/account_print_invoice.mako</field>
+        </record>
+        
+        <record id="property_l10n_mx_facturae_report_webkit" model="ir.property">
+            <field name="name">l10n_mx_facturae_report_webkit</field>
+            <field name="fields_id" ref="report_webkit.field_ir_act_report_xml_webkit_header"/>
+            <field eval="'ir.header_webkit,'+str(ref('l10n_mx_facturae.ir_header_webkit'))" model="ir.header_webkit" name="value"/>
+            <field eval="'ir.actions.report.xml,'+str(ref('l10n_mx_facturae.l10n_mx_facturae_report_webkit'))" model="ir.actions.report.xml" name="res_id"/>
+        </record>
+        
+        <record id="report_l10n_mx_facturae_report_webkit" model="ir.values">
+            <field name="name">Factura Electronica</field>
+            <field name="model">account.move</field>
+            <field name="key2">client_print_multi</field>
+            <field name="value" eval="'ir.actions.report.xml,%d'%l10n_mx_facturae_report_webkit"/>
+        </record>
+    </data>     
+</odoo>

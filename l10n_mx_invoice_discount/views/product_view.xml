@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="view_product_category_form_inh_discount">
+            <field name="name">view.product.category.inh.discount</field>
+            <field name="model">product.category</field>
+            <field name="inherit_id" ref="account.view_category_property_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='property_account_income_categ_id']" position="after">
+                    <field name="property_account_discount_income_categ_id"/>
+                </xpath>
+                <xpath expr="//field[@name='property_account_expense_categ_id']" position="after">
+                    <field name="property_account_discount_expense_categ_id"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

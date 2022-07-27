@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="view_payment_type_res_partner_form2">
+            <field name="name">res.partner.form.payment_type2</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="priority" eval="20"/>
+            <field name="arch" type="xml">
+                <field name="category_id" position="after">
+                    <field name="payment_type_customer_id" options="{'no_create': True}"/>
+                    <field name="property_account_position_id" options="{'no_create': True}" string="Regimen Fiscal"/>
+                </field>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_payment_type_res_partner_form2">
+            <field name="name">res.partner.form.payment_type2</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="account.view_partner_property_form"/>
+            <field name="priority" eval="20"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='fiscal_information']" position="replace"/>
+            </field>
+        </record>
+    </data>
+</odoo>

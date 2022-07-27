@@ -1,0 +1,40 @@
+<odoo>
+    <data>
+        <template id="general_ledger_mx_report">
+            <t t-call="report.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="report.external_layout">
+                        <div class="page">
+                        	<h3 class="mb32" align="center">Chart of Account</h3>
+                            <div class="oe_structure" />
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th>Code</th>
+                                        <th class="text-after">Account</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                	<tr>
+	                                	<td><b>100.01.00</b></td>
+	                                	<td><b>My Company</b></td>
+                                	</tr>
+                                <tr t-foreach="doc.generate_report()" t-as="a">
+                                            <!-- <td>
+                                                <span t-esc="a.code" />
+                                            </td> -->
+                                            <td>
+                                                <span t-esc="a.fname" />
+                                            </td>
+		                        </tr>
+                                </tbody>
+                                
+                            </table>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>

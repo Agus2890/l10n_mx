@@ -1,0 +1,62 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* l10n_mx_payment_method
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 7.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-12-07 05:39+0000\n"
+"PO-Revision-Date: 2014-12-07 05:39+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_mx_payment_method
+#: model:ir.model,name:l10n_mx_payment_method.model_pay_method
+msgid "pay.method"
+msgstr ""
+
+#. module: l10n_mx_payment_method
+#: model:payment.type,name:l10n_mx_payment_method.pay_method_tarjeta_de_credito
+#: model:payment.type,note:l10n_mx_payment_method.pay_method_tarjeta_de_credito
+msgid "Tarjeta de crédito"
+msgstr ""
+
+#. module: l10n_mx_payment_method
+#: model:payment.type,name:l10n_mx_payment_method.pay_method_monedero_electronico
+#: model:payment.type,note:l10n_mx_payment_method.pay_method_monedero_electronico
+msgid "Monedero electrónico"
+msgstr ""
+
+#. module: l10n_mx_payment_method
+#: model:payment.type,name:l10n_mx_payment_method.pay_method_transferencia_electronica
+#: model:payment.type,note:l10n_mx_payment_method.pay_method_transferencia_electronica
+msgid "Transferencia Electrónica"
+msgstr ""
+
+#. module: l10n_mx_payment_method
+#: model:ir.model,name:l10n_mx_payment_method.model_account_invoice
+msgid "Invoice"
+msgstr ""
+
+#. module: l10n_mx_payment_method
+#: model:payment.type,name:l10n_mx_payment_method.pay_method_cheque
+#: model:payment.type,note:l10n_mx_payment_method.pay_method_cheque
+msgid "Cheque"
+msgstr ""
+
+#. module: l10n_mx_payment_method
+#: model:ir.model,name:l10n_mx_payment_method.model_res_partner
+msgid "Partner"
+msgstr ""
+
+#. module: l10n_mx_payment_method
+#: model:payment.type,name:l10n_mx_payment_method.pay_method_tarjeta_de_debito
+#: model:payment.type,note:l10n_mx_payment_method.pay_method_tarjeta_de_debito
+msgid "Tarjeta de débito"
+msgstr ""
+

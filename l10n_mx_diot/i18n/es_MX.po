@@ -1,0 +1,394 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+# * l10n_mx_partner_diot
+# es_MX.po <agustin.cruz@openpy.mx>, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 7.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-06-11 18:21+0000\n"
+"PO-Revision-Date: 2014-06-11 13:24-0500\n"
+"Last-Translator: es_MX.po <agustin.cruz@openpy.mx>\n"
+"Language-Team: Laptop\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Virtaal 0.7.1\n"
+
+#. module: l10n_mx_diot
+#: field:account.diot.report,name:0
+msgid "File Name"
+msgstr "Archivo"
+
+#. module: l10n_mx_diot
+#: help:account.diot.report,period_id:0
+#: code:addons/l10n_mx_diot/wizard/wizard_diot_report.py:40
+#, python-format
+msgid "Select period for your report"
+msgstr "Seleccione el periódo para el reporte"
+
+#. module: l10n_mx_diot
+#: field:account.tax,diot_group:0
+msgid "DIOT group"
+msgstr "Grupo DIOT"
+
+#. module: l10n_mx_diot
+#: view:res.partner:0
+msgid "Type of third"
+msgstr "Tipo de tercero"
+
+#. module: l10n_mx_diot
+#: model:ir.ui.menu,name:l10n_mx_diot.menu_account_diot_report
+msgid "Transactions with third parties [ DIOT ]"
+msgstr "Transacciones con terceros (DIOT)"
+
+#. module: l10n_mx_diot
+#: field:account.diot.report,filename:0
+#: field:account.diot.report,filename_xls:0
+msgid "Filename"
+msgstr "Archivo"
+
+#. module: l10n_mx_diot
+#: model:ir.actions.act_window,name:l10n_mx_diot.action_account_diot_report
+msgid "Account DIOT Report"
+msgstr "Reporte DIOT"
+
+#. module: l10n_mx_diot
+#: selection:account.tax,diot_group:0
+msgid "VAT 16%"
+msgstr "IVA 16%"
+
+#. module: l10n_mx_diot
+#: view:account.diot.report:0
+msgid "Probably because:"
+msgstr "Probablemente porque:"
+
+#. module: l10n_mx_diot
+#: selection:account.diot.report,state:0
+msgid "Choose"
+msgstr "Elegir"
+
+#. module: l10n_mx_diot
+#: view:res.partner:0
+msgid "DIOT Information"
+msgstr "Información para la declaración del DIOT"
+
+#. module: l10n_mx_diot
+#: view:account.diot.report:0
+msgid "There is also an excel version for review or change the report."
+msgstr ""
+"También tiene disponible una versión del reporte en formato de Excel para "
+"revisar o hacer cambios."
+
+#. module: l10n_mx_diot
+#: code:addons/l10n_mx_diot/partner.py:41
+#: help:res.partner,nacionality_diot:0
+#, python-format
+msgid "Type nacionality when foreign supplier"
+msgstr "Ingrese la nacionalidad para los proveedores extranjeros"
+
+#. module: l10n_mx_diot
+#: view:account.diot.report:0
+msgid "You DIOT report has been successfully created!"
+msgstr "¡Su reporte de DIOT ha sido creado exitosamente!"
+
+#. module: l10n_mx_diot
+#: view:account.diot.report:0
+msgid "or"
+msgstr "o"
+
+#. module: l10n_mx_diot
+#: help:account.move,use_in_diot:0
+msgid "Unset if you do not want to include this movement into DIOT report"
+msgstr ""
+"Desmarque esta casilla si no quiere incluir este movimiento en la "
+"declaración de DIOT"
+
+#. module: l10n_mx_diot
+#: selection:account.diot.report,state:0
+msgid "Get"
+msgstr "Obtener"
+
+#. module: l10n_mx_diot
+#: selection:res.partner,type_of_third:0
+msgid "04 - National Supplier"
+msgstr "04 - Proveedor Nacional"
+
+#. module: l10n_mx_diot
+#: field:account.diot.report,company_id:0
+msgid "Company"
+msgstr "Compañía"
+
+#. module: l10n_mx_diot
+#: selection:account.diot.report,state:0
+msgid "Not File"
+msgstr "Sin archivo"
+
+#. module: l10n_mx_diot
+#: selection:res.partner,type_of_third:0
+msgid "15 - Global Supplier"
+msgstr "15 - Proveedor Global"
+
+#. module: l10n_mx_diot
+#: field:account.diot.report,state:0
+msgid "unknown"
+msgstr "desconocido"
+
+#. module: l10n_mx_diot
+#: help:account.diot.report,filename:0
+#: help:account.diot.report,filename_xls:0
+msgid "This is File name"
+msgstr "Nombre de Este archivo"
+
+#. module: l10n_mx_diot
+#: view:account.diot.report:0
+msgid "Excel DIOT Report:"
+msgstr "Reporte DIOT en excel:"
+
+#. module: l10n_mx_diot
+#: field:account.move,use_in_diot:0
+msgid "Use in DIOT"
+msgstr "Usar en DIOT"
+
+#. module: l10n_mx_diot
+#: code:addons/l10n_mx_diot/partner.py:40
+#: field:res.partner,nacionality_diot:0
+#, python-format
+msgid "Nacionality"
+msgstr "Nacionalidad"
+
+#. module: l10n_mx_diot
+#: code:addons/l10n_mx_diot/wizard/wizard_diot_report.py:97
+#, python-format
+msgid "This suppliers do not have the information necessary for the DIOT"
+msgstr ""
+"Los siguientes proveedores no tienen la información necesaria para el "
+"reporte DIOT"
+
+#. module: l10n_mx_diot
+#: view:account.diot.report:0
+#: view:account.tax:0
+msgid "DIOT Report"
+msgstr "Reporte DIOT"
+
+#. module: l10n_mx_diot
+#: help:account.diot.report,file:0
+#: help:account.diot.report,file_xls:0
+msgid "This file, you can import the SAT"
+msgstr "Puede importar este archivo directamente en la aplicación del SAT"
+
+#. module: l10n_mx_diot
+#: field:account.diot.report,target_move:0
+msgid "Target Moves"
+msgstr "Movimientos destino"
+
+#. module: l10n_mx_diot
+#: field:res.partner,type_of_operation:0
+msgid "Type of Operation (DIOT)"
+msgstr "Tipo de Operación (DIOT)"
+
+#. module: l10n_mx_diot
+#: view:account.diot.report:0
+msgid "TXT DIOT Report:"
+msgstr "Reporte DIOT en formato TXT:"
+
+#. module: l10n_mx_diot
+#: selection:account.tax,diot_group:0
+msgid "VAT 11%"
+msgstr "IVA 11%"
+
+#. module: l10n_mx_diot
+#: view:account.diot.report:0
+msgid "- Not exists movements in the selected period"
+msgstr "- No existen movimientos en el periódo seleccionado"
+
+#. module: l10n_mx_diot
+#: selection:account.diot.report,target_move:0
+msgid "All Posted Entries"
+msgstr "Todos los asientos asentados"
+
+#. module: l10n_mx_diot
+#: view:account.diot.report:0
+msgid "Create DIOT report"
+msgstr "Generar reporte DIOT"
+
+#. module: l10n_mx_diot
+#: selection:account.tax,diot_group:0
+msgid "No VAT"
+msgstr "Excento de IVA"
+
+#. module: l10n_mx_diot
+#: code:addons/l10n_mx_diot/partner.py:34
+#: help:res.partner,type_of_third:0
+#, python-format
+msgid "Type of third for this partner"
+msgstr "Tipo de tercero para esta empresa"
+
+#. module: l10n_mx_diot
+#: code:addons/l10n_mx_diot/wizard/wizard_diot_report.py:172
+#, python-format
+msgid "Error!"
+msgstr "¡Error!"
+
+#. module: l10n_mx_diot
+#: code:addons/l10n_mx_diot/wizard/wizard_diot_report.py:120
+#, python-format
+msgid "Lines assigned to a partner not vat subjected."
+msgstr ""
+"Los siguientes movimientos están asignados a una empresa que se marcó como "
+"no sujeta a IVA."
+
+#. module: l10n_mx_diot
+#: view:account.diot.report:0
+msgid "You can download TXT file an import it into DeclaraSAT."
+msgstr ""
+"Puedes descargar el archivo TXT e importarlo directamente en la aplicación "
+"DeclaraSAT."
+
+#. module: l10n_mx_diot
+#: selection:res.partner,type_of_operation:0
+msgid "03 - Professional Services"
+msgstr "03 - Servicios Profesionales"
+
+#. module: l10n_mx_diot
+#: view:res.partner:0
+msgid "Type of operation"
+msgstr "Tipo de operación"
+
+#. module: l10n_mx_diot
+#: selection:account.tax,diot_group:0
+msgid "VAT 0%"
+msgstr "IVA 0%"
+
+#. module: l10n_mx_diot
+#: selection:res.partner,type_of_operation:0
+msgid "85 - Others"
+msgstr "85 - Otros"
+
+#. module: l10n_mx_diot
+#: model:ir.model,name:l10n_mx_diot.model_account_move
+msgid "Account Entry"
+msgstr "Asiento contable"
+
+#. module: l10n_mx_diot
+#: field:res.partner,type_of_third:0
+msgid "Type of Third (DIOT)"
+msgstr "Tipo de Tercero (DIOT)"
+
+#. module: l10n_mx_diot
+#: selection:res.partner,type_of_operation:0
+msgid "06 - Building Rental"
+msgstr "06 - Renta de Edificios"
+
+#. module: l10n_mx_diot
+#: view:account.diot.report:0
+msgid "DIOT Report - Statement of transactions with third parties [DIOT]"
+msgstr "Reporte DIOT - Declaración Informativa de Operaciones con Terceros"
+
+#. module: l10n_mx_diot
+#: model:ir.model,name:l10n_mx_diot.model_account_tax
+msgid "Tax"
+msgstr "Impuesto"
+
+#. module: l10n_mx_diot
+#: field:account.diot.report,period_id:0
+msgid "Period"
+msgstr "Periodo"
+
+#. module: l10n_mx_diot
+#: selection:res.partner,type_of_third:0
+msgid "05 - Foreign Supplier"
+msgstr "05 - Proveedor Extranjero"
+
+#. module: l10n_mx_diot
+#: view:account.diot.report:0
+msgid "You DIOT report not has been created!"
+msgstr "¡Su reporte DIOT no ha sido creado!"
+
+#. module: l10n_mx_diot
+#: field:account.diot.report,file:0
+#: field:account.diot.report,file_xls:0
+msgid "File"
+msgstr "Archivo"
+
+#. module: l10n_mx_diot
+#: model:ir.model,name:l10n_mx_diot.model_res_partner
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: l10n_mx_diot
+#: view:account.diot.report:0
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: l10n_mx_diot
+#: view:account.diot.report:0
+msgid "Close"
+msgstr "Cerrar"
+
+#. module: l10n_mx_diot
+#: code:addons/l10n_mx_diot/wizard/wizard_diot_report.py:109
+#, python-format
+msgid "This lines do not have partner and cannot be processed for Diot report"
+msgstr ""
+"Las siguientes lineas contables no tienen una empresa asignada y no se "
+"pueden procesar para el reporte DIOT"
+
+#. module: l10n_mx_diot
+#: model:ir.model,name:l10n_mx_diot.model_account_diot_report
+msgid "Account - DIOT Report for Mexico"
+msgstr "Contabilidad - Reporte DIOT para México"
+
+#. module: l10n_mx_diot
+#: view:account.diot.report:0
+msgid "- You do not have configured taxes correctly"
+msgstr "- No ha configurado los impuestos correctamente"
+
+#. module: l10n_mx_diot
+#: selection:account.diot.report,target_move:0
+msgid "All Entries"
+msgstr "Todos los asientos"
+
+#. module: l10n_mx_diot
+#: code:addons/l10n_mx_diot/wizard/wizard_diot_report.py:173
+#, python-format
+msgid "Tax %s is not configured correctly"
+msgstr "El impuesto %s no está configurado correctamente"
+
+#~ msgid " 06 - Building Rental"
+#~ msgstr " 06 - Renta de Edificios"
+
+#~ msgid " 03 - Professional Services"
+#~ msgstr " 03 - Servicios Profesionales"
+
+#~ msgid " 05 - Foreign Supplier"
+#~ msgstr " 05 - Proveedor Extranjero"
+
+#~ msgid "Here is the DIOT Report file:"
+#~ msgstr "Aquí está su reporte de DIOT:"
+
+#~ msgid " 85 - Others"
+#~ msgstr " 85 - Otros"
+
+#~ msgid " 04 - National Supplier"
+#~ msgstr "04 - Proveedor Nacional"
+
+#~ msgid " 15 - Global Supplier"
+#~ msgstr " 15 - Proveedor Global"
+
+#~ msgid "Import this into DeclaraSAT"
+#~ msgstr "Importe el archivo en el sistema de DeclaraSAT"
+
+#~ msgid " 06 - Rent"
+#~ msgstr " 06 - Renta"
+
+#~ msgid " 06 - Renta"
+#~ msgstr " 06 - Renta"
+
+#~ msgid " 85 - Otros"
+#~ msgstr " 85 - Otros"
+
+#~ msgid " 03 - Servicios Profesionales"
+#~ msgstr " 03 - Servicios Profesionales"
