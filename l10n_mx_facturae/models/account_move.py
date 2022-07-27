@@ -1131,7 +1131,7 @@ class AccountMove(models.Model):
                 'Version': "4.0",
                 'xmlns:cfdi':"http://www.sat.gob.mx/cfd/4",
             })
-            number_work = invoice.name#invoice.number or invoice.internal_number
+            number_work =invoice.name.replace(invoice.journal_id.code,'').replace('/','') #invoice.number or invoice.internal_number
             invoice_data_parent['Comprobante'].update({
                 'Folio': number_work,
                 # 'Fecha': date_tz,
@@ -1153,7 +1153,7 @@ class AccountMove(models.Model):
             })
             # TODO: El folio sólo se usa para CBB
             # no es necesario estarlo cargando a cada rato
-            serie = invoice.name or False#journal_id.sequence_id.prefix or False
+            serie = invoice.journal_id.code or False#journal_id.sequence_id.prefix or False
             if serie:
                 invoice_data_parent['Comprobante'].update({
                     'Serie': serie,
