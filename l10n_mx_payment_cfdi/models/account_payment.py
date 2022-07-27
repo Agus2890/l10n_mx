@@ -325,7 +325,8 @@ class AccountPayment(models.Model):
                 })
                 move_ids.append(partial.id)
                 invoice_ids.append(partial.debit_move_id.move_id.id)
-
+        if not move_ids:
+            raise UserError(str("El pago no esta relacionado a  una factura.")) 
         number = len(invoice_ids)
         if invoice_ids:
             invoice_obj = self.env['account.move'].browse(invoice_ids[0])
