@@ -10,7 +10,7 @@
         <pago20:Pagos Version="2.0">
             <pago20:Totales MontoTotalPagos="{{'{:.2f}'.format(totales.get('MontoTotalPagos'))}}" TotalTrasladosBaseIVA16="{{'{:.2f}'.format(totales.get('TotalTrasladosBaseIVA16'))}}" TotalTrasladosImpuestoIVA16="{{'{:.2f}'.format(totales.get('TotalTrasladosImpuestoIVA16'))}}" />
         	{% for item in payment_ids -%}
-                {%  if not payment.journal_id.currency_id and item.get('pago').debit_currency_id.id!=item.get('pago').credit_currency_id.id: %}
+                {%  if payment.currency_id.id==item.get('pago').company_currency_id.id and item.get('pago').debit_currency_id.id!=item.get('pago').credit_currency_id.id: %}
     	            <pago20:Pago FechaPago="{{date}}" FormaDePagoP="{{payment.payment_type_id.code}}" MonedaP="{{payment.currency_id.name}}"  Monto="{{payment.amount}}" NumOperacion="{{payment.ref}}" TipoCambioP="1">
                         <pago20:DoctoRelacionado  IdDocumento="{{item.get('pago').debit_move_id.move_id.cfdi_folio_fiscal}}" EquivalenciaDR="{{'{:.6f}'.format(currency_rate)}}" Serie="P" Folio="{{payment.name}}" MonedaDR="{{item.get('pago').debit_move_id.currency_id.name}}" NumParcialidad="{{item.get('pago').sequence or 1}}" ImpSaldoAnt="{{'{:.2f}'.format((item.get('pago').debit_move_id.amount_residual+item.get('pago').amount)/(1/currency_rate))}}" ObjetoImpDR="02" ImpSaldoInsoluto="{{'{:.2f}'.format(item.get('pago').debit_move_id.amount_residual/(1/currency_rate)) or 0.0}}" ImpPagado="{{'{:.2f}'.format(item.get('pago').amount/(1/currency_rate))}}">
                         {% if item.get('taxes_traslado_line') or  item.get('taxes_retenidos_line'): %}
@@ -38,7 +38,7 @@
                             </pago20:ImpuestosP>
                         {% endif %}  
                     </pago20:Pago>
-                {% elif  payment.journal_id.currency_id and item.get('pago').debit_currency_id.id==item.get('pago').credit_currency_id.id: %}
+                {% elif  payment.currency_id.id!=item.get('pago').company_currency_id.id  and item.get('pago').debit_currency_id.id==item.get('pago').credit_currency_id.id: %}
                     <pago20:Pago FechaPago="{{date}}" FormaDePagoP="{{payment.payment_type_id.code}}" MonedaP="{{payment.currency_id.name}}"  Monto="{{payment.amount}}" NumOperacion="{{payment.ref}}" TipoCambioP="{{rate}}">
                         <pago20:DoctoRelacionado  IdDocumento="{{item.get('pago').debit_move_id.move_id.cfdi_folio_fiscal}}" EquivalenciaDR="1" Serie="P" Folio="{{payment.name}}" MonedaDR="{{item.get('pago').debit_move_id.currency_id.name}}" NumParcialidad="{{item.get('pago').sequence or 1}}" ImpSaldoAnt="{{'{:.2f}'.format((item.get('pago').debit_move_id.amount_residual+item.get('pago').debit_amount_currency))}}" ObjetoImpDR="02" ImpSaldoInsoluto="{{'{:.2f}'.format(item.get('pago').debit_move_id.amount_residual) or 0.0}}" ImpPagado="{{'{:.2f}'.format(item.get('pago').debit_amount_currency)}}">
                         {% if item.get('taxes_traslado_line') or  item.get('taxes_retenidos_line'): %}

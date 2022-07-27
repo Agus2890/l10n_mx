@@ -367,6 +367,9 @@ class IrAttachmentPaymentMx(models.Model):
         return xmldata
 
     def _get_cfdi_dict_data(self):
+        ####### usd!=mxn factura pesos -pago dolares
+        #{%  if payment.currency_id.id==item.get('pago').company_currency_id.id and item.get('pago').debit_currency_id.id!=item.get('pago').credit_currency_id.id: %}
+
         currency_credit=self.payment_ids.filtered(lambda x:x.debit_currency_id!=x.credit_currency_id)
         rate=self.payment_id.get_currency_rate() if not currency_credit else  self.payment_id.get_currency_rate( currency_credit.mapped('debit_currency_id')[0])
         move_lines = []
@@ -377,7 +380,7 @@ class IrAttachmentPaymentMx(models.Model):
         # Crate an environment of jinja in the templates directory
         taxes_traslado_global = []
         taxes_retenciones_global = []
-        for line in self.payment_ids:
+        for line in self.payment_ids.filtered(lambda x:x.debit_move_id.move_id.move_type=='out_invoice'):
             taxes_traslado_line = []
             taxes_retenidos_line = []
             if line.amount:
