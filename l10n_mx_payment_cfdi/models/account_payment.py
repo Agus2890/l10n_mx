@@ -185,6 +185,17 @@ class AccountPayment(models.Model):
     #     output_s = output.getvalue()
     #     return base64.b64encode(output_s)
 
+    def get_serie(self):
+        serie=False
+        folio=False
+        if self.name:
+            serie=self.journal_id.code
+            folio=self.name.replace(self.journal_id.code,'')
+            # journal_sequence, domain=self._get_seq_number_next_stuff()
+            # serie, dummy = journal_sequence._get_prefix_suffix()
+            # folio=self.number[len(serie):] if serie else False
+        return (serie,folio)
+
     def get_currency_rate(self,currency_id=None):
         rate=1
         if currency_id:

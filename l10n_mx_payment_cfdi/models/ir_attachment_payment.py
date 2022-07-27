@@ -466,7 +466,7 @@ class IrAttachmentPaymentMx(models.Model):
         #    emitter=emitter,date=date_voucher,date_p=date_payment,pagos=move_lines,amount_pay=amount_pay,rate_dr=rate_dr,regimen=regimen
         #    )
 
-        serie, folio = "serie","Folio"#self.payment_id.get_folio_serie()
+        serie, folio = self.payment_id.get_serie()
         xml_data = template.render(
             payment=self.payment_id, payment_ids=move_lines,
             emitter=emitter, date=date_voucher, date_payment=date_payment, 
