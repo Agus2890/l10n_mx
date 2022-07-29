@@ -331,6 +331,9 @@ class AccountMove(models.Model):
 
     # Extract date_invoice from original, but add datetime
     # TODO: Is this field really needed?
+    def get_rate(self):
+        rate = self.currency_id._convert(1, self.company_id.currency_id, self.company_id,self.invoice_date or fields.Date.context_today(self))
+        return rate
 
     @api.onchange('date', 'currency_id')
     def _onchange_currency(self):
@@ -1096,6 +1099,7 @@ class AccountMove(models.Model):
         cadorig_digest = hashlib.md5(cadorig_str).hexdigest()
         open(fname_cadorig_digest, "w").write(cadorig_digest)
         return cadorig_digest, fname_cadorig_digest
+
     
     def _get_facturae_invoice_dict_data(self):
         context = self.env.context.copy()   
@@ -1461,7 +1465,7 @@ class AccountMove(models.Model):
             'xsi:schemaLocation'] = 'http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv33.xsd'
         invoice_data_parents[0]['Comprobante']['Version'] = '4.0'
         invoice_data_parents[0]['Comprobante'][
-            'TipoCambio'] = round(invoice.rate,4) if invoice.rate>1 else 1
+            'TipoCambio'] = round(self.get_rate(),4) if self.get_rate()>1 else 1
         invoice_data_parents[0]['Comprobante'][
             'Moneda'] = invoice.currency_id.name or ''
         #invoice_data_parents[0]['Comprobante'][
