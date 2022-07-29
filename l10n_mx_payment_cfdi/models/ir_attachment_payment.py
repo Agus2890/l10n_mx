@@ -437,7 +437,7 @@ class IrAttachmentPaymentMx(models.Model):
 
                         totales['TotalTrasladosBaseIVA16'] += round(BaseP,2) if line.debit_currency_id!=line.credit_currency_id and line.debit_currency_id!=line.company_currency_id else round(BaseP*round(rate,4),2)
                         totales['TotalTrasladosImpuestoIVA16'] += ImporteP if line.debit_currency_id!=line.credit_currency_id and line.debit_currency_id!=line.company_currency_id else round(ImporteP*round(rate,4),2)
-                    move_lines.append({'pago':line,'serie':line.debit_move_id.move_id.journal_id.code,'folio':line.debit_move_id.move_id.name.replace(invoice.journal_id.code,'').replace('/',''),'taxes_traslado_line':taxes_traslado_line,'taxes_retenidos_line':taxes_retenidos_line})
+                    move_lines.append({'pago':line,'serie':line.debit_move_id.move_id.journal_id.code,'folio':line.debit_move_id.move_id.name.replace(line.debit_move_id.move_id.journal_id.code,'').replace('/',''),'taxes_traslado_line':taxes_traslado_line,'taxes_retenidos_line':taxes_retenidos_line})
 
         env = Environment(loader=FileSystemLoader(
             os.path.join(
