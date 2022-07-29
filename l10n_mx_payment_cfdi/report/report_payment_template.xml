@@ -2,7 +2,8 @@
 <odoo>
     <template id="external_layout_background_payment">
         <div class="header">
-            <!-- <div>ESTE DOCUMENTO ES UNA REPRESENTACION IMPRESA DE UN CFDI:</div><div>EMISOR:<span t-field="o.company_id.name"/></div> -->
+            <!-- <div>ESTE DOCUMENTO ES UNA REPRESENTACION IMPRESA DE UN CFDI:</div>
+            <div>EMISOR:<span t-field="o.company_id.name"/></div> -->
         </div>
         <div class="article">
             <t t-raw="0" />
