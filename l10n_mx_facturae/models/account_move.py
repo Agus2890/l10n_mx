@@ -1298,17 +1298,17 @@ class AccountMove(models.Model):
                     tax_id=self.env['account.tax'].browse(tx['id'])
                 #     ############################################
                     if not taxes_inv:
-                        taxes_inv.append({'tax_id':tax_id,'base':tx["base"],'importe':tx["amount"]})
+                        taxes_inv.append({'tax_id':tax_id,'base':tx["base"],'importe':round(tx["amount"],2)})
                     else:
                         repit=False
                         for txinv in taxes_inv:
                             if tax_id.id==txinv['tax_id'].id:
-                                txinv['importe']+=tx["amount"]
+                                txinv['importe']+=round(tx["amount"],2)
                                 txinv['base']+=tx["base"]
                                 repit=True
                                 break
                         if not repit:
-                            taxes_inv.append({'tax_id':tax_id,'base':tx["base"],'importe':tx["amount"]})
+                            taxes_inv.append({'tax_id':tax_id,'base':tx["base"],'importe':round(tx["amount"],2)})
                 #     ############################################
                     if tx["amount"] >= 0:
                         if 'cfdi:Traslados' not in impuestos_line:
