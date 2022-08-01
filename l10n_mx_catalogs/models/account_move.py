@@ -14,6 +14,20 @@ _logger = logging.getLogger(__name__)
 class AccountMove(models.Model):
     _inherit = 'account.move'
 
+    # def _get_last_sequence(self,lock=False):
+    #     res=super(AccountMove,self)._get_last_sequence(lock=lock)
+    #     if self.move_type=='out_invoice':
+    #         res='I'+res
+    #     elif self.move_type=='out_refund':
+    #         res='E'+res
+    #     return res
+
+    # def create(self, vals_list):
+    #     res=super(AccountMove,self).create(vals_list)
+    #     raise UserError( str( res.name ))
+    #     return res
+
+
     def _recompute_dynamic_lines(self, recompute_all_taxes=False, recompute_tax_base_amount=False):
         res=super(AccountMove,self)._recompute_dynamic_lines(recompute_all_taxes=recompute_all_taxes, recompute_tax_base_amount=recompute_tax_base_amount)
         if self.line_ids and self.anticipo:
