@@ -54,6 +54,7 @@ openssl
         'views/account_move_view.xml',
         'report/report_move_cfdi.xml',
         'report/facturae_report.xml',
+        'report/report_move_cfdi_sin_logo.xml',
     ],
     'installable': True,
 }

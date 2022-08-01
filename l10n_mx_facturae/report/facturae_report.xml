@@ -9,8 +9,16 @@
             report_type="qweb-pdf"
             file="l10n_mx_facturae.report_invoice_cfdi" 
             name="l10n_mx_facturae.report_invoice_cfdi"
-            print_report_name="(object.fname_invoice and (object.fname_invoice))"
-        />
+            print_report_name="(object.fname_invoice and (object.fname_invoice))"/>
+
+        <report
+            id="action_report_facturae_sn_logo"
+            model="account.move"
+            string="Factura Electronica sn Logo"
+            report_type="qweb-pdf"
+            file="l10n_mx_facturae.report_invoice_cfdi_sn_logo" 
+            name="l10n_mx_facturae.report_invoice_cfdi_sn_logo"
+            print_report_name="(object.fname_invoice and (object.fname_invoice))"/>
 
 <!--         <record id="l10n_mx_facturae.report_facturae" model="ir.actions.report.xml">
             <field name="paperformat_id" ref="l10n_mx_facturae.paperformat_facturae"/>

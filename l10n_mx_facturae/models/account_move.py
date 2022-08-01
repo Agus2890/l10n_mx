@@ -24,6 +24,8 @@ from odoo import SUPERUSER_ID
 
 import logging
 _logger = logging.getLogger(__name__)
+import qrcode
+from io import StringIO,BytesIO
 
 def exec_command_pipe(name, *args):
     """
@@ -96,6 +98,33 @@ class ResPartner(models.Model):
 
 class AccountMove(models.Model):
     _inherit = 'account.move'
+
+    def get_qrcode(self, invoice):
+        """Genera el código de barras bidimensional para una factura
+            @param invoice: Objeto invoice con los datos de la factura
+
+            @return: Imagen del código de barras o None
+        """
+        output_s=False
+        for inv in invoice: 
+            # Procesar invoice para obtener el total con 17 posiciones
+            tt = str.zfill('%.6f' % inv.amount_total, 17)
+            ## Procesar invoice para obtener los ocho últimos caracteres del sello digital del emisor del comprobante.
+            fe = inv.sello[-8:]
+            # Init qr code
+            qr = qrcode.QRCode(version=4, box_size=4, border=1)
+            qr.add_data('https://verificacfdi.facturaelectronica.sat.gob.mx/default.aspx?re=' + inv.company_id.partner_id.vat_split or inv.company_id.partner_id.vat)        
+            qr.add_data('&id=' + inv.cfdi_folio_fiscal)              
+            qr.add_data('&rr=' + inv.partner_id.vat_split or inv.company_id.vat)
+            qr.add_data('&tt=' + tt)
+            qr.add_data('&fe=' + fe)
+            qr.make(fit=True)
+            img = qr.make_image()
+            output = BytesIO()
+            img.save(output,'PNG')
+            output_s = output.getvalue()
+        return base64.b64encode(output_s)
+
 
     def get_pdf_cfdi(self):
         return self.env.ref('l10n_mx_facturae.action_report_facturae').report_action(self)
