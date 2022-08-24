@@ -46,6 +46,7 @@ class IrAttachmentPaymentMx(models.Model):
     payment_id = fields.Many2one('account.payment', string='Payment', readonly=True)
     # payment_ids = fields.Many2many('account.move.line', string="Lineas de Pago",readonly=True)
     payment_ids = fields.Many2many('account.partial.reconcile', string="Lineas de Pago",readonly=True)
+    lines_payment_cfdi=fields.One2many("lines.payment.cfdi","attachment_payment_id",string="Lineas")
     company_id = fields.Many2one('res.company', string='Company', readonly=True)
     file_input = fields.Many2one('ir.attachment', 'File input',
             readonly=True, help='File input')
@@ -370,8 +371,14 @@ class IrAttachmentPaymentMx(models.Model):
         ####### usd!=mxn factura pesos -pago dolares
         #{%  if payment.currency_id.id==item.get('pago').company_currency_id.id and item.get('pago').debit_currency_id.id!=item.get('pago').credit_currency_id.id: %}
 
-        currency_credit=self.payment_ids.filtered(lambda x:x.debit_currency_id!=x.credit_currency_id)
-        rate=self.payment_id.get_currency_rate() if not currency_credit else  self.payment_id.get_currency_rate( currency_credit.mapped('debit_currency_id')[0])
+        currency_credit=self.payment_ids.filtered(lambda x:x.debit_currency_id!=x.credit_currency_id or x.credit_currency_id !=x.company_currency_id)
+        rate=self.payment_id.payment_rate #self.payment_id.get_currency_rate() if not currency_credit else  self.payment_id.get_currency_rate( currency_credit.mapped('debit_currency_id')[0])
+        #raise UserError( str( currency_credit ))
+        if currency_credit and   rate<1:
+            raise UserError( str("Agregue un tipo de Cambio en su Pago"))
+        elif not currency_credit and rate==0:
+            rate=1
+        #self.payment_id.write({'payment_rate':round(rate,4)})
         move_lines = []
         totales = {'MontoTotalPagos':self.payment_id.amount if self.payment_id.currency_id==self.payment_id.company_id.currency_id else self.payment_id.amount*round(rate,4),
             'TotalRetencionesIVA':0,'TotalRetencionesISR':0,'TotalRetencionesIEPS':0,
@@ -380,7 +387,11 @@ class IrAttachmentPaymentMx(models.Model):
         # Crate an environment of jinja in the templates directory
         taxes_traslado_global = []
         taxes_retenciones_global = []
-        for line in self.payment_ids.filtered(lambda x:x.debit_move_id.move_id.move_type=='out_invoice'):
+        payment_ids=self.payment_ids.filtered(lambda x:x.debit_move_id.move_id.move_type=='out_invoice')
+        if len(payment_ids)!=len(self.lines_payment_cfdi):
+            self.action_update()
+        for line in payment_ids:#self.payment_ids.filtered(lambda x:x.debit_move_id.move_id.move_type=='out_invoice'):
+            custom_id=self.lines_payment_cfdi.filtered(lambda x:x.partial_id.id==line.id)
             taxes_traslado_line = []
             taxes_retenidos_line = []
             if line.amount:
@@ -437,7 +448,10 @@ class IrAttachmentPaymentMx(models.Model):
 
                         totales['TotalTrasladosBaseIVA16'] += round(BaseP,2) if line.debit_currency_id!=line.credit_currency_id and line.debit_currency_id!=line.company_currency_id else round(BaseP*round(rate,4),2)
                         totales['TotalTrasladosImpuestoIVA16'] += ImporteP if line.debit_currency_id!=line.credit_currency_id and line.debit_currency_id!=line.company_currency_id else round(ImporteP*round(rate,4),2)
-                    move_lines.append({'pago':line,'serie':line.debit_move_id.move_id.journal_id.code,'folio':line.debit_move_id.move_id.name.replace(line.debit_move_id.move_id.journal_id.code,'').replace('/',''),'taxes_traslado_line':taxes_traslado_line,'taxes_retenidos_line':taxes_retenidos_line})
+                    
+            move_lines.append({'pago':line,'pago_custom':custom_id,'serie':line.debit_move_id.move_id.journal_id.code,
+                'folio':line.debit_move_id.move_id.name.replace(line.debit_move_id.move_id.journal_id.code,'').replace('/',''),
+                'taxes_traslado_line':taxes_traslado_line,'taxes_retenidos_line':taxes_retenidos_line})
 
         env = Environment(loader=FileSystemLoader(
             os.path.join(
@@ -776,6 +790,31 @@ class IrAttachmentPaymentMx(models.Model):
         )
         return email_ids and email_ids[0] or False
 
+    def action_update(self):
+        data=[]
+        #rate=1
+        context = dict(self._context or {}) 
+        context.update({'date':self.payment_id.date,'company_id':self.payment_id.company_id.id})
+        for line in self.payment_ids.filtered(lambda x:x.debit_move_id.move_id.move_type=='out_invoice'):
+            if line.debit_move_id.currency_id.id==line.credit_move_id.currency_id.id and line.credit_move_id.currency_id.id!=line.company_currency_id.id: 
+                rate=self.payment_id.payment_rate if self.payment_id.payment_rate > 1 else \
+                line.credit_move_id.currency_id.with_context(context)._compute(line.credit_move_id.currency_id,self.payment_id.company_id.currency_id,1,round=False)
+                #raise UserError( "ok"+str(  round(rate,4) ))
+                values=(0,0,{
+                    'sequence':line.sequence,
+                    'partial_id':line.id,
+                    'move_id':line.debit_move_id.id,
+                    'imppagado':line.debit_amount_currency,
+                    'impsaldoant':line.debit_move_id.amount_residual+line.debit_amount_currency,
+                    'impsaldoinsoluto':line.debit_move_id.amount_residual,
+                    'rate': round(rate,4)
+                })
+                data.append(values)
+        self.lines_payment_cfdi.unlink()
+        self.lines_payment_cfdi=data
+        #raise UserError( str( data ))
+        return True
+
     # def _get_invoice_report(self):
     #     """
     #     Helper function to create the PDF report file for payments
@@ -804,3 +843,16 @@ class IrAttachmentPaymentMx(models.Model):
 #             if attachments and line.res_model=='ir.attachment.payment.mx':
 #                 raise UserError(_("'Warning!'\n'You can not remove an attachment of an payment'"))
 #         return super(IrAttachment, self).unlink()
+class LinesPaymentCfdi(models.Model):
+    _name = 'lines.payment.cfdi'
+
+    attachment_payment_id=fields.Many2one('ir.attachment.payment.mx',string="Pagos id")
+    sequence=fields.Integer(string="No. Parcialidad")
+    partial_id=fields.Many2one("account.partial.reconcile",string="Partial")
+    move_id=fields.Many2one("account.move.line",string="Factura")
+    credit_currency_id=fields.Many2one(related="partial_id.credit_currency_id",string="Moneda Pago")
+    debit_currency_id=fields.Many2one(related="partial_id.credit_currency_id",string="Moneda Factura")
+    imppagado=fields.Float(string="Imp. Pago")
+    impsaldoant=fields.Float(string="Imp. Saldo Anterior")
+    impsaldoinsoluto=fields.Float(string="Saldo Pendiente")
+    rate=fields.Float(string="Tipo de Cambio",digits=(12, 6))

@@ -280,7 +280,7 @@ class AccountPayment(models.Model):
         string="Complemento Relacionado", copy=False
     )
     payment_type_id=fields.Many2one("payment.type",string="Forma de Pago")
-    payment_rate = fields.Float('Tipo de Cambio', digits=(12,6))
+    payment_rate = fields.Float('Tipo de Cambio', digits=(12,4))
 
 
     def get_filename(self):
