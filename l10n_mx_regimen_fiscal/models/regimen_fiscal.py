@@ -9,4 +9,4 @@ class AccountFiscalPosition(models.Model):
     _inherit ='account.fiscal.position'
     
     clave = fields.Char(string='Clave Sat', size=30)
-    description = fields.Text('Descripcion')    
+    description = fields.Text('Descripcion')

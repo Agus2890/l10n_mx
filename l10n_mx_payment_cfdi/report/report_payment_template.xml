@@ -2,8 +2,8 @@
 <odoo>
     <template id="external_layout_background_payment">
         <div class="header">
-            <!-- <div>ESTE DOCUMENTO ES UNA REPRESENTACION IMPRESA DE UN CFDI:</div>
-            <div>EMISOR:<span t-field="o.company_id.name"/></div> -->
+            <div style="font-size:12px;">ESTE DOCUMENTO ES UNA REPRESENTACION IMPRESA DE UN CFDI:</div>
+            <!-- <div>EMISOR:<span t-field="o.company_id.name"/></div> -->
         </div>
         <div class="article">
             <t t-raw="0" />
@@ -11,7 +11,15 @@
 
         <div class="footer">
             <div class="text-center">
-                <ul class="list-inline">
+                <div style="font-size:10px; text-align: center;">ESTE DOCUMENTO ES UNA REPRESENTACION IMPRESA DE UN CFDI FVT1-04-01</div>
+                <div class="col-xs-1">
+                    <ul class="list-inline pagenumber pull-right text-center">
+                        <li><strong><span class="page"/></strong></li>
+                    </ul>
+                </div>
+                
+
+                <!-- <ul class="list-inline">
                     <li t-if="company.phone"><i class="fa fa-phone"/> <span t-field="company.phone"/></li>
                     <li t-if="company.email"><i class="fa fa-at"/> <span t-field="company.email"/></li>
                     <li t-if="company.website"><i class="fa fa-globe"/> <span t-field="company.website"/></li>
@@ -23,7 +31,7 @@
                     <span class="page"/>
                     of
                     <span class="topage"/>
-                </div>
+                </div> -->
             </div>
         </div>
     </template>
@@ -55,292 +63,292 @@
     </template> -->
 
     <template id="report_payment_document">
-            <t t-call="web.basic_layout">
-                <div class="page" style="font-size: 16px;">
+            <!-- <t t-call="web.basic_layout"> -->
+        <t t-call="l10n_mx_payment_cfdi.external_layout_payment">
+                <div class="page" style="font-size: 12px;">
                     <table style="width:100%;margin-bottom: 15px;" align="left">
+                        <tr  >
+                            <th style="background-color:#255ba0;color:#FFF;">EMISOR</th>
+                            <th style="background-color:#255ba0;color:#FFF;"></th>
+                            <th style="background-color:#255ba0;color:#FFF;"></th>
+                            <th style="background-color:#255ba0;color:#FFF;"></th>
+                        </tr>
                         <td width="20%" style="text-align: left; vertical-align: middle;">
                             <img t-if="o.company_id.logo" t-att-src="'data:image/png;base64,%s' % to_text(o.company_id.logo)" height="100" width="100"/>
                         </td>
-                        <td width="15%" style="font-size:11px; vertical-align:bottom;">
-                            <span t-field="o.company_id.phone"/><br/>
-                            ¿Tiene algun comentario? <br/>
-                            <span t-field="o.company_id.email"/>
-                        </td>
-                        <td width="35%" style="font-size:11px; text-align:center; vertical-align:middle;" colspan="2">
-                            <div> <b><span t-field="o.company_id.name"/></b> </div><br/>
-                            <b>Agente:</b><span t-esc="o.user_id.name"/><br/>
-                            <b>Email:</b> <span t-esc="o.user_id.email"/><br/>
+                        <td width="35%" style="font-size:12px; text-align:center; vertical-align:middle;" colspan="2">
+                            <b><span t-esc="o.company_id.name"/></b>
+                            <br/><b> <span t-esc="o.company_id.partner_id.vat_split"/></b>
 
-                            <div>Clave de regimen Fiscal: <span t-esc="o.company_id.partner_id.property_account_position_id.name"/></div>
-                            <div><t t-foreach="request.env['stock.warehouse'].sudo().search([('company_id','=',o.company_id.id)], limit=1)" t-as="obj">
-                                    <span>Lugar de expedicion: <span t-field="obj.partner_id.zip" /></span>
-                                </t>  
-                            </div> <br/>
-                            <div style="font-size:11px; text-align: center;">
-                                P Pago<br/>
-                                Version CFDI: 4.0
-                           </div>
+                            <br/><span t-esc="o.company_id.partner_id.street"/><br/>
+                            <b>C.P.:</b><span t-esc="o.company_id.partner_id.zip"/><br/>
+                            <span t-field="o.company_id.partner_id.city_id"/>, <span t-field="o.company_id.partner_id.state_id"/>,<span t-field="o.company_id.partner_id.country_id"/>
+                             <div><span t-field="o.company_id.partner_id.property_account_position_id"/></div>
                         </td>
-                        <td width="30%" rowspan="2" style="text-align: right;">
-                            <div>
-                                <img class="img-responsive" src="/l10n_mx_facturae/static/src/img/palme.PNG" style="max-height: 150px;"/>
-                            </div>
+                        <td width="30%" rowspan="2" style="text-align: left;font-size:12px;vertical-align: middle;">
+                            <center><div><b>RECIBO DE PAGO:</b> </div>
+                            <div><b>Serie y Folio: </b><span t-esc="o.name"/> </div>
+                            <div><b>Fecha y Hora: </b><span t-esc="o.cfdi_fecha_timbrado"/> </div>
+                            </center>
                         </td>
-                        <!-- <tr>
-                            
-                            <td>
-                                <div style="font-size:11px; text-align: center;">
-                                    I Ingreso<br/>
-                                    Version CFDI: 3.3
-                               </div>
-                            </td>
-                        </tr> -->
                     </table>
-                    <table width="100%" style="font-size:10px;" >
-                        <tr  style="border-bottom:1px solid black;">
-                            <th>Emisor</th>
-                            <th>
-                                Sucursal
-                            </th>
-                            <th></th>
+                    <table width="100%" style="font-size:12px;" >
+                        <tr >
+                            <th style="background-color:#255ba0;color:#FFF;">RECEPTOR</th>
+                            <th style="background-color:#255ba0;color:#FFF;"></th>
+                            <th style="background-color:#255ba0;color:#FFF;"></th>
                         </tr>
                         <tr>
                             <td>
-                                <span t-field="o.company_id.name"/><br/>
-                                <div>
-                                    <span t-field="o.company_id.partner_id.street"/> </div>
-                                <div>
-                                    <span t-field="o.company_id.partner_id.street2"/>
-                                </div>
-                                <div>
-                                    <span t-field="o.company_id.partner_id.city_id"/>, <span t-field="o.company_id.partner_id.state_id"/>. 
-                                </div>
-                                <div><span t-field="o.company_id.partner_id.zip"/></div>
-                                <div><span t-field="o.company_id.partner_id.vat"/></div>
+                                <b>Cliente:<span t-esc="o.partner_id.name"/></b><br/>
+                                <b>Direccion:<span t-esc="o.partner_id.street"/>
+                                <span t-esc="o.partner_id.street2"/></b><br/>
+
+                                <b>Ciudad: <span t-field="o.partner_id.city_id"/>, <span t-field="o.partner_id.state_id"/>, <span t-field="o.partner_id.country_id"/></b><br/>
+                                <b>C.P: <span t-esc="o.partner_id.zip"/></b><br/>        
                             </td>
                             <!-- <t t-foreach="request.env['stock.warehouse'].sudo().search([('company_id','=',o.company_id.id)],limit=1)" t-as="obj"> -->
                             <td>
-                                <t t-foreach="o.branch_id" t-as="obj">
-                                <!-- <t t-esc="obj.name"/> -->
-                                <div>
-                                    <span t-field="obj.street"/> </div>
-                                <div>
-                                    <span t-field="obj.street2"/>
-                                </div>
-                                <div>
-                                    <span t-field="obj.city_id"/>, <span t-field="obj.state_id"/>. 
-                                </div>
-                                <div><span t-field="obj.zip"/></div><br/>
-
-                                <div>Tel: <span t-field="obj.phone"/></div>
-                            </t>
+                                <b>RFC:<span t-esc="o.partner_id.vat_split"/></b><br/>
+                                <b>Regimen Fiscal:</b>
+                                <div><span t-field="o.partner_id.property_account_position_id"/></div>
                             </td>
                             <td>
-                                <b>SERIE:</b> <span t-esc="o.name"/><br/>
-                                <!-- <b>FOLIO:</b> <span t-esc="o.get_serie()[1]"/><br/> -->
-                                <b>FOLIO:</b> <!-- <span t-field="o.origin"/> --><br/>
-                                <b>Documento Consecutivo:</b> <br/>
-                                <b>Fecha y Hora:</b> <span t-esc="o.cfdi_fecha_timbrado"/><br/>
-                                <!-- b>Hora:</b> <span t-esc="datetime.datetime.strptime(o.cfdi_fecha_timbrado, '%Y-%m-%d %H:%M:%S').strftime('%H:%M:%S')"/><br/> -->
-                              <!--   <span t-esc="datetime.datetime.strptime(o.cfdi_fecha_timbrado, '%Y-%m-%d %H:%M:%S').strftime('%b %d,%Y %H:%M %p')"/> -->
+                                <b>No.Certificado: <span t-esc="o.no_certificado"/></b><br/>
                             </td>
                         </tr>
-                        <tr style="border-bottom:1px solid black;">
-                            <th>Receptor</th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span t-field="o.partner_id.name"/>
-                                <div>
-                                    <span t-field="o.partner_id.street"/> </div>
-                                <div>
-                                    COL. <span t-field="o.partner_id.street2"/>
-                                </div>
-                                <div>
-                                    <span t-field="o.partner_id.city_id"/> <span t-field="o.partner_id.state_id"/>, <span t-field="o.partner_id.country_id"/>.
-                                </div>
-                                <div><span t-field="o.partner_id.zip"/></div>
-                                <div><span t-field="o.partner_id.vat"/></div>
-                                <div>Uso de CFDI: CP01 </div>
-                            </td><br/><br/>
-                            <td>
-                               <!--  <br/>
-                                Condiciones de Pago:15 Dias
-                                <br/>
-                                Pedido: <span t-field="o.invoice_origin"/><br/>
-                                Orden de Compra: <span t-field="o.ref"/><br/>
-                                Transporte: NUESTRO<br/>
-                                Guia:<br/>
-                                Moneda: <span t-esc="o.currency_id.name"/><br/>
-                                Forma de Pago:  <span t-field="o.payment_type_id"/><br/> 
-                                Metodo de Pago: <span t-field="o.payment_method"/><br/> -->
-                                
-                            </td>
-                            <td>
-                                <div> </div>
-                            </td>
-                        </tr>
+                        
                     </table>
-                    
-                    <!-- <div class="watermark" style="position:absolute;opacity:0.25;font-size:3em;width:100%;text-align:center;z-index:2000;">
-                        <img t-att-src="'data:image/png;base64,%s' % to_text(o.company_id.upload_image)"/>
-                    </div> -->
-                    <div style="font-size:10px; border-bottom:1px solid gray"><span>Informacion del Deposito</span></div>
-                    <table style="font-size:10px;" >
+                    <hr width="100%" size="1"/>
+                    <table width="100%" class="basic_table" rules="cols" style="border:1.5px solid grey;font-size:11px;" border="2" cellpadding="2" cellspacing="2"  bordercolorlight="#C0C0C0">
                         <thead>
                             <tr>
-                                <td class="text-left" style="width: 25%;"><b>Fecha:</b> <span t-field="o.date"/></td>
-                                <td class="text-left" style="width: 25%;"></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td class="text-left" style="width: 25%;"><b>Moneda:</b> <span t-field="o.currency_id"/></td>
-                                <td class="text-left" style="width: 25%;"><b>Monto:</b> <span t-field="o.amount"/></td>
-                                <td class="text-left" style="width: 25%;"><b>Tipo de Cambio:</b> $0.0000</td>
-                                <td class="text-left" style="width: 25%;"><b>Forma de Pago:</b> <span t-field="o.payment_type_id"/></td>
+                                <th style="border-bottom: 1px solid #666" align="center" bgcolor="#C0C0C0">
+                                    <b><font style="font-size:11px">
+                                        Codigo
+                                    </font>
+                                    </b>
+                                </th>
+                                <th style="border-bottom: 1px solid #666" align="center" bgcolor="#C0C0C0">
+                                    <b><font style="font-size:11px">
+                                        Cantidad
+                                    </font>
+                                    </b>
+                                </th>
+                                <th style="border-bottom: 1px solid #666" align="center" bgcolor="#C0C0C0">
+                                    <b><font style="font-size:11px">
+                                        Moneda
+                                    </font>
+                                    </b>
+                                </th>
+                                <th style="border-bottom: 1px solid #666" align="center" bgcolor="#C0C0C0">
+                                    <b><font style="font-size:11px">
+                                        Descripcion
+                                    </font>
+                                    </b>
+                                </th>
+                                <th style="border-bottom: 1px solid #666" align="center" bgcolor="#C0C0C0">
+                                    <b><font style="font-size:11px">
+                                        Unidad de Medida
+                                    </font>
+                                    </b>
+                                </th>
+                                <th style="border-bottom: 1px solid #666" align="center" bgcolor="#C0C0C0">
+                                    <b><font style="font-size:11px">
+                                        Precio Unitario
+                                    </font>
+                                    </b>
+                                </th>
+                                <th style="border-bottom: 1px solid #666" align="center" bgcolor="#C0C0C0">
+                                    <b><font style="font-size:11px">
+                                        Importe
+                                    </font>
+                                    </b>
+                                </th>
                             </tr>
                         </thead>
+                        <tbody>
+                            <tr>
+                                <td><font style="font-size:11px">84111506</font></td>
+                                <td><font style="font-size:11px">1</font></td>
+                                <td><font style="font-size:11px"><span t-esc="o.currency_id.name"/></font></td>
+                                <td><font style="font-size:11px">Pago</font></td>
+                                <td><font style="font-size:11px">ACT</font></td>
+                                <td><font style="font-size:11px">$ 0.00</font></td>
+                                <td><font style="font-size:11px">$ 0.00</font></td>
+                            </tr>
+                        </tbody>
                     </table>
-
+                    <hr width="100%" size="0.5"/>
                     <div><span >CFDI Relacionados</span></div>
                     <table style="font-size:10px; border:1px solid gray">
                         <thead>
                             <tr>
-                                <th class="text-center" style="border-right:1px solid gray; width: 25%;"><strong>Id Documento.</strong></th>
-                                <th class="text-center" style="border-right:1px solid gray; width: 8%;"><strong>Serie</strong></th>
-                                <th class="text-center" style="border-right:1px solid gray; width: 8%;"><strong>Folio</strong></th>
-                                <th class="text-center" style="border-right:1px solid gray; width: 10%;"><strong>Fecha Documento</strong></th>
-                                <th class="text-center" style="border-right:1px solid gray; width: 5%;"><strong>No. Parcialidad</strong></th>
-                                <th class="text-center" style="border-right:1px solid gray; width: 5%;"><strong>Moneda</strong></th>
-                                <th class="text-center" style="border-right:1px solid gray; width: 5%;"><strong>Tipo de Cambio</strong></th>
-                                <th class="text-center" style="border-right:1px solid gray; width: 10%;"><strong>Importe saldo anterior</strong></th>
-                                <th class="text-center" style="border-right:1px solid gray; width: 10%;"><strong>Importe pagado</strong></th>
-                                <th class="text-center" style="border-right:1px solid gray; width: 10%;"><strong>Importe saldo insoluto</strong></th>
+                                <th class="text-center" style="border:1px solid gray; width: 25%;"><strong>Id Documento.</strong></th>
+                                <th class="text-center" style="border:1px solid gray; width: 8%;"><strong>Serie</strong></th>
+                                <th class="text-center" style="border:1px solid gray; width: 8%;"><strong>Folio</strong></th>
+                                <th class="text-center" style="border:1px solid gray; width: 10%;"><strong>Fecha Documento</strong></th>
+                                <th class="text-center" style="border:1px solid gray; width: 5%;"><strong>No. Parcialidad</strong></th>
+                                <th class="text-center" style="border:1px solid gray; width: 5%;"><strong>Moneda</strong></th>
+                                <th class="text-center" style="border:1px solid gray; width: 5%;"><strong>Tipo de Cambio</strong></th>
+                                <th class="text-center" style="border:1px solid gray; width: 10%;"><strong>Importe saldo anterior</strong></th>
+                                <th class="text-center" style="border:1px solid gray; width: 10%;"><strong>Importe pagado</strong></th>
+                                <th class="text-center" style="border:1px solid gray; width: 10%;"><strong>Importe saldo insoluto</strong></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr t-foreach="request.env['ir.attachment.payment.mx'].search([('payment_id','=',o.id),('payment_ids','!=',[])],limit=1).payment_ids"  t-as="obj">
+                            <tr t-foreach="request.env['ir.attachment.payment.mx'].search([('payment_id','=',o.id),('payment_ids','!=',[])],limit=1).lines_payment_cfdi"  t-as="obj">
                                 <td class="text-center" style="border-right:1px solid gray; border-bottom:1px solid gray;font-size:10px">
-                                    <span t-field="obj.debit_move_id.move_id.cfdi_folio_fiscal"/>
+                                    <span t-field="obj.move_id.move_id.cfdi_folio_fiscal"/>
                                 </td>
                                 <td class="text-center" style="border-right:1px solid gray; border-bottom:1px solid gray;font-size:10px">
-                                    <span t-field="obj.debit_move_id.move_id.journal_id.code"/>
+                                    <span t-field="obj.move_id.move_id.journal_id.code"/>
                                 </td>
                                 <td class="text-center" style="border-right:1px solid gray; border-bottom:1px solid gray;font-size:10px">
-                                    <span t-esc="obj.debit_move_id.move_id.name.replace(obj.debit_move_id.move_id.journal_id.code,'').replace('/','')"/>
+                                    <span t-esc="obj.move_id.move_id.name.replace(obj.move_id.move_id.journal_id.code,'').replace('/','')"/>
                                 </td>
                                 <td class="text-center" style="border-right:1px solid gray; border-bottom:1px solid gray;font-size:10px">
-                                    <span t-esc="obj.debit_move_id.move_id.invoice_date"/>
+                                    <span t-esc="obj.move_id.move_id.invoice_date"/>
                                 </td>
                                 <td class="text-center" style="border-right:1px solid gray; border-bottom:1px solid gray;font-size:10px">
-                                    <span t-esc="obj.sequence"/>
+                                    <span t-esc="obj.partial_id.sequence"/>
                                 </td>
                                 <td class="text-center" style="border-right:1px solid gray; border-bottom:1px solid gray;font-size:10px">
-                                    <span t-field="obj.credit_currency_id"/>
+                                    <span t-field="obj.partial_id.credit_currency_id"/>
                                 </td>
                                 <td class="text-center" style="border-right:1px solid gray; border-bottom:1px solid gray;font-size:10px">
-                                    
+                                    <span t-field="obj.rate"/>
                                 </td>
                                 <td class="text-center" style="border-right:1px solid gray; border-bottom:1px solid gray;font-size:10px">
-                                    <t t-if="obj.credit_currency_id!=company_currency_id">
-                                        $ <span t-esc="obj.debit_move_id.move_id.amount_residual+obj.credit_amount_currency"/>
-                                    </t>
-                                    <t t-else="">
-                                        $ <span t-esc="obj.debit_move_id.move_id.amount_residual+obj.amount"/>
-                                    </t>
+                                    $ <span t-esc="'{:.2f}'.format(obj.impsaldoant-obj.amount_profit_loss)"/>
                                 </td>
                                 <td class="text-center" style="border-right:1px solid gray; border-bottom:1px solid gray;font-size:10px">
-                                    <t t-if="obj.credit_currency_id!=company_currency_id">
-                                        $ <span t-esc="obj.debit_amount_currency"/>
-                                    </t>
-                                    <t t-else="">
-                                        $ <span t-esc="obj.amount"/>
-                                    </t>
+                                    $ <span t-esc="'{:.2f}'.format(obj.imppagado-obj.amount_profit_loss)"/>
                                 </td>
                                 <td class="text-center" style="border-right:1px solid gray; border-bottom:1px solid gray;font-size:10px">
-                                    $ <span t-esc="obj.debit_move_id.move_id.amount_residual"/>
+                                   $ <span t-field="obj.impsaldoinsoluto"/>
                                 </td>
 
                             </tr>
                         </tbody>
                     </table>
-                    <br/>
-                    <br/>
-                    <table style="font-size:10px;">
-                        <td colspan="3"><b>Sello Digital del Emisor:</b>
-                            <span t-field="o.sello" style="font-size:90x; display:block; width:900px; word-wrap:break-word;"/>
-                        </td>
+                    <hr width="100%" size="0.5"/>
+                    <table width="100%" class="basic_table" rules="cols" style="border:1.5px solid grey;" border="2" cellpadding="2" cellspacing="2"  bordercolorlight="#C0C0C0">
+                        <thead>
+                            <tr>
+                                <th style="border-bottom: 1px solid #666" align="center" bgcolor="#C0C0C0">
+                                    <b><font style="font-size:11px">
+                                        Fecha y hora de Pagos
+                                    </font>
+                                    </b>
+                                </th>
+                                <th style="border-bottom: 1px solid #666" align="center" bgcolor="#C0C0C0">
+                                    <b><font style="font-size:11px">
+                                        Forma de Pago
+                                    </font>
+                                    </b>
+                                </th>
+                                <th style="border-bottom: 1px solid #666" align="center" bgcolor="#C0C0C0">
+                                    <b><font style="font-size:11px">
+                                        Total del Pago
+                                    </font>
+                                    </b>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><font style="font-size:11px"><span t-esc="o.date"/></font></td>
+                                <td><font style="font-size:11px"><span t-field="o.payment_type_id"/></font></td>
+                                <td><font style="font-size:11px"><span t-esc="o.amount"/></font></td>
+                            </tr>
+                        </tbody>
                     </table>
-                    <table style="font-size:10px;">    
-                        <td width="25%" style="font-size:10px;">
+                    <hr width="100%" size="1"/>
+                    <table style="font-size:10px;">
+                        <tr >
+                            <th style="background-color:#255ba0;color:#FFF;">.</th>
+                            <th style="background-color:#255ba0;color:#FFF;"></th>
+                            <th style="background-color:#255ba0;color:#FFF;"></th>
+                            <th style="background-color:#255ba0;color:#FFF;"></th>
+                            <th style="background-color:#255ba0;color:#FFF;"></th>
+                        </tr> 
+                        <td width="20%" style="font-size:11px;">
                             <strong>Numero de Certificado</strong><br></br>
                         </td>
-                        <td width="25%">
-                            <span t-if="o.no_certificado" t-field="o.no_certificado" style="font-size:10px"/>
+                        <td width="30%">
+                            <span t-if="o.no_certificado" t-field="o.no_certificado" style="font-size:12px"/>
                             <span t-else="" style="font-size:10px">No identificado</span>
                         </td>
 
-                        <td width="25%" style="font-size:10px;">
+                        <td width="20%" style="font-size:10px;">
                             <strong>Folio Fiscal</strong><br></br>
                         </td>
-                        <td width="25%">
+                        <td width="30%">
                             <div>
-                                <span t-if="o.cfdi_folio_fiscal" t-field="o.cfdi_folio_fiscal" style="font-size:10px"/>
+                                <span t-if="o.cfdi_folio_fiscal" t-field="o.cfdi_folio_fiscal" style="font-size:12px"/>
                                 <span t-else="" style="font-size:10px">No identificado</span>
                             </div>
                         </td>
 
                         <tr>
-                            <td width="25%" style="font-size:10px;">
+                            <td width="20%" style="font-size:10px;">
                                 <strong>Timbrado</strong><br></br>
                             </td>
-                            <td width="25%">
-                                <span t-if="o.cfdi_fecha_timbrado" t-field="o.cfdi_fecha_timbrado" style="font-size:10px"/>
+                            <td width="30%">
+                                <span t-if="o.cfdi_fecha_timbrado" t-field="o.cfdi_fecha_timbrado" style="font-size:12px"/>
                                 <span t-else="" style="font-size:10px">No identificado</span>
                             </td>
 
-                            <td width="25%" style="font-size:10px;">
+                            <td width="20%" style="font-size:10px;">
                                 <strong>Cert. SAT</strong><br></br>
                             </td>
-                            <td width="25%">
-                                <span t-if="o.cfdi_no_certificado" t-field="o.cfdi_no_certificado" style="font-size:10px"/>
+                            <td width="30%">
+                                <span t-if="o.cfdi_no_certificado" t-field="o.cfdi_no_certificado" style="font-size:12px"/>
                                 <span t-else="" style="font-size:10px">No identificado</span>
                             </td>
                         </tr>
                     </table>
-                    <table style="font-size:10px;">
-                        <td>
-                            <b>Sello Digital del SAT:</b><br/>
-                            <div>
-                                <span t-field="o.cfdi_sello" style="font-size:9px; display:block; width:900px; word-wrap:break-word;"/>
-                            </div>
-                        </td>
+                    <table width="100%" class="basic_table" rules="cols" style="font-size:11px;" border="2" cellpadding="2" cellspacing="2"  bordercolorlight="#C0C0C0">
                         <tr>
+                            <td rowspan="4"  width="15%" align="center">
+                                <img t-if="o.cfdi_folio_fiscal" t-att-src="'data:image/png;base64,%s' % to_text(o.get_qrcode())" height="199" width="199"/>
+                            </td>
+                            <td ></td>
                             <td>
-                                <b>Cadena Original:</b>
-                                <div>
-                                    <span t-field="o.cfdi_cadena_original" style="font-size:9px; display:block; width:900px; word-wrap:break-word;"/>
-                                </div>
+                                <div><b>Cadena Original:</b></div>
+                                <span t-field="o.cfdi_cadena_original" style="display:block;width:600px;word-wrap:break-word;"/>                
                             </td>
                         </tr>
+                        <tr style="border-bottom: 1px solid #666">
+                            <td></td>
+                           <!-- <td></td> -->
+                            <td>
+                              <div><b>Sello:</b></div>
+                                <span t-field="o.sello" style="display:block;width:600px;word-wrap:break-word;"/>
+                            </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #666">
+                            <td></td>
+                         <!--    <td></td> -->
+                            <td >
+                              <div><b>Sello SAT:</b>
+                                <span t-field="o.cfdi_sello" style="display:block;width:600px;word-wrap:break-word;"/></div>
+
+                            </td>
+                            <br/>
+                        </tr>
                     </table>
-
-                    <div>
-                        <img t-att-src="'data:image/png;base64,%s' % to_text(qrcode)" height="100" width="100"/>
-                    </div>
-
                 </div>
-                <div class="footer o_boxed_footer">
+
+<!--                 <div class="footer o_boxed_footer">
                     <div style="font-size:10px; text-align: center;">ESTE DOCUMENTO ES UNA REPRESENTACION IMPRESA DE UN CFDI FVT1-04-01</div>
                     <div class="col-xs-1">
                         <ul class="list-inline pagenumber pull-right text-center">
                             <li><strong><span class="page"/></strong></li>
                         </ul>
                     </div>
-                </div>
+                </div> -->
             </t>
         </template>
 

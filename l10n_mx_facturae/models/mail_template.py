@@ -11,25 +11,23 @@ class MailTemplate(models.Model):
     """
     _inherit = 'mail.template'
 
-    def generate_email(self, res_ids, fields=None):
-        res = super(MailTemplate, self).generate_email(res_ids, fields=fields)
-        if isinstance(res, dict) and type(res_ids) is int:#is not int:
-            if res['model'] == 'account.move': #if res[res_ids[0]]['model']=='account.move':
-                states = ['printable', 'sent_customer', 'done']
-                att_obj = self.env['ir.attachment.facturae.mx']
-                iatt_ids = att_obj.search([('invoice_id', '=', res_ids)])#res_ids[0])])
-
-                #raise Warning( str(iatt_ids ))
-                for iattach in iatt_ids:
-                    attachments = []
-                    if iattach.state in states:
-                        attachments.append(iattach.file_xml_sign.id)
-                        attachments.append(iattach.file_pdf.id)
-                        res['attachment_ids'] = attachments#res[res_ids[0]]['attachment_ids'] = attachments
-        return res
+    # def generate_email(self, res_ids, fields=None):
+    #     res = super(MailTemplate, self).generate_email(res_ids, fields=fields)
+    #     if isinstance(res, dict) and type(res_ids) is int:#is not int:
+    #         if res['model'] == 'account.move': #if res[res_ids[0]]['model']=='account.move':
+    #             states = ['printable', 'sent_customer', 'done']
+    #             att_obj = self.env['ir.attachment.facturae.mx']
+    #             iatt_ids = att_obj.search([('invoice_id', '=', res_ids)])#res_ids[0])])
+    #             for iattach in iatt_ids:
+    #                 attachments = []
+    #                 if iattach.state in states:
+    #                     attachments.append(iattach.file_xml_sign.id)
+    #                     attachments.append(iattach.file_pdf.id)
+    #                     res['attachment_ids'] = attachments#res[res_ids[0]]['attachment_ids'] = attachments
+    #     return res
 
 
-    def generate_email_batch(self, template_id, res_ids):
+    def generate_email_batch_old(self, template_id, res_ids):
         """
         Generates an email from the template for given (model, res_id) pair.
 
@@ -50,7 +48,7 @@ class MailTemplate(models.Model):
             'portal_sale': 'email_template_edi_invoice',
             'l10n_mx_ir_attachment_facturae': 'email_template_template_facturae_mx',
         }
-        values = super(EmailTemplate, self).generate_email_batch(template_id, res_ids)
+        values = super(EmailTemplate, self).generate_email_batch_old(template_id, res_ids)
         
         # Look for possible templates for invoice and override
         for module, name in data.iteritems():

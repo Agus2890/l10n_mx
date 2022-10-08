@@ -43,15 +43,7 @@
 
                                     <div><b>DOMICILIO FISCAL:</b><br></br></div>
                                     <span t-field="o.company_id.partner_id.street"/>
-                                    <!-- <span>No. Ext: </span>
-                                    <span t-if="o.company_id.partner_id.street2" t-field="o.company_id.partner_id.street2"/>
-                                    <span t-else="">N/A</span> -->
-                                    <!-- <span>No. Int: </span>
-                                    <span t-if="o.company_id.partner_id.l10n_mx_street4" t-field="o.company_id.partner_id.l10n_mx_street4"/>
-                                    <span t-else="">N/A</span><br/> -->
-                                    <span>Colonia: </span>
                                     <span t-field="o.company_id.partner_id.street2"/><br/>
-                                    <span>Localidad: </span>
                                     <span t-field="o.company_id.partner_id.city"/><a>, </a>
                                     <span t-field="o.company_id.partner_id.state_id.name"/><a>, </a>
                                     <span t-field="o.company_id.partner_id.country_id.name"/><br/>

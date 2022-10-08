@@ -46,7 +46,6 @@ class IrAttachmentPaymentMx(models.Model):
     payment_id = fields.Many2one('account.payment', string='Payment', readonly=True)
     # payment_ids = fields.Many2many('account.move.line', string="Lineas de Pago",readonly=True)
     payment_ids = fields.Many2many('account.partial.reconcile', string="Lineas de Pago",readonly=True)
-    lines_payment_cfdi=fields.One2many("lines.payment.cfdi","attachment_payment_id",string="Lineas")
     company_id = fields.Many2one('res.company', string='Company', readonly=True)
     file_input = fields.Many2one('ir.attachment', 'File input',
             readonly=True, help='File input')
@@ -70,9 +69,6 @@ class IrAttachmentPaymentMx(models.Model):
     msj = fields.Text(string='Last Message', readonly=True,
             track_visibility='onchange',
             help='Message generated to upload XML to sign')
-    montototalpagos=fields.Char(string="MontoTotalPagos")
-    totaltrasladosbaseiva16=fields.Char(string="TotalTrasladosBaseIVA16")
-    totaltrasladosimpuestoiva16=fields.Char(string="TotalTrasladosImpuestoIVA16")
     
     def _get_certificate_str(self, fname_cer_pem=""):
         """
@@ -313,9 +309,9 @@ class IrAttachmentPaymentMx(models.Model):
             #if mfac=='MXN' and mpago=='USD':
             #    ratedr=self.voucher_id._get_currency_rate_mp()
             #    attr.setAttribute("TipoCambioDR", str(ratedr))
-            #if not self.payment_id.journal_id.currency_id and mfac!=mpago:
-            #    rate=self.payment_id.get_currency_rate(moneda=mfac)
-            #    attr.setAttribute("TipoCambioDR", str( round(rate,4)))
+            if not self.payment_id.journal_id.currency_id and mfac!=mpago:
+                rate=self.payment_id.get_currency_rate(moneda=mfac)
+                attr.setAttribute("TipoCambioDR", str( round(rate,4)))
                 #raise UserError( str( rate))
 
             if mfac==mpago:
@@ -374,16 +370,8 @@ class IrAttachmentPaymentMx(models.Model):
         ####### usd!=mxn factura pesos -pago dolares
         #{%  if payment.currency_id.id==item.get('pago').company_currency_id.id and item.get('pago').debit_currency_id.id!=item.get('pago').credit_currency_id.id: %}
 
-        currency_credit=self.payment_ids.filtered(lambda x:x.debit_currency_id!=x.credit_currency_id or x.credit_currency_id !=x.company_currency_id)
-        rate=self.payment_id.payment_rate #self.payment_id.get_currency_rate() if not currency_credit else  self.payment_id.get_currency_rate( currency_credit.mapped('debit_currency_id')[0])
-        tasacambio=0
-        if currency_credit and   rate<2:
-            raise UserError( str("Agregue un tipo de Cambio en su Pago"))
-        elif not currency_credit and rate==0:
-            rate=1
-        else:
-            tasacambio= round(1/rate,6)
-        #self.payment_id.write({'payment_rate':round(rate,4)})
+        currency_credit=self.payment_ids.filtered(lambda x:x.debit_currency_id!=x.credit_currency_id)
+        rate=self.payment_id.get_currency_rate() if not currency_credit else  self.payment_id.get_currency_rate( currency_credit.mapped('debit_currency_id')[0])
         move_lines = []
         totales = {'MontoTotalPagos':self.payment_id.amount if self.payment_id.currency_id==self.payment_id.company_id.currency_id else self.payment_id.amount*round(rate,4),
             'TotalRetencionesIVA':0,'TotalRetencionesISR':0,'TotalRetencionesIEPS':0,
@@ -392,11 +380,7 @@ class IrAttachmentPaymentMx(models.Model):
         # Crate an environment of jinja in the templates directory
         taxes_traslado_global = []
         taxes_retenciones_global = []
-        payment_ids=self.payment_ids.filtered(lambda x:x.debit_move_id.move_id.move_type=='out_invoice')
-        if len(payment_ids)!=len(self.lines_payment_cfdi):
-            self.action_update()
-        for line in payment_ids:#self.payment_ids.filtered(lambda x:x.debit_move_id.move_id.move_type=='out_invoice'):
-            custom_id=self.lines_payment_cfdi.filtered(lambda x:x.partial_id.id==line.id)
+        for line in self.payment_ids.filtered(lambda x:x.debit_move_id.move_id.move_type=='out_invoice'):
             taxes_traslado_line = []
             taxes_retenidos_line = []
             if line.amount:
@@ -417,25 +401,16 @@ class IrAttachmentPaymentMx(models.Model):
                         if line.debit_currency_id==line.credit_currency_id and line.debit_currency_id==line.company_currency_id:
                             BaseP=round(line_tax_value[0].get('base'),2)
                         elif line.debit_currency_id!=line.credit_currency_id and line.credit_currency_id==line.company_currency_id:
-                            BaseP=round(round(line_tax_value[0].get('base'),2)/ tasacambio,2)
-                            #raise UserError( str( BaseP )+'|'+str(  tasacambio  ) )
+                            BaseP=round(round(line_tax_value[0].get('base')/(1/round(1/round(rate,4),6)),2)*(1/round(1/round(rate,4),6)),6)
 
                         # elif line.debit_currency_id==line.credit_currency_id and line.credit_currency_id!=line.company_currency_id:
                         #     BaseP=round(line_tax_value[0].get('base')/round(rate,4),2)
                         ##################### 
                         ImporteP=round(line_tax_value[0].get('amount'),2)
-                        ##aplica para factura pesos pago en pesos
                         if line.debit_currency_id==line.credit_currency_id and line.debit_currency_id==line.company_currency_id:
-                            #raise UserError( "if"+str(ImporteP ))
                             ImporteP=round(line_tax_value[0].get('amount'),2)
-                            ###factura usd pago mxn    and pago mxn companya mxn
                         elif line.debit_currency_id!=line.credit_currency_id and line.credit_currency_id==line.company_currency_id:
-                            
-                            #ImporteP=round(round(line_tax_value[0].get('amount')/(1/round(1/round(rate,4),6)),2)*(1/round(1/round(rate,4),6)),2)
-                            ImporteP=round(round(line_tax_value[0].get('amount'),2)/ tasacambio,2)
-                            #raise UserError( "elif"+str(ImporteP)+" /"+str(line_tax_value[0].get('amount')))
-                        # else:
-                        #    raise UserError( "else"+str(ImporteP ))
+                            ImporteP=round(round(line_tax_value[0].get('amount')/(1/round(1/round(rate,4),6)),2)*(1/round(1/round(rate,4),6)),2)
                         # elif line.debit_currency_id==line.credit_currency_id and line.credit_currency_id!=line.company_currency_id:
                         #     ImporteP=round(line_tax_value[0].get('amount')/round(rate,4),2) 
                         #aise UserError( str( BaseP))
@@ -462,10 +437,7 @@ class IrAttachmentPaymentMx(models.Model):
 
                         totales['TotalTrasladosBaseIVA16'] += round(BaseP,2) if line.debit_currency_id!=line.credit_currency_id and line.debit_currency_id!=line.company_currency_id else round(BaseP*round(rate,4),2)
                         totales['TotalTrasladosImpuestoIVA16'] += ImporteP if line.debit_currency_id!=line.credit_currency_id and line.debit_currency_id!=line.company_currency_id else round(ImporteP*round(rate,4),2)
-                    
-            move_lines.append({'pago':line,'pago_custom':custom_id,'serie':line.debit_move_id.move_id.journal_id.code,
-                'folio':line.debit_move_id.move_id.name.replace(line.debit_move_id.move_id.journal_id.code,'').replace('/',''),
-                'taxes_traslado_line':taxes_traslado_line,'taxes_retenidos_line':taxes_retenidos_line})
+                    move_lines.append({'pago':line,'serie':line.debit_move_id.move_id.journal_id.code,'folio':line.debit_move_id.move_id.name.replace(line.debit_move_id.move_id.journal_id.code,'').replace('/',''),'taxes_traslado_line':taxes_traslado_line,'taxes_retenidos_line':taxes_retenidos_line})
 
         env = Environment(loader=FileSystemLoader(
             os.path.join(
@@ -476,8 +448,7 @@ class IrAttachmentPaymentMx(models.Model):
         emitter = (self.company_id)
         tz = pytz.timezone('America/Mexico_City')
         time_now = datetime.now(tz).strftime('%Y-%m-%d %H:%M:%S')
-        #self.payment_id.payment_datetime.strftime('%Y-%m-%d %H:%M:%S')
-        date_voucher = self.payment_id.payment_datetime.strftime('%Y-%m-%dT%H:%M:%S')#datetime.strptime(self.payment_id.payment_datetime,'%Y-%m-%d %H:%M:%S').strftime('%Y-%m-%dT%H:%M:%S')
+        date_voucher = datetime.strptime(time_now,'%Y-%m-%d %H:%M:%S').strftime('%Y-%m-%dT%H:%M:%S')
         # date_payment = datetime.strptime(self.payment_id.payment_datetime,'%Y-%m-%d %H:%M:%S').strftime('%Y-%m-%dT%H:%M:%S')
         date_payment = datetime.strptime(time_now,'%Y-%m-%d %H:%M:%S').strftime('%Y-%m-%dT%H:%M:%S')
 
@@ -505,7 +476,7 @@ class IrAttachmentPaymentMx(models.Model):
 
         new_file = tempfile.NamedTemporaryFile(delete=False)
         with codecs.open(new_file.name, 'w', encoding='utf-8') as f:
-            unicode = xml_data.replace('&','&amp;')
+            unicode = xml_data
             f.write(unicode)
         xml = parse(new_file.name)
 
@@ -569,44 +540,81 @@ class IrAttachmentPaymentMx(models.Model):
             }
         _logger.info("write==============================: %s " % (vals))
         self.write(vals)
+        # self.action_printable()
         self.env.cr.commit()
-        self.action_printable()
         return True
 
+    def signal_printable(self):
+        """
+        If attachment workflow hangs we need to send a signal to continue
+        """
+        return self.action_printable()
+
     def action_printable(self):
+        # if context is None:
+        #     context = {}
         aids = ''
         msj = ''
         index_pdf = ''
         attachment_obj = self.env['ir.attachment']
-        payment = self.payment_id
+        payment = self.payment_id#.browse(cr, uid, ids)[0].payment_id
+        # payment_obj = self.env['account.payment']
+        # (fileno, fname) = tempfile.mkstemp(
+        #     '.pdf', 'odoo_' + str(payment.id or '') + '__facturae__'
+        # )
+        # os.close(fileno)
+        # payment_obj.create_report(
+        #     cr, uid, [payment.id],
+        #     'account.payment.payment.webkit', fname
+        # )
+        #report_name = "l10n_mx_payment_cfdi.report_payments"
         data = {
-             'model': 'account.payment',
+             'model': 'ir.attachment.payment.mx',
              'ids': self.payment_id.id,
              'form': {}
         }
-        fname_payment = payment.get_filename()+ '.pdf'
+
+        #pdf = self.env['report'].sudo().get_pdf([payment.id], report_name)
         report=self.env.ref('l10n_mx_payment_cfdi.report_payment')
-        result, format =report.with_context(self.env.context)._render_qweb_pdf(self.payment_id.id, data=data)
+        result, format =report.with_context(self.env.context).render_qweb_pdf(self.payment_id.id, data=data)
+        #raise UserError(  str(result)+" /// "+str( format ))
         result= str(base64.b64encode(result),encoding='utf-8')
 
         aids = attachment_obj.create({
-                    'name': fname_payment,
+                    'name': payment.get_filename() +'.pdf',
                     'res_model': 'account.payment',
                     'res_id':payment.id,
                     'type': 'binary',
                     'datas':result,
-                    'store_fname': fname_payment,
+                    'datas_fname': payment.get_filename()+ '.pdf',
                 })
+        # attachment_ids = attachment_obj.search([
+        #    ('res_model', '=', 'account.payment'),
+        #    ('res_id', '=', payment.id),
+        #    ('datas_fname', '=', payment.company_id.partner_id.vat_split + '_' + self.name + '.pdf')]
+        # )
+        # for attach in attachment_ids:
+        #    aids = attach.id
+        #    self.write(
+        #        {'name': self.name},
+        #    )
+        # if aids:
+        #   msj = _("Attached Successfully PDF\n")
+        # else:
+
+        #    raise UserError(
+        #        _('"Warning","Not Attached PDF\n"')
+        #    )
         if aids:
             msj = _("Attached Successfully PDF\n")
             self.write(
                 {'file_pdf': aids.id,
                  'state': 'printable',
                  'msj': msj,
-                 'last_date': time.strftime('%Y-%m-%d %H:%M:%S')
-                 #'file_pdf_index': index_pdf
-                 },
+                 'last_date': time.strftime('%Y-%m-%d %H:%M:%S'),
+                 'file_pdf_index': index_pdf},
             )
+        # TODO: Remove the need to commit database if not exception
         self.env.cr.commit()
         return True
 
@@ -768,71 +776,31 @@ class IrAttachmentPaymentMx(models.Model):
         )
         return email_ids and email_ids[0] or False
 
-    def action_update(self):
-        data=[]
-        #rate=1
-        context = dict(self._context or {}) 
-        context.update({'date':self.payment_id.date,'company_id':self.payment_id.company_id.id})
-        for line in self.payment_ids.filtered(lambda x:x.debit_move_id.move_id.move_type=='out_invoice'):
-            #si la factura es igual  ala moneda del pago  y  la moneda del pago es igual ala moneda de la compañia
-            if line.debit_move_id.currency_id.id==line.credit_move_id.currency_id.id and line.credit_move_id.currency_id.id!=line.company_currency_id.id: 
-                rate=self.payment_id.payment_rate if self.payment_id.payment_rate > 1 else \
-                line.credit_move_id.currency_id.with_context(context)._compute(line.credit_move_id.currency_id,self.payment_id.company_id.currency_id,1,round=False)
-                #raise UserError( "ok"+str(  round( rate ,4) ))
-                values=(0,0,{
-                    'sequence':line.sequence,
-                    'partial_id':line.id,
-                    'move_id':line.debit_move_id.id,
-                    'imppagado':line.debit_amount_currency,
-                    'impsaldoant':line.debit_move_id.amount_residual+line.debit_amount_currency,
-                    'impsaldoinsoluto':line.debit_move_id.amount_residual,
-                    'rate': round(rate,4)
-                })
-                data.append(values)
-            #si pago es = a la moneda la de la compañia y pago es diferente a la moneda de la factura
-            elif line.credit_move_id.currency_id.id==line.company_currency_id.id and line.credit_move_id.currency_id.id!=line.debit_move_id.currency_id.id:
-                rate=self.payment_id.payment_rate if self.payment_id.payment_rate > 1 else \
-                line.debit_move_id.currency_id.with_context(context)._compute(line.debit_move_id.currency_id,self.payment_id.company_id.currency_id,1,round=False)
-                diff=line.full_reconcile_id.reconciled_line_ids.filtered(lambda x:x.credit==0 and x.debit==0)
-                values=(0,0,{
-                    'sequence':line.sequence,
-                    'partial_id':line.id,
-                    'move_id':line.debit_move_id.id,
-                    'imppagado':line.debit_amount_currency,#/round(1/round(rate,4),6),
-                    'impsaldoant':line.amount_residual_cfdi+line.debit_amount_currency,
-                    'impsaldoinsoluto':line.amount_residual_cfdi,
-                    'rate':round(1/round(rate,4),6),
-                    'amount_profit_loss':diff[0].amount_currency if diff else 0
-                })
-                data.append(values)
-            else:
-                values=(0,0,{
-                    'sequence':line.sequence,
-                    'partial_id':line.id,
-                    'move_id':line.debit_move_id.id,
-                    'imppagado':line.amount,
-                    'impsaldoant':line.amount_residual_cfdi+line.amount,
-                    'impsaldoinsoluto':line.amount_residual_cfdi,
-                    'rate':1
-                })
-                data.append(values)
+    # def _get_invoice_report(self):
+    #     """
+    #     Helper function to create the PDF report file for payments
+    #     """
+    #     report_name = "account.payment.payment.webkit"
+    #     report_service = 'report.' + report_name
+    #     service = netsvc.LocalService(report_service)
+    #     (result, format) = service.create(
+    #         SUPERUSER_ID, [id],
+    #         {'model': 'account.payment'}
+    #     )
+    #     result = base64.b64encode(result)
+    #     return result
 
-        self.lines_payment_cfdi.unlink()
-        self.lines_payment_cfdi=data
-        #raise UserError( str( data ))
-        return True
-        
-class LinesPaymentCfdi(models.Model):
-    _name = 'lines.payment.cfdi'
 
-    attachment_payment_id=fields.Many2one('ir.attachment.payment.mx',string="Pagos id")
-    sequence=fields.Integer(string="No. Parcialidad")
-    partial_id=fields.Many2one("account.partial.reconcile",string="Partial")
-    move_id=fields.Many2one("account.move.line",string="Factura")
-    credit_currency_id=fields.Many2one(related="partial_id.credit_currency_id",string="Moneda Pago")
-    debit_currency_id=fields.Many2one(related="partial_id.debit_currency_id",string="Moneda Factura")
-    imppagado=fields.Float(string="Imp. Pago")
-    impsaldoant=fields.Float(string="Imp. Saldo Anterior")
-    impsaldoinsoluto=fields.Float(string="Saldo Pendiente")
-    rate=fields.Float(string="Tipo de Cambio",digits=(12, 6))
-    amount_profit_loss=fields.Float(string="Perdida o Ganancia")
+# class IrAttachment(models.Model):
+#     _inherit = 'ir.attachment'
+
+#     def unlink(self):
+#         for line in self:
+#             attachments = self.env['ir.attachment.payment.mx'].search(
+#                 ['|', '|', ('file_input', 'in', self.ids),
+#                  ('file_xml_sign', 'in', self.ids), ('file_pdf', 'in', self.ids)
+#                  ]
+#             )
+#             if attachments and line.res_model=='ir.attachment.payment.mx':
+#                 raise UserError(_("'Warning!'\n'You can not remove an attachment of an payment'"))
+#         return super(IrAttachment, self).unlink()

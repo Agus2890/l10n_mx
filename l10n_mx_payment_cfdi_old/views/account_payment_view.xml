@@ -29,7 +29,7 @@
                     </h4>
                 </xpath>
                 <xpath expr="//field[@name='journal_id']" position="after">
-                    <field name="payment_datetime" attrs="{'readonly':[('cfdi_folio_fiscal','!=',False)]}" string="Fecha Deposito"/>
+                    <field name="payment_datetime" attrs="{'readonly':[('cfdi_folio_fiscal','!=',False)]}"/>
                     <field name="payment_type_id" attrs="{'readonly':[('cfdi_folio_fiscal','!=',False)]}"/>
                     <field name="payment_rate" attrs="{'readonly':[('cfdi_folio_fiscal','!=',False)]}"/>
                 </xpath>

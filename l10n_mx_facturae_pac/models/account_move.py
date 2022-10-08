@@ -13,8 +13,8 @@ from odoo.exceptions import UserError, ValidationError
 class AccountMove(models.Model):
     _inherit = 'account.move'
 
-    def _get_facturae_invoice_dict_data(self):
-        datas = super(AccountMove, self)._get_facturae_invoice_dict_data()
+    def _get_facturae_invoice_dict_data_old(self):
+        datas = super(AccountMove, self)._get_facturae_invoice_dict_data_old()
         type_inv = self.journal_id.type_cfdi or 'cfd22'
         for data in datas:
             comprobante = data['Comprobante']

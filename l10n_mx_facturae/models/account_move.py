@@ -95,7 +95,6 @@ def conv_ascii(text):
 class ResPartner(models.Model):
     _inherit = 'res.partner'
     company_name_cfdi=fields.Char(string="Razon Social CFDI")
-
 class AccountMove(models.Model):
     _inherit = 'account.move'
 
@@ -137,7 +136,7 @@ class AccountMove(models.Model):
                 ('res_model', '=', 'account.move'),
                 ('res_id', '=', self.id),
             ], limit=1)
-        base_url = self.env['ir.config_parameter'].get_param('web.base.url')
+        base_url = self.env['ir.config_parameter'].sudo().get_param('web.base.url')
         download_url = '/web/content/' + str(attachment_xml_id.id) + '?download=true'
         return {
             "type": "ir.actions.act_url",
@@ -725,8 +724,8 @@ class AccountMove(models.Model):
                 key_item_sort.append([ko, data_dict[ko]])
                 # keys.pop(keys.index(ko))
         _logger.info("===================================================: %s " % (keys)) 
-        if list(keys)==['xmlns:xsi', 'Version', 'xmlns:cfdi', 'Folio', 'Fecha', 'TipoDeComprobante', 'MetodoPago', 'NoCertificado', 'Sello', 'Certificado', 'SubTotal', 'Total', 'Exportacion', 'Serie', 'cfdi:Impuestos', 'TipoCambio', 'Moneda', 'FormaPago', 'LugarExpedicion', 'cfdi:Emisor', 'cfdi:Receptor', 'cfdi:Conceptos']:
-            keys=['xmlns:xsi', 'Version', 'xmlns:cfdi','cfdi:Emisor', 'cfdi:Receptor','Folio', 'Fecha', 'TipoDeComprobante', 'MetodoPago', 'NoCertificado', 'Sello', 'Certificado', 'SubTotal', 'Total', 'Exportacion', 'Serie','cfdi:Conceptos', 'cfdi:Impuestos', 'TipoCambio', 'Moneda', 'FormaPago', 'LugarExpedicion']
+        #if list(keys)==['xmlns:xsi', 'Version', 'xmlns:cfdi', 'Folio', 'Fecha', 'TipoDeComprobante', 'MetodoPago', 'NoCertificado', 'Sello', 'Certificado', 'SubTotal', 'Total', 'Exportacion', 'Serie', 'cfdi:Impuestos', 'TipoCambio', 'Moneda', 'FormaPago', 'LugarExpedicion', 'cfdi:Emisor', 'cfdi:Receptor', 'cfdi:Conceptos']:
+        #    keys=['xmlns:xsi', 'Version', 'xmlns:cfdi','cfdi:Emisor', 'cfdi:Receptor','Folio', 'Fecha', 'TipoDeComprobante', 'MetodoPago', 'NoCertificado', 'Sello', 'Certificado', 'SubTotal', 'Total', 'Exportacion', 'Serie','cfdi:Conceptos', 'cfdi:Impuestos', 'TipoCambio', 'Moneda', 'FormaPago', 'LugarExpedicion']
         for key_too in keys:       
             key_item_sort.append([key_too, data_dict[key_too]])            
         return key_item_sort
@@ -869,17 +868,17 @@ class AccountMove(models.Model):
 
     def _get_facturae_invoice_xml_data(self):
         context = dict(self._context or {})  
-        type_inv = self.journal_id.type_cfdi or 'cfd22'
-        if 'cfdi32' in type_inv:# or 'cfdi33_facturehoy' in type_inv:
-            comprobante = 'cfdi:Comprobante'
-            emisor = 'cfdi:Emisor'
-            receptor = 'cfdi:Receptor'
-            concepto = 'cfdi:Conceptos'
-        else:   
-            comprobante = 'cfdi:Comprobante'
-            emisor = 'cfdi:Emisor'
-            receptor = 'cfdi:Receptor'
-            concepto = 'cfdi:Conceptos'
+        type_inv = self.journal_id.type_cfdi# or 'cfdi_pac_xpd'
+        # if 'cfdi_pac_xpd' in type_inv:# or 'cfdi33_facturehoy' in type_inv:
+        #     comprobante = 'cfdi:Comprobante'
+        #     emisor = 'cfdi:Emisor'
+        #     receptor = 'cfdi:Receptor'
+        #     concepto = 'cfdi:Conceptos'
+        # else:   
+        comprobante = 'cfdi:Comprobante'
+        emisor = 'cfdi:Emisor'
+        receptor = 'cfdi:Receptor'
+        concepto = 'cfdi:Conceptos'
 
         data_dict = self._get_facturae_invoice_dict_data()[0]
         doc_xml = self.dict2xml(
@@ -1156,16 +1155,16 @@ class AccountMove(models.Model):
                     _('Only can issue electronic invoice to customers.!')
                 )
             # Inicia seccion: Comprobante
-            invoice_data_parent['Comprobante'] = {}
+            invoice_data_parent['cfdi:Comprobante'] = {}
             # default data
-            invoice_data_parent['Comprobante'].update({
+            invoice_data_parent['cfdi:Comprobante'].update({
                 'xmlns:xsi': "http://www.w3.org/2001/XMLSchema-instance",
                 'xsi:schemaLocation': "http://www.sat.gob.mx/cfd/4 http://www.sat.gob.mx/sitio_internet/cfd/4/cfdv40.xsd",
                 'Version': "4.0",
                 'xmlns:cfdi':"http://www.sat.gob.mx/cfd/4",
             })
             number_work =invoice.name.replace(invoice.journal_id.code,'').replace('/','') #invoice.number or invoice.internal_number
-            invoice_data_parent['Comprobante'].update({
+            invoice_data_parent['cfdi:Comprobante'].update({
                 'Folio': number_work,
                 # 'Fecha': date_tz,
                 'Fecha': date_tz.strftime("%Y-%m-%dT%H:%M:%S"),#
@@ -1188,7 +1187,7 @@ class AccountMove(models.Model):
             # no es necesario estarlo cargando a cada rato
             serie = invoice.journal_id.code or False#journal_id.sequence_id.prefix or False
             if serie:
-                invoice_data_parent['Comprobante'].update({
+                invoice_data_parent['cfdi:Comprobante'].update({
                     'Serie': serie,
                 })
             # Termina seccion: Comprobante
@@ -1216,7 +1215,7 @@ class AccountMove(models.Model):
                     _("Don't have defined RFC for the address of invoice to the company!")
                 )
 
-            invoice_data = invoice_data_parent['Comprobante']
+            invoice_data = invoice_data_parent['cfdi:Comprobante']
             if notacredito:
                 if not invoice.relation_ids:
                     raise UserError(
@@ -1245,8 +1244,8 @@ class AccountMove(models.Model):
                 # invoice_data['cfdi:CfdiRelacionados']=[{'TipoRelacion':'04'},
                 # {'cfdi:CfdiRelacionado':{'UUID':invoice.relation_id.cfdi_folio_fiscal}}]                    
 
-            invoice_data['Emisor'] = {}
-            invoice_data['Emisor'].update({
+            invoice_data['cfdi:Emisor'] = {}
+            invoice_data['cfdi:Emisor'].update({
 
                 'Rfc': address_invoice_parent.vat or '',
                 'Nombre': address_invoice_parent.name or '',
@@ -1272,16 +1271,17 @@ class AccountMove(models.Model):
             address_invoice = partner_obj.browse(invoice.partner_id.id)
             if not parent_obj.company_name_cfdi:
                 raise UserError(str("Indique la Razon social del Receptor"))
-            invoice_data['Receptor'] = {}
-            invoice_data['Receptor'].update({
+            invoice_data['cfdi:Receptor'] = {}
+            invoice_data['cfdi:Receptor'].update({
                 'Rfc': rfc,
                 'Nombre': (parent_obj.company_name_cfdi.strip() or ''),
                 'UsoCFDI':invoice.usocfdi_id.code,
-                
+                'DomicilioFiscalReceptor':parent_obj.zip,
+                'RegimenFiscalReceptor':parent_obj.property_account_position_id.clave
             })
             # Inicia seccion: Conceptos
             taxes_inv=[]
-            invoice_data['Conceptos'] = []
+            invoice_data['cfdi:Conceptos'] = []
             for line in invoice.invoice_line_ids:
                 price_unit = line.quantity != 0 and round(line.price_subtotal / line.quantity,2) or 0.0
                 if not line.code_product_sat:
@@ -1296,7 +1296,7 @@ class AccountMove(models.Model):
                     )
                 concepto = {
                     'ClaveProdServ':line.code_product_sat.code_sat,
-                    'ClaveUnidad':line.product_id.product_unit_sat_alternative.code_sat if line.user_uom_alternative==True else line.product_unit_sat.code_sat,
+                    'ClaveUnidad':line.product_unit_sat.code_sat,
                     'Cantidad': "%.2f" % (line.quantity or 0.0),
                     'Descripcion': line.name or '',
                     'ValorUnitario': "%.2f" % (price_unit or 0.0),
@@ -1306,11 +1306,11 @@ class AccountMove(models.Model):
                     # round(line.price_unit *(1-(line.discount/100)),2) or 0.00),
                     # TODO: Falta agregar discount
                 }
-                # unidad = line.uom_id and line.uom_id.name or _('Unit(s)')
-                if line.user_uom_alternative==True:
-                    unidad = line.product_id.uom_alternative_id and line.product_id.uom_alternative_id.name or _('Unit(s)')
-                else:
-                    unidad = line.product_id.uom_id and line.product_id.uom_id.name or _('Unit(s)')
+                unidad = line.product_uom_id and line.product_uom_id.name or _('Unidad')
+                # if line.user_uom_alternative==True:
+                #     unidad = line.product_id.uom_alternative_id and line.product_id.uom_alternative_id.name or _('Unit(s)')
+                # else:
+                #     unidad = line.product_id.uom_id and line.product_id.uom_id.name or _('Unit(s)')
                 #unidad = line.product_id.uom_id and line.product_id.uom_id.name or _('Unit(s)')
                 if unidad:
                     concepto.update({'Unidad': unidad})
@@ -1372,7 +1372,7 @@ class AccountMove(models.Model):
 
                 if impuestos_line:
                     concepto.update({'cfdi:Impuestos': impuestos_line})
-                invoice_data['Conceptos'].append({'Concepto': concepto})
+                invoice_data['cfdi:Conceptos'].append({'cfdi:Concepto': concepto})
                 pedimento = None
                 try:
                     pedimento = line.tracking_id.import_id
@@ -1490,12 +1490,12 @@ class AccountMove(models.Model):
                   'voucher is a data required')
             )
 
-        invoice_data_parents[0]['Comprobante'][
-            'xsi:schemaLocation'] = 'http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv33.xsd'
-        invoice_data_parents[0]['Comprobante']['Version'] = '4.0'
-        invoice_data_parents[0]['Comprobante'][
+        #invoice_data_parents[0]['cfdi:Comprobante'][
+        #    'xsi:schemaLocation'] = 'http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv33.xsd'
+        #invoice_data_parents[0]['cfdi:Comprobante']['Version'] = '4.0'
+        invoice_data_parents[0]['cfdi:Comprobante'][
             'TipoCambio'] = round(self.get_rate(),4) if self.get_rate()>1 else 1
-        invoice_data_parents[0]['Comprobante'][
+        invoice_data_parents[0]['cfdi:Comprobante'][
             'Moneda'] = invoice.currency_id.name or ''
         #invoice_data_parents[0]['Comprobante'][
         #    'NumCtaPago'] = invoice.partner_bank_id.last_acc_number\
@@ -1504,11 +1504,11 @@ class AccountMove(models.Model):
             p_type = invoice.payment_type_id.code or 'No identificado'
         except:
             p_type = 'No identificado'
-        invoice_data_parents[0]['Comprobante']['FormaPago'] = p_type
+        invoice_data_parents[0]['cfdi:Comprobante']['FormaPago'] = p_type
         # invoice_data_parents[0]['Comprobante']['Emisor']['RegimenFiscal'] = {
         #     'Regimen': invoice.company_id.partner_id.\
         #         regimen_fiscal_id.name or ''}
-        invoice_data_parents[0]['Comprobante']['LugarExpedicion'] = address
+        invoice_data_parents[0]['cfdi:Comprobante']['LugarExpedicion'] = address
         return invoice_data_parents
 
     def _get_time_zone(self):

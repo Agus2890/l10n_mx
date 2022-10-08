@@ -165,9 +165,9 @@ class IrAttachmentFacturaeMx(models.Model):
             # raise UserError( str(  cfd_data ))
             # raise UserError("timbrado===="+str(cfd_data ))
             xml_res_str = xml.dom.minidom.parseString(cfd_data)
-            xml_res_addenda = invoice_obj.add_addenta_xml(xml_res_str, comprobante)
-            xml_res_str_addenda = xml_res_addenda.toxml('UTF-8')
-            compr = xml_res_addenda.getElementsByTagName(comprobante)[0]
+            #xml_res_addenda = invoice_obj.add_addenta_xml(xml_res_str, comprobante)
+            xml_res_str_addenda = xml_res_str.toxml('UTF-8')
+            compr = xml_res_str.getElementsByTagName(comprobante)[0]
             date = compr.getAttribute('Fecha')
             date_format = datetime.strptime(
                 date, '%Y-%m-%dT%H:%M:%S').strftime('%Y-%m-%d')

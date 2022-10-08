@@ -39,7 +39,7 @@ class PaymentType(models.Model):
             help='Ensure all lines in the payment order have a bank acount '
             'when proposing lines to be added in the payment order.'
         )
-    company_id =fields.Many2one('res.company', 'Company', required=True)
+    company_id =fields.Many2one('res.company', 'Company')
     #lambda self, c: self.env['res.users'].browse(c).company_id.id
 
 
